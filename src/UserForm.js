@@ -9,7 +9,7 @@ class UserForm extends Component {
 
     render() {
         return (
-            <form className="UserForm" onSubmit={this.onSubmit.bind(this)} >
+            <form className="UserForm" autoComplete="off" onSubmit={this.onSubmit.bind(this)} >
                 <input 
                     type="text"
                     ref="userName"
@@ -18,7 +18,7 @@ class UserForm extends Component {
                 {/* <br /> */}
                 <input 
                     type="number"
-                    step="100"
+                    step="none"
                     ref="userSalary"
                     placeholder="Salary"
                 />
