@@ -62,7 +62,7 @@ class Vis extends Component {
                         .attr("y", 6)
                         .attr("dy", "0.71em")
                         .attr("text-anchor", "end")
-                        .text("Salary (£)");
+                        .text("Average Sold Price");
                     
                     context.append("path")
                         .datum(ukHousePriceInfo)

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Welcome from './Welcome';
 import Paycheque from './Paycheque';
+import IncomeVis from'./IncomeVis';
 import ControlCenter from './ControlCenter';
 import Basket from './Basket';
 import LocalArea from './LocalArea';
