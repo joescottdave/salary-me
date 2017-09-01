@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Header';
 import Infograph from './Infograph';
 import UserForm from './UserForm';
+import Container from './Container';
 
 class App extends Component {
   constructor(){
@@ -11,6 +12,8 @@ class App extends Component {
       userName: '',
       userSalary: '',
       userPostcode: '',
+      area_name: '',
+      area_code: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReset = this.handleReset.bind(this);
@@ -25,6 +28,9 @@ class App extends Component {
       userName: '',
       userSalary: '',
       userPostcode: '',
+      userTax: '',
+      userNi: '',
+
     } )
   }
 
@@ -32,11 +38,13 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        {this.state.userName === '' | this.state.userSalary === '' ? 
-        <UserForm onSubmit={this.handleSubmit}/>
-        :
-        <Infograph userInfo={this.state} handleReset={this.handleReset}/>
-        }
+        <Container>
+          {this.state.userName === '' | this.state.userSalary === '' ? 
+          <UserForm onSubmit={this.handleSubmit}/>
+          :
+          <Infograph userInfo={this.state} handleReset={this.handleReset}/>
+          }
+        </Container>
       </div>
     );
   }

@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import './Thing.css';
-import CPI from './CPI';
+import Basket from './Basket';
 
 class Thing extends Component {
     constructor() {
         super();
         this.state = {
             county: '',
-            takeHomePay: 0 
+            takeHomePay: 0,
+            contribution: 0,
+            tax: 0
         };
     }
 
-    componentDidMount(){
+    componentWillMount(){
         this._takeHomePay();
         this._fetchLocalArea();        
     }
@@ -23,39 +25,35 @@ class Thing extends Component {
                 return response.json();
             })
             .then(function(data){
-                console.log(data);
                 main.setState({county: data.result.admin_district})
             })
     }
 
-    _fetchLocalInfoGraph() {
-        const main = this;
-        fetch("https://api.zoopla.co.uk/api/v1/zed_index?area=NW10&output_type=outcode&api_key=vayfanxrjnwwuvcnkra3c7gq")
-        .then(function(response){
-            console.log(response);
-        })
-    }
-
     _takeHomePay() {
+        var tc = require('./taxCalc');
         let salary = this.props.userInfo.userSalary;
-        var liability = salary > (52*157) ? ((salary - (52*157))*0.12).toFixed(2) : 0;
-        console.log('liability ' + liability.toString())
-        if (salary < 100000 && salary < 45001) {
-            this.setState({ takeHomePay: (((((salary-11500)*0.8) + 11500)-liability)/12).toFixed(2) })
-        }else{
-            throw error;
-        };
+        let monthly = (tc.afterTax(salary)/12).toFixed(2);
+        let tax = tc.incomeTax(salary)
+        let contribution = tc.natIns(salary)
+        this.setState({ takeHomePay: monthly, tax: tax, contribution: contribution });
     }
 
     render() {
         return (
             <div className="Thing">
-                Hello {this.props.userInfo.userName}!
-                <br/>
-                Your monthly take home pay is £{this.state.takeHomePay}
-                <br/>
-                And you live in {this.state.county}
-                <CPI takeHomePay={this.state.takeHomePay}/>
+                <ul>
+                    <li>Hello {this.props.userInfo.userName}!</li>
+
+                    <li>Let's learn some things about you</li>
+                    
+                    <li>Your monthly take home pay is £{this.state.takeHomePay}</li>
+                    
+                    <li>Your annual income tax bill is £{this.state.tax}</li>
+                    
+                    <li>Your National Insurance contributions total £{this.state.contribution.toFixed(2)}</li>
+                    
+                    <li>You live in {this.state.county}</li>
+                </ul>
             </div>
         )
     }

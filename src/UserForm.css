@@ -1,21 +1,11 @@
-.UserForm{
-    margin: 20px;
-    padding: 20px;
-    border: black solid 0.5px;
-}
-
-.UserForm input{
-    margin: 5px;
+.UserForm input, 
+.UserForm button {
+    padding: 1px;
+    margin: 0.1rem;
+    height: 22px;
     font-size: 16px;
     font-family: inherit;
+    box-sizing: border-box;
     border: 0.5px black solid;
     background: rgba(255,255,255,0.2);
-    padding: 2px;
-}
-
-.UserForm button {
-        border: 0.5px black solid;
-        padding: 5px;
-        background: rgba(255,255,255,0.3);
-        font-size: 16px;
 }
