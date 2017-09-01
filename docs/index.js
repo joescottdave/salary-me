@@ -40936,7 +40936,7 @@ var Vis = function (_Component) {
                     return +d.Average_Price;
                 }));
 
-                context.append("g").attr("class", "bottom-axis").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x)).select(".domain").remove();
+                context.append("g").attr("class", "bottom-axis").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x));
 
                 context.append("g").attr("class", "left-axis").call(d3.axisLeft(y)).append("text").attr("fill", "#000").attr("transform", "rotate(-90)").attr("y", 6).attr("dy", "0.71em").attr("text-anchor", "end").text("Average Sold Price");
 

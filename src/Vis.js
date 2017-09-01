@@ -50,9 +50,7 @@ class Vis extends Component {
             
                     context.append("g").attr("class", "bottom-axis")
                         .attr("transform", "translate(0," + height +")")
-                        .call(d3.axisBottom(x))
-                    .select(".domain")
-                        .remove();
+                        .call(d3.axisBottom(x));
                     
                     context.append("g").attr("class", "left-axis")
                         .call(d3.axisLeft(y))
