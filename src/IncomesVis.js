@@ -4,7 +4,8 @@ import * as d3 from 'd3';
 class IncomesVis extends React.Component {
     constructor(props) {
         super(props)
-        this.setState = {monthly: props.monthly}
+        this.setState = {monthly: props.monthly,
+        width: props.width}
     }
 
     componentDidMount(){
@@ -15,8 +16,8 @@ class IncomesVis extends React.Component {
     setContext() {
            d3.select(this.refs.incomesVis).append('svg')
            .attr('class', 'incomes-vis')
-           .attr('height', '300px')
-           .attr('width', '480px')
+           .attr('height', 480*(3/4) )
+           .attr('width', 480 )
            .append('g')
            .attr('class','incomes-vis-g');
     }
@@ -31,7 +32,6 @@ class IncomesVis extends React.Component {
             var percent = 0;
             for(i=data.length-1; i>0; i--){
                 if(data[i]['2014-15']<afterTaxSalary){
-                console.log(data[i],data[i+1])
                 percent = data[i]['Percentile']
                 break
                 }
@@ -39,7 +39,7 @@ class IncomesVis extends React.Component {
 
             var margin = {top: 20, left: 70, right: 20, bottom: 30 },
                 width = 480 - margin.left - margin.right,
-                height = 300 - margin.top - margin.bottom;
+                height = 480*(3/4) - margin.top - margin.bottom;
 
             context.attr("transform", "translate(" + margin.left + "," + margin.top +")")
 

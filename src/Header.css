@@ -12,6 +12,5 @@ header{
 header h1{
     font-weight: 800;
     text-align: left;
-    color: white;
-    font-family: 'Noto Sans', sans-serif;
+    color: rgba(30,20,10,0.9);
 }

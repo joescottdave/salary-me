@@ -1,6 +1,11 @@
 * {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: rgba(30,10,20,1);
+}
+
+h1, h2, input {
+  font-family: 'PT Serif', serif;
+  letter-spacing: 0.5px;
 }
 
 body {

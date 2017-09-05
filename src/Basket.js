@@ -29,8 +29,8 @@ class Basket extends Component {
 
         return (
             <div className="Basket">
-                <h3>Basket of Goods</h3>
-                <h4>How much you have to spend... (CPIH Weighting)</h4>
+                <h2>Basket of Goods</h2>
+                <h3>How much you have to spend... (CPIH Weighting)</h3>
                 <ol>
                     <li>Food: £{((payCheque/100) * cpih_weight.food).toFixed(2)}</li>
                     <li>Alcohol: £{((payCheque/100) * cpih_weight.alcohol).toFixed(2)}</li>

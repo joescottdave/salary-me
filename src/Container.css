@@ -4,6 +4,6 @@
     padding-top: 9.5rem;
     align-content: center;
 
-    width: 60%;
+    max-width: 900px;
     min-width: 480px;
 }

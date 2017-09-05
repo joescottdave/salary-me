@@ -7,6 +7,11 @@ class UserForm extends Component {
         this.props.onSubmit(this.refs.userName.value, this.refs.userSalary.value, this.refs.userPostcode.value)
     }
 
+    _skip(event) {
+        event.preventDefault();
+        this.props.onSubmit('Alex', 15600, 'CF243AA');
+    }
+
     render() {
         return (
             <form className="UserForm" autoComplete="off" onSubmit={this.onSubmit.bind(this)} >
@@ -30,6 +35,7 @@ class UserForm extends Component {
                 />
                 <br />
                 <button type="submit">Submit</button>
+                <button onClick={this._skip.bind(this)}>Skip</button>
             </form>
         )
     }

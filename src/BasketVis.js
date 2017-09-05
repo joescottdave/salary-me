@@ -1,12 +1,8 @@
 import React from 'react';
 import * as d3 from 'd3';
+import './BasketVis.css';
 
 class BasketVis extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { monthly: props.monthly }
-    }
-
     componentDidMount() {
         const context = this.setContext();
         this.drawBasket();
@@ -15,7 +11,7 @@ class BasketVis extends React.Component {
     setContext() {
         d3.select(this.refs.basketVis).append('svg')
             .attr('class', 'basket-vis')
-            .attr('height', '300px')
+            .attr('height', '360px')
             .attr('width', '480px')
             .append('g')
             .attr('class','basket-vis-g');
@@ -24,7 +20,7 @@ class BasketVis extends React.Component {
     drawBasket(context) {
         const main = this;
         var width = 480,
-        height = 300;
+        height = 360;
 
         var fader = function(color) { return d3.interpolateRgb(color, "#fff")(0.2); },
             color = d3.scaleOrdinal(d3.schemeCategory20.map(fader)),
@@ -66,14 +62,14 @@ class BasketVis extends React.Component {
             cell.append("text")
                 .attr("clip-path", function(d) { return "url(#clip-" + d.data.id + ")"; })
                 .selectAll("tspan")
-                .data(function(d) { return d.data.name.split(/(?=[A-Z][^A-Z])/g); })
+                .data(function(d) { return d.data.name.substr(d.data.name.indexOf(' ')+1).split(/(?=[A-Z][^A-Z])/g); })
                 .enter().append("tspan")
                 .attr("x", 4)
                 .attr("y", function(d, i) { return 13 + i * 10; })
                 .text(function(d) { return d; });
 
             cell.append("title")
-                .text(function(d) { return d.data.id + "\n" + format(d.value); });
+                .text(function(d) { return d.data.name.substr(d.data.name.indexOf(' ')+1); });
 
             })
     }

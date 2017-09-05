@@ -5,6 +5,7 @@ import ControlCenter from './ControlCenter';
 import Basket from './Basket';
 import LocalArea from './LocalArea';
 import Incomes from './Incomes';
+import './Infograph.css';
 
 
 class Infograph extends Component {
