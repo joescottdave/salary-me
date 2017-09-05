@@ -1,10 +1,11 @@
 * {
   font-family: 'Noto Sans', sans-serif;
+  color: rgba(30,10,20,1);
 }
 
 body {
-    /* background: linear-gradient(to bottom right, #7CCBFF, #81fcad) no-repeat; */
-    background: linear-gradient(to bottom right, #7086f1, #81fcad) no-repeat;
+    /* background: linear-gradient(to bottom right, #7086f1, #81fcad) no-repeat; */
+    background: snow;
     width: 100%;
     margin: 0;
     padding: 0;

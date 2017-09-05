@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Welcome from './Welcome';
 import Paycheque from './Paycheque';
-import IncomeVis from'./IncomeVis';
 import ControlCenter from './ControlCenter';
 import Basket from './Basket';
 import LocalArea from './LocalArea';
+import Incomes from './Incomes';
 
 
 class Infograph extends Component {
@@ -43,6 +43,7 @@ class Infograph extends Component {
                 tax={this.state.tax}
                 contribution = {this.state.contribution}
                 />
+                <Incomes monthly={this.state.takeHomePay}/>
                 <Basket takeHomePay = {this.state.takeHomePay} />
                 <LocalArea postcode={this.props.userInfo.userPostcode} />
                 <ControlCenter handleReset={this.handleReset}/>
