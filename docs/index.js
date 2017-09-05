@@ -41365,17 +41365,20 @@ var UserForm = function (_Component) {
                     ref: 'userName',
                     placeholder: 'Name'
                 }),
+                _react2.default.createElement('br', null),
                 _react2.default.createElement('input', {
                     type: 'number',
                     step: 'none',
                     ref: 'userSalary',
-                    placeholder: 'Salary'
+                    placeholder: 'Annual Income'
                 }),
+                _react2.default.createElement('br', null),
                 _react2.default.createElement('input', {
                     type: 'text',
                     ref: 'userPostcode',
                     placeholder: 'UK Postcode'
                 }),
+                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'button',
                     { type: 'submit' },
@@ -41430,7 +41433,7 @@ exports = module.exports = __webpack_require__(15)(undefined);
 
 
 // module
-exports.push([module.i, ".UserForm input, \r\n.UserForm button {\r\n    padding: 1px;\r\n    margin: 0.1rem;\r\n    height: 22px;\r\n    font-size: 16px;\r\n    font-family: inherit;\r\n    box-sizing: border-box;\r\n    border: 0.5px black solid;\r\n    background: rgba(255,255,255,0.2);\r\n}", ""]);
+exports.push([module.i, ".UserForm input, \r\n.UserForm button {\r\n    padding: 3px;\r\n    margin: 0.5rem;\r\n    font-size: 20px;\r\n    font-family: inherit;\r\n    box-sizing: border-box;\r\n    border: 0.5px silver solid;\r\n    background: rgba(255,255,255,0.2);\r\n}\r\n\r\n.UserForm input:focus {\r\n    border: 0.5px slategray solid;\r\n}", ""]);
 
 // exports
 

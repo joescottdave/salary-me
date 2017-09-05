@@ -15,20 +15,20 @@ class UserForm extends Component {
                     ref="userName"
                     placeholder="Name"
                 />
-                {/* <br /> */}
+                <br />
                 <input 
                     type="number"
                     step="none"
                     ref="userSalary"
-                    placeholder="Salary"
+                    placeholder="Annual Income"
                 />
-                {/* <br /> */}
+                <br />
                 <input 
                     type="text"
                     ref="userPostcode"
                     placeholder="UK Postcode"
                 />
-                {/* <br /> */}
+                <br />
                 <button type="submit">Submit</button>
             </form>
         )
