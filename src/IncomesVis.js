@@ -4,7 +4,7 @@ import * as d3 from 'd3';
 class IncomesVis extends React.Component {
     constructor(props) {
         super(props)
-        this.setState = {monthly: props.monthly,
+        this.setState = {salary: props.salary,
         width: props.width}
     }
 
@@ -24,14 +24,14 @@ class IncomesVis extends React.Component {
 
     drawIncomeGraph() {
         const main = this;
-        const afterTaxSalary = main.props.monthly*12
+        const salary = main.props.salary;
         const context = d3.select('.incomes-vis-g');
 
-        d3.json('./data/aftertaxincomepercentiles15-16.json', function(data) {
+        d3.json('./data/beforetaxincomepercentiles.json', function(data) {
             var i;
             var percent = 0;
             for(i=data.length-1; i>0; i--){
-                if(data[i]['2014-15']<afterTaxSalary){
+                if(data[i]['2014-15']<salary){
                 percent = data[i]['Percentile']
                 break
                 }
@@ -93,7 +93,7 @@ class IncomesVis extends React.Component {
 
             context.append('g')
                 .selectAll('.you')
-                .data([afterTaxSalary])
+                .data([salary])
                 .enter().append('circle')
                 .attr('class', 'you')
                 .attr('cx', function(){ return x(percent); })

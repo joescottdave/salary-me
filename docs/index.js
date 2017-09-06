@@ -40061,9 +40061,13 @@ var Header = function Header() {
         'header',
         null,
         _react2.default.createElement(
-            'h1',
-            null,
-            'Salary.me'
+            'a',
+            { href: '.' },
+            _react2.default.createElement(
+                'h1',
+                null,
+                'Salary.me'
+            )
         )
     );
 };
@@ -40110,7 +40114,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "header{\r\n    position: fixed;\r\n    top: 0;\r\n    margin: 0;\r\n    padding: 20px;\r\n    background: inherit;\r\n    font-size: 12px;\r\n    width: 100%;\r\n    z-index: 15;\r\n}\r\n\r\nheader h1{\r\n    font-weight: 800;\r\n    text-align: left;\r\n    color: rgba(30,20,10,0.9);\r\n}", ""]);
+exports.push([module.i, "header{\r\n    position: fixed;\r\n    top: 0;\r\n    margin: 0;\r\n    padding: 10px;\r\n    background: snow;\r\n    font-size: 12px;\r\n    width: 100%;\r\n    z-index: 15;\r\n}\r\n\r\nheader a {\r\n    text-decoration: none;\r\n}\r\n\r\nheader h1{\r\n    font-weight: 800;\r\n    text-align: left;\r\n    text-decoration: none;\r\n    color: rgba(30,20,10,0.9);\r\n}", ""]);
 
 // exports
 
@@ -41658,7 +41662,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, ".Container {\r\n    position: relative;\r\n    margin: 0 auto;\r\n    padding-top: 9.5rem;\r\n    align-content: center;\r\n\r\n    max-width: 900px;\r\n    min-width: 480px;\r\n}", ""]);
+exports.push([module.i, ".Container {\r\n    position: relative;\r\n    margin: 0 auto;\r\n    padding-top: 9.5rem;\r\n    align-content: center;\r\n\r\n    max-width: 900px;\r\n    min-width: 375px;\r\n}", ""]);
 
 // exports
 

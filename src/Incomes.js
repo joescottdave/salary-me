@@ -6,7 +6,7 @@ class Incomes extends React.Component {
 
     render() {
         return (
-            <div className="Incomes" ref="canvas"><IncomesVis monthly={this.props.monthly} /></div>
+            <div className="Incomes" ref="canvas"><IncomesVis salary={this.props.salary} /></div>
         )
     }
 }

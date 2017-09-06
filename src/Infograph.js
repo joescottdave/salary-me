@@ -12,6 +12,7 @@ class Infograph extends Component {
     constructor(props){
         super(props);
         this.state = {
+            salary: props.userInfo.userSalary,
             takeHomePay: 0,
             tax: 0,
             contribution: 0
@@ -44,7 +45,7 @@ class Infograph extends Component {
                 tax={this.state.tax}
                 contribution = {this.state.contribution}
                 />
-                <Incomes monthly={this.state.takeHomePay}/>
+                <Incomes salary={this.state.salary}/>
                 <Basket takeHomePay = {this.state.takeHomePay} />
                 <LocalArea postcode={this.props.userInfo.userPostcode} />
                 <ControlCenter handleReset={this.handleReset}/>

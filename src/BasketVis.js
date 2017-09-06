@@ -22,8 +22,8 @@ class BasketVis extends React.Component {
         var width = 480,
         height = 360;
 
-        var fader = function(color) { return d3.interpolateRgb(color, "#fff")(0.2); },
-            color = d3.scaleOrdinal(d3.schemeCategory20.map(fader)),
+        var colorMixer = function(color) { return d3.interpolateRgb(color, "#fff")(0.2); },
+            color = d3.scaleOrdinal(d3.schemeCategory20.map(colorMixer)),
             format = d3.format(",d");
 
         var treemap = d3.treemap()

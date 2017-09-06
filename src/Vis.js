@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
+import { extent } from 'd3-array';
 
 class Vis extends Component {
     componentDidMount() {
@@ -82,10 +83,6 @@ class Vis extends Component {
                 .attr("stroke-linecap", "round")
                 .attr("stroke-width", 1.5)
                 .attr("d", line);
-
-            d3.select('.LocalArea').append('div')
-                .attr('class', 'Explainer')
-                .text('Hello there');
         })
     }
 
