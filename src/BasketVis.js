@@ -9,18 +9,22 @@ class BasketVis extends React.Component {
     }
 
     setContext() {
+        var detectWidth = document.querySelector('body').clientWidth;
+        var width = detectWidth > 375 ? d3.min([650, detectWidth]) : 375,
+        height = width * (3/4);
+
         d3.select(this.refs.basketVis).append('svg')
             .attr('class', 'basket-vis')
-            .attr('height', '360px')
-            .attr('width', '480px')
+            .attr('height', height)
+            .attr('width', width)
             .append('g')
             .attr('class','basket-vis-g');
     }
 
     drawBasket(context) {
         const main = this;
-        var width = 480,
-        height = 360;
+        var width = document.querySelector('.basket-vis').clientWidth,
+        height = width * (3/4);
 
         var colorMixer = function(color) { return d3.interpolateRgb(color, "#fff")(0.2); },
             color = d3.scaleOrdinal(d3.schemeCategory20.map(colorMixer)),

@@ -1,8 +1,4 @@
 .Explainer {
-    /* background-image: -webkit-gradient(linear, left top, right bottom, from(lightgrey), to(darkgrey));
-    background-image: -webkit-linear-gradient(top, lightgrey, darkgrey);
-    background-image: -moz-linear-gradient(top, lightgray, darkgrey);
-    background-image: linear-gradient(to bottom, lightgrey, darkgrey); */
     border: 0.2px solid darkgrey;
     border-radius: 4px;
     box-shadow: 2px 4px 1px 1px rgba(0,0,0,0.1);

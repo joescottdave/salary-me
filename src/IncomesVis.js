@@ -14,10 +14,14 @@ class IncomesVis extends React.Component {
     }
 
     setContext() {
-           d3.select(this.refs.incomesVis).append('svg')
+        var detectWidth = document.querySelector('.Container').clientWidth;
+        var width = detectWidth > 375 ? d3.min([650, detectWidth]) : 375,
+        height = width * (3/4);
+
+        return d3.select(this.refs.incomesVis).append('svg')
            .attr('class', 'incomes-vis')
-           .attr('height', 480*(3/4) )
-           .attr('width', 480 )
+           .attr('height', height )
+           .attr('width', width )
            .append('g')
            .attr('class','incomes-vis-g');
     }
@@ -26,6 +30,8 @@ class IncomesVis extends React.Component {
         const main = this;
         const salary = main.props.salary;
         const context = d3.select('.incomes-vis-g');
+
+        var contextwidth = document.querySelector('.incomes-vis').clientWidth;
 
         d3.json('./data/beforetaxincomepercentiles.json', function(data) {
             var i;
@@ -38,8 +44,8 @@ class IncomesVis extends React.Component {
             }
 
             var margin = {top: 20, left: 70, right: 20, bottom: 30 },
-                width = 480 - margin.left - margin.right,
-                height = 480*(3/4) - margin.top - margin.bottom;
+                width = contextwidth - margin.left - margin.right,
+                height = contextwidth*(3/4) - margin.top - margin.bottom;
 
             context.attr("transform", "translate(" + margin.left + "," + margin.top +")")
 

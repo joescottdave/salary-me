@@ -1,6 +1,5 @@
 import React from 'react';
 import IncomesVis from './IncomesVis';
-import './Incomes.css';
 
 class Incomes extends React.Component {
 

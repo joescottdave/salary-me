@@ -9,10 +9,14 @@ class Vis extends Component {
     }
 
     setContext() {
+        var detectWidth = document.querySelector('.Container').clientWidth;
+        var width = detectWidth > 375 ? d3.min([650, detectWidth]) : 375,
+        height = width * (3/4);
+
         return d3.select(this.refs.vis).append('svg')
             .attr('class', 'housing-vis')
-            .attr('height', '360px')
-            .attr('width', '480px')
+            .attr('height', height)
+            .attr('width', width)
             .append('g');
     }
 
