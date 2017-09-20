@@ -45,6 +45,8 @@ class BasketVis extends React.Component {
                 .sum(function(d){ return d.size; })
                 .sort(function(a, b) { return b.height - a.height || b.value - a.value; });
 
+            
+
             treemap(root);
 
             var cell = d3.select('.basket-vis-g').selectAll("g")

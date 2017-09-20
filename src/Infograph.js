@@ -5,6 +5,7 @@ import ControlCenter from './ControlCenter';
 import Basket from './Basket';
 import LocalArea from './LocalArea';
 import Incomes from './Incomes';
+import Taxes from './Taxes';
 import './Infograph.css';
 
 
@@ -40,14 +41,22 @@ class Infograph extends Component {
     render() {
         return (
             <div className="Infograph">
-                <Welcome name={this.props.userInfo.userName} />
-                <Paycheque takeHomePay={this.state.takeHomePay}
-                tax={this.state.tax}
-                contribution = {this.state.contribution}
-                />
-                <Incomes salary={this.state.salary}/>
-                <Basket takeHomePay = {this.state.takeHomePay} />
-                <LocalArea postcode={this.props.userInfo.userPostcode} />
+                <section id="income-and-taxes">
+                    <Welcome name={this.props.userInfo.userName} />
+                    <Paycheque salary={this.state.salary}
+                    takeHomePay={this.state.takeHomePay}
+                    tax={this.state.tax}
+                    contribution = {this.state.contribution}
+                    />
+                    <Incomes salary={this.state.salary} takehome={this.state.takehome}/>
+                    <Taxes salary={this.state.salary} />
+                </section>
+                <section id="inflation-and-spending">
+                    <Basket salary={this.state.salary} takeHomePay = {this.state.takeHomePay} />
+                </section>
+                <section id="rent-and-housing">
+                    <LocalArea takeHomePay={this.state.takeHomePay} postcode={this.props.userInfo.userPostcode} />
+                </section>
                 <ControlCenter handleReset={this.handleReset}/>
             </div>
         )

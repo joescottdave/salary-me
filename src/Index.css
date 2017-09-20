@@ -14,4 +14,30 @@ body {
     padding: 0;
     width: 100%;
   }
+
+.banner {
+  margin: 15px auto;
+  width: 80%;
+}
+
+.banner h4 {
+  margin-bottom: 0.5em;
+}
+
+.banner h3 {
+  margin-top: 0.5em;
+}
+
+.highlight {
+  background-color: rgba(247, 255, 0, 0.90);
+}
+
+a.highlight {
+  transition: background-color 0.5s ease;
+}
+
+a.highlight:hover {
+  background-color: rgba(40, 96, 194, 0.90);
+  transition: background-color 0.5s ease;
+}
   

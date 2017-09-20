@@ -20,6 +20,14 @@ class Vis extends Component {
             .append('g');
     }
 
+    getHousePrice(houseprice) {
+        this.props.getHousePrice(houseprice);
+    }
+
+    higherOrLower(val1, val2) {
+        this.props.higherOrLower(val1, val2)
+    }
+
     drawGraph(context) {
         const main = this;
         d3.json('./data/Average-prices-2017-06.json', function(data){
@@ -33,6 +41,12 @@ class Vis extends Component {
                 return obj.Area_Code === 'K02000001' && obj.Date >= '1995-02-01';
             });
 
+            // passing information back to parent
+            var localLength = localHousePriceInfo.length;
+            var ukLength = ukHousePriceInfo.length;
+            main.higherOrLower(+localHousePriceInfo[localLength-1].Average_Price, +ukHousePriceInfo[ukLength-1].Average_Price);
+            main.getHousePrice(+localHousePriceInfo[localLength-1].Average_Price);
+
             // getting & setting some measurements
             var margin = {top:20, right:20, bottom:30, left:50},
             width = document.querySelector('.housing-vis').clientWidth - margin.left - margin.right,
@@ -41,7 +55,6 @@ class Vis extends Component {
             context.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
             // drawing the graph
-            ;
             
             var x = d3.scaleTime()
                 .rangeRound([0, width]);
