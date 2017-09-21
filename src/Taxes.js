@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from './Card';
 
 class Taxes extends React.Component {
     constructor(props) {
@@ -25,25 +26,25 @@ class Taxes extends React.Component {
     }
     render() {
         return (
-            <div>
-                <h2>In 2016-17 income taxpayers in your bracket took home 
+            <Card>
+                <h2><span className="highlight">In 2016-17 income taxpayers in your bracket took home 
                     X 
-                    of all income</h2>
+                    of all income</span></h2>
                 <h3>That's 
                     X 
                     billion pounds</h3>
-                <h2>And paid&nbsp; 
+                <h2><span className="highlight">And paid&nbsp; 
                 {this.state.addtionalRate ? this.state.taxpercents.additional : null} 
                     {this.state.higherRate ? this.state.taxpercents.higher : null}
                     {this.state.basicRate ? this.state.taxpercents.basic : null} 
-                    &nbsp;of all income tax</h2>
+                    &nbsp;of all income tax</span></h2>
                 <h3>Which is&nbsp;£
                     {this.state.addtionalRate ? this.state.taxtotals.additional : null} 
                     {this.state.higherRate ? this.state.taxtotals.higher : null}
                     {this.state.basicRate ? this.state.taxtotals.basic : null}
                     &nbsp;billion</h3>
                     <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/616447/Table_2.6.pdf" target="_blank"><p>Source</p></a>
-            </div>
+            </Card>
         )
     }
 } 

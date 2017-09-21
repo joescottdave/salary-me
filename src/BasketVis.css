@@ -1,3 +1,7 @@
+svg.basket-vis {
+    cursor: pointer;
+}
+
 svg.basket-vis text{
     font-size: 10px;
 }

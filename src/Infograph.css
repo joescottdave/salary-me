@@ -1,5 +1,8 @@
-svg {
-    margin: 0 auto;
-    border: 1px solid black;
+h1, h2, h3, h4 {
+    text-align: center;
 }
 
+svg {
+    display: block;
+    margin: auto;
+}

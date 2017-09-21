@@ -5,3 +5,7 @@
     padding: 0.7rem;
     margin: 0.7rem;
 }
+
+.Explainer-Link {
+    cursor: pointer;
+}

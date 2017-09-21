@@ -6,8 +6,3 @@
     min-width: 375px;
 }
 
-.container section {
-    /* min-height: 98vh; */
-    border-bottom: 0.5px darkgrey solid;
-    margin-bottom: 100vh;
-}

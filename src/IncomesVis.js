@@ -20,7 +20,7 @@ class IncomesVis extends React.Component {
     setContext() {
         var detectWidth = document.querySelector('.Container').clientWidth;
         var width = detectWidth > 375 ? d3.min([650, detectWidth]) : 375,
-        height = width * (3/4);
+        height = width * (3/4) + 50;
 
         return d3.select(this.refs.incomesVis).append('svg')
            .attr('class', 'incomes-vis')
@@ -37,10 +37,11 @@ class IncomesVis extends React.Component {
 
         var contextwidth = document.querySelector('.incomes-vis').clientWidth;
 
+
+
         d3.queue()
             .defer(d3.json, './data/beforetaxincomepercentiles.json')
-            .defer(d3.json, './data/aftertaxincomepercentiles15-16.json')
-            .await(function(error, data, data2) {
+            .await(function(error, data) {
             
             var percent = function(salary) {
                 var percent;
@@ -65,23 +66,24 @@ class IncomesVis extends React.Component {
 
             context.attr("transform", "translate(" + margin.left + "," + margin.top +")")
 
+            var color = d3.scaleThreshold()
+                .domain([34,67])
+                .range(['#ffad64', '#0081d9', '#f14f80' ]);
+
             var x = d3.scaleLinear()
-                .domain([1,99])
+                .domain([0,100])
                 .rangeRound([0,width]);
 
             var y = d3.scaleLinear()
                 .domain([0, d3.max(data, function(d){ return d['2014-15']; })])
                 .rangeRound([height,0]);
-            
-            var drawline = d3.line()
-                .x(function(d) { 
-                    return x(d['Percentile'])
-                    }
-                )
-                .y(function(d) {
-                    return y(d['2014-15'])
-                    }
-                );
+
+            var band = d3.scaleBand()
+                .domain(data.map(function(d) {
+                    return d['Percentile'];
+                }))
+                .range([0, width]);
+
 
             context.append("g").attr("class", "bottom-axis")
                 .attr("transform", "translate(0," + height +")")
@@ -89,13 +91,13 @@ class IncomesVis extends React.Component {
                 .append('text')
                 .attr('fill', '#000')
                 .attr('x', width)
-                .attr('y', 6-margin.top)
+                .attr('y', margin.bottom)
                 .attr('dy', '0.71em')
                 .attr('text-anchor', 'end')
-                .text('Income Taxpayers by Decile');
+                .text('Income Taxpayers by Decile, each color represents a third of income taxpayers, and each bar represents roughly 307,000 people');
 
             context.append("g").attr("class", "left-axis")
-                .call(d3.axisLeft(y).tickValues([data[32]['2014-15'],data[65]['2014-15'],data2[98]['2014-15'],data[98]['2014-15']]))
+                .call(d3.axisLeft(y).tickValues([data[32]['2014-15'],data[65]['2014-15'],data[98]['2014-15']]))
                 .append("text")
                 .attr("fill", "#000")
                 .attr("transform", "rotate(-90)")
@@ -104,112 +106,97 @@ class IncomesVis extends React.Component {
                 .attr("text-anchor", "end")
                 .text("Annual Income (£)");
 
-            context.append('path')
-                .datum(data)
-                .attr("fill", "none")
-                .attr("stroke", "steelblue")
-                .attr("stroke-linejoin", "round")
-                .attr("stroke-linecap", "round")
-                .attr("stroke-width", 0.5)
-                .attr('d', drawline );
+            var hoz_lines = context.append('g')
+                .attr('class', 'hoz_lines');
+
+            var hoz_line = hoz_lines.selectAll('.hoz_line')
+                .data([17400,29000,162000])
+                .enter().append('line')
+                .attr('class', 'hoz_line')
+                .attr('x1', x(0))
+                .attr('x2', function(d) { return x(percent(d)); } )
+                .attr('y1', function(d) { return y(d); })
+                .attr('y2', function(d) { return y(d); })
+                .attr('stroke', 'gray')
+                .attr('stroke-width', '0.5px');              
+
+            var linemarks = context.append('g')
+                .attr('class', 'linemarks');
             
-            context.append('path')
-                .datum(data2)
-                .attr("fill", "none")
-                .attr("stroke", "red")
-                .attr("stroke-linejoin", "round")
-                .attr("stroke-linecap", "round")
-                .attr("stroke-width", 0.5)
-                .attr('d', drawline );
+            var linemark = linemarks.selectAll('.linemark')
+                .data(data);
 
-            
-                
-            var pm = context.append('g')
-                .attr('class', 'pm');
+            linemark
+                .enter()
+                .append('rect')
+                .attr('class', 'linemark')
+                .attr('x', function(d) { return x(d['Percentile']); })
+                .attr('width', band.bandwidth()/2)
+                .attr('height', function(d) { return height - y(d['2014-15']) })
+                .attr('y', function(d) { return y(d['2014-15']); })
+                .attr('fill', function(d) { return color(d['Percentile']); })
+                .attr('opacity', 1);
 
-            pm.append('path')
-                .attr('class', 'pm-line')
-                .attr('d', function(d){ return 'M' + x(percent(150402)) + ' ' + height + 'V ' + y(150402) ; })
-                .attr('fill', 'red')
-                .attr('stroke', 'rgba(0,0,0,0.3)')
-                .attr('stroke-width', '2px');
+            // var textmarks = context.append('g')
+            //     .attr('class', 'textmarks')
 
-            pm.append('text')
-                .attr('class', 'pm-text')
-                .attr('x', x(percent(150402)) - margin.right - 95 )
-                .attr('y', y(150402) + 15)
-                .attr('fill', 'rgba(0,0,0,0.5)')
-                .text('Prime Minister');
 
-            var nurse = context.append('g')
-                .attr('class', 'nurse');
+            context.append('text')
+                .attr('class', 'textmark-you')
+                .attr('fill', color(percent(salary)))
+                .attr('text-anchor', 'start')
+                // .attr('transform', 'rotate(-90)')
+                .attr('x', x(percent(salary)) + 5)
+                .attr('y', y(salary) - 45)
+                .text('You');
 
-            nurse.append('path')
-                .attr('class', 'nurse-line')
-                .attr('d', function(d){ return 'M' + x(percent(22128)) + ' ' + height + 'V ' + y(22128) ; })
-                .attr('fill', 'red')
-                .attr('stroke', 'rgba(0,0,0,0.3)')
-                .attr('stroke-width', '2px');
+            context.append('line')
+                .attr('x1', x(percent(salary)))
+                .attr('x2', x(percent(salary)) + 5)
+                .attr('y1', y(salary) - 2)
+                .attr('y2', y(salary) - 40)
+                .attr('stroke', color(percent(salary)))
+                .attr('stroke-width', "1px");
 
-            nurse.append('text')
-                .attr('class', 'nurse-text')
-                .attr('x', x(percent(22128)) - 50)
-                .attr('y', y(22128) + 25)
-                .attr('fill', 'rgba(0,0,0,0.5)')
+            context.append('text')
+                .attr('class', 'textmark-nurse')
+                .attr('fill', color(percent(22128)))
+                .attr('text-anchor', 'end')
+                .attr('x', x(percent(22128)))
+                .attr('y', y(22128) - 40)
                 .text('Nurse');
+            
+            context.append('line')
+                .attr('x1', x(percent(22128)))
+                .attr('x2', x(percent(22128)))
+                .attr('y1', y(22128) - 2)
+                .attr('y2', y(22128) - 35)
+                .attr('stroke', color(percent(22128)))
+                .attr('stroke-width', "1px");
 
-            var doctor = context.append('g')
-                .attr('class', 'doctor');
-
-            doctor.append('path')
-                .attr('class', 'doctor-line')
-                .attr('d', function(d){ return 'M' + x(percent(22636)) + ' ' + height + 'V ' + y(22636) ; })
-                .attr('fill', 'red')
-                .attr('stroke', 'rgba(0,0,0,0.3)')
-                .attr('stroke-width', '2px');
-
-            doctor.append('text')
-                .attr('class', 'doctor-text')
-                .attr('x', x(percent(22636)) + 5)
-                .attr('y', y(22636) + 25)
-                .attr('fill', 'rgba(0,0,0,0.5)')
+            context.append('text')
+                .attr('class', 'textmark-doctor')
+                .attr('fill', color(percent(22636)))
+                .attr('text-anchor', 'start')
+                .attr('x', x(percent(22636)))
+                .attr('y', y(22636) - 52)
                 .text('Junior Doctor');
             
-            var mw = context.append('g')
-                .attr('class', 'mw');
-
-            mw.append('path')
-                .attr('class', 'mw-line')
-                .attr('d', function(d){ return 'M' + x(percent(13650)) + ' ' + height + 'V ' + y(13650); })
-                .attr('fill', 'red')
-                .attr('stroke', 'rgba(0,0,0,0.3)')
-                .attr('stroke-width', '2px');
-
-            mw.append('text')
-                .attr('class', 'mw-text')
-                .attr('x', x(percent(13650)) -75)
-                .attr('y', y(13650) - 8)
-                .attr('fill', 'rgba(0,0,0,0.5)')
-                .text('National Living Wage');
+            context.append('line')
+                .attr('x1', x(percent(22636)))
+                .attr('x2', x(percent(22636)))
+                .attr('y1', y(22636) - 2)
+                .attr('y2', y(22636) - 44)
+                .attr('stroke', color(percent(22636)))
+                .attr('stroke-width', "1px");
             
-            if (salary >= 10300) {
-            var you = context.append('g')
-                .attr('class', 'you');
-
-            you.append('path')
-                .attr('class', 'you-line')
-                .attr('d', function(d){ return 'M' + x(percent(salary)) + ' ' + height + 'V' + y(salary) ; })
-                .attr('fill', 'red')
-                .attr('stroke', 'black')
-                .attr('stroke-width', '2px');
-            
-            you.append('text')
-                .attr('class', 'you-text')
-                .attr('x', x(percent(salary)) + 5 )
-                .attr('y', y(salary) + 20)
-                .attr('fill', 'black')
-                .text('You');
-            }
+            context.append('text')
+                .attr('class', 'textmark-pm')
+                .attr('fill', color(percent(150402)))
+                .attr('text-anchor', 'end')
+                .attr('x', x(percent(150402)))
+                .attr('y', y(114000))
+                .text('Prime Minister');
             });
     }
 

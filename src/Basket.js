@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import Explainer from './Explainer.js';
+import Card from './Card.js';
 import BasketVis from './BasketVis.js';
+import './Basket.css';
+import Explainer from './Explainer';
+
+import ScrollAnimation from 'react-animate-on-scroll';
 
 class Basket extends Component {
     constructor(props) {
@@ -24,19 +28,19 @@ class Basket extends Component {
 
     calculateiPhone() {
         if (this.state.raise > 999) {
-            return "iPhone X";
+            return "iPhone-X";
         } else if (this.state.raise > 799) {
-            return "iPhone 8 Plus"
+            return "iPhone-8-Plus"
         } else if (this.state.raise > 699) {
-            return "iPhone 8"
+            return "iPhone-8"
         } else if (this.state.raise > 669) {
-            return "iPhone 7 Plus"
+            return "iPhone-7-Plus"
         } else if (this.state.raise > 549) {
-            return "iPhone 7"
+            return "iPhone-7"
         } else if (this.state.raise > 449) {
-            return "iPhone 6S"
+            return "iPhone-6S"
         } else if (this.state.raise > 349) {
-            return "iPhone SE"
+            return "iPhone-SE"
         } else {
             return null;
         }
@@ -66,18 +70,29 @@ class Basket extends Component {
         return (
             <div className="Basket">
                 <div>
-                    <h2>Current rate of inflation in the UK:</h2>
-                    <h2><strong className="highlight">{this.state.inflation}%</strong></h2>
-                    <h2>You will need a pay rise of <span className="highlight">£{this.state.raise}</span></h2>
-                    <h3>Enough to buy you an {this.calculateiPhone()}</h3>
-                    { this.state.iPhoneX ? 
-                    <p>Wouldn't that be nice?</p>
-                    :
-                    <p>Sorry, no iPhone X for you.</p>
-                    }
-                    <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/aug2017"><p>Source 1: Inflation</p></a>
-                    <a href="https://www.apple.com/uk/iphone/" target="_blank"><p>Source 2: Prices</p></a>
+                    <Card>
+                        <h2>Current rate of inflation in the UK:</h2>
+                        <h2><strong className="highlight">{this.state.inflation}%</strong></h2>
+                        <h2>You will need a pay rise of <span className="highlight">£{this.state.raise}</span></h2>
+                        <h3>Enough to buy you an {this.calculateiPhone().replace('-',' ')}</h3>
+                        <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+                            <img src={"./img/" + this.calculateiPhone() + '.png'} height="360px" className="iphone" />
+                        </ScrollAnimation>
+                        <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+                        { this.state.iPhoneX ? 
+                        <h3>Wouldn't that be nice?</h3>
+                        :
+                        <h3>Sorry, no iPhone X for you.</h3>
+                        }
+                        </ScrollAnimation>
+                        <ScrollAnimation animateIn="bounceIn">
+                        {this.state.iPhoneX ? null : <img src="./img/No-iPhone-X.jpg" height="360px" className="iphone"/>}
+                        </ScrollAnimation>
+                    </Card>
+                    <a className="source" href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/aug2017"><p>Source 1: Inflation</p></a>
+                    <a className="source" href="https://www.apple.com/uk/iphone/" target="_blank"><p>Source 2: Prices</p></a>  
                 </div>
+                <Card>
                 <h2>Basket of Goods</h2>
                 <h3>How much you have to spend... (CPIH Weighting)</h3>
                 <ol>
@@ -94,13 +109,15 @@ class Basket extends Component {
                     <li>Restaurants: £{((payCheque/100) * cpih_weight.restaurants).toFixed(2)}</li>
                     <li>Misc: £{((payCheque/100) * cpih_weight.misc).toFixed(2)}</li>
                 </ol>
+                
                 <BasketVis />
                 <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/datasets/w1tow3tablesannexa" target="_blank"><p>Source</p></a>
-                <Explainer>
+                    <Explainer>
                     <p>CPIH is a measure of consumer inflation not yet recognised as a national statistic, but unlike CPI it takes into account the costs associated with owning and occupying your home.</p>
                     <p>Purchases are categorised into one of twelve categories and their significance is weighted according to the proportion of consumer spending that falls into the corresponding category.</p>
+                    </Explainer>
                     <a href="./inflation-article.html" className="highlight" target="_blank">Read more about inflation in the UK...</a>
-                </Explainer>
+                </Card>
             </div>
         )
     }

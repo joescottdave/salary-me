@@ -8,6 +8,7 @@ import Incomes from './Incomes';
 import Taxes from './Taxes';
 import './Infograph.css';
 
+import ScrollAnimation from 'react-animate-on-scroll';
 
 class Infograph extends Component {
     constructor(props){
@@ -41,22 +42,41 @@ class Infograph extends Component {
     render() {
         return (
             <div className="Infograph">
+
+                <section>
+                    <ScrollAnimation animateOut="fadeOut">
+                        <Welcome name={this.props.userInfo.userName} />
+                    </ScrollAnimation>
+                </section>
+
                 <section id="income-and-taxes">
-                    <Welcome name={this.props.userInfo.userName} />
-                    <Paycheque salary={this.state.salary}
-                    takeHomePay={this.state.takeHomePay}
-                    tax={this.state.tax}
-                    contribution = {this.state.contribution}
-                    />
-                    <Incomes salary={this.state.salary} takehome={this.state.takehome}/>
-                    <Taxes salary={this.state.salary} />
+                    <ScrollAnimation animateIn="slideInUp" animateOnce={true}>
+                        <Paycheque salary={this.state.salary}
+                        takeHomePay={this.state.takeHomePay}
+                        tax={this.state.tax}
+                        contribution = {this.state.contribution}
+                        />
+                    </ScrollAnimation>
+                    <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
+                        <Incomes salary={this.state.salary} takehome={this.state.takehome}/>
+                    </ScrollAnimation>
+                    <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
+                        <Taxes salary={this.state.salary} />
+                    </ScrollAnimation>
                 </section>
+
                 <section id="inflation-and-spending">
-                    <Basket salary={this.state.salary} takeHomePay = {this.state.takeHomePay} />
+                    <ScrollAnimation animateIn="fadeIn">
+                        <Basket salary={this.state.salary} takeHomePay = {this.state.takeHomePay} />
+                    </ScrollAnimation>
                 </section>
+
                 <section id="rent-and-housing">
-                    <LocalArea takeHomePay={this.state.takeHomePay} postcode={this.props.userInfo.userPostcode} />
+                    <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+                        <LocalArea takeHomePay={this.state.takeHomePay} postcode={this.props.userInfo.userPostcode} />
+                    </ScrollAnimation>
                 </section>
+
                 <ControlCenter handleReset={this.handleReset}/>
             </div>
         )

@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
+import Card from './Card';
+import './Paycheque.css';
 
 class Paycheque extends Component {
     render() {
         return (
             <div className="Paycheque">
                 <h2>Let's look at your income and contributions</h2>
-                <ul>
-                <li>On an annual salary of £{this.props.salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</li>
-                <li>You pay £{this.props.tax} in income tax</li>
-                <li>and make national insurance contributions of £{this.props.contribution.toFixed(2)}</li>
-                <li>leaving you with £{this.props.takeHomePay} a month!</li>
+                <Card>
+                <h3>According to our tax calculator:</h3>
+                <ul className="Paycheque-List">
+                <li className="Payche-List-Item">On an annual salary of £{this.props.salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</li>
+                <li className="Payche-List-Item">You will pay approximately <span className="highlight">£{this.props.tax}</span> in income tax</li>
+                <li className="Payche-List-Item">and make national insurance contributions of <span className="highlight">£{this.props.contribution.toFixed(2)}</span></li>
+                <li className="Payche-List-Item">leaving you with <span className="highlight"><strong>£{this.props.takeHomePay}</strong></span> a month!</li>
                 </ul>
+                </Card>
             </div>
         )
     }
