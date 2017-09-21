@@ -1,0 +1,17 @@
+{
+            "name": "restaurants",
+            "children": [
+                {
+                    "name": "11.1.1 Restaurants & cafes",
+                    "value": 70
+                },
+                {
+                    "name": "11.1.2 Canteens",
+                    "value": 7
+                },
+                {
+                    "name": "11.2 Accommodation services",
+                    "value": 24
+                }
+            ]
+        }

@@ -1,0 +1,49 @@
+{
+            "name": "food",
+            "children": [
+                {
+                    "name": "01.1.1 Bread and cereals",
+                    "value": 12
+                },
+                {
+                    "name": "01.1.2 Meat",
+                    "value": 16
+                },
+                {
+                    "name": "01.1.3 Fish",
+                    "value": 3
+                },
+                {
+                    "name": "01.1.4 Milk, cheese and eggs",
+                    "value": 9
+                },
+                {
+                    "name": "01.1.5 Oils and fats",
+                    "value": 2
+                },
+                {
+                    "name": "01.1.6 Fruit",
+                    "value": 7
+                },
+                {
+                    "name": "01.1.7 Vegetables including potatoes and tubers",
+                    "value": 10
+                },
+                {
+                    "name": "01.1.8 Sugar, jam, syrups, chocolate and confectionery",
+                    "value": 10
+                },
+                {
+                    "name": "01.1.9 Food products (nec)",
+                    "value": 2
+                },
+                {
+                    "name": "01.2.1 Coffee, tea and cocoa",
+                    "value": 3
+                },
+                {
+                    "name": "01.2.2 Mineral waters, soft drinks and juices",
+                    "value": 7
+                }
+            ]
+        }

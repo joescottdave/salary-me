@@ -1,0 +1,41 @@
+{
+            "name": "misc",
+            "children": [
+                {
+                    "name": "12.1.1 Hairdressing and personal grooming establishments",
+                    "value": 6
+                },
+                {
+                    "name": "12.1.2/3 Appliances and products for personal care",
+                    "value": 19
+                },
+                {
+                    "name": "12.3.1 Jewellery, clocks and watches",
+                    "value": 7
+                },
+                {
+                    "name": "12.3.2 Other personal effects",
+                    "value": 4
+                },
+                {
+                    "name": "12.4 Social protection",
+                    "value": 13
+                },
+                {
+                    "name": "12.5.2 House contents insurance",
+                    "value": 2
+                },
+                {
+                    "name": "12.5.3/5 Health insurance and other insurance",
+                    "value": 2
+                },
+                {
+                    "name": "12.6.2 Other financial services (nec)",
+                    "value": 11
+                },
+                {
+                    "name": "12.7 Other services (nec)",
+                    "value": 10
+                }
+            ]
+        }

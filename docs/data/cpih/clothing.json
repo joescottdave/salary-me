@@ -1,0 +1,21 @@
+{
+            "name": "clothing",
+            "children": [
+                {
+                    "name": "03.1.2 Garments",
+                    "value": 44
+                },
+                {
+                    "name": "03.1.3 Other clothing and clothing accessories",
+                    "value": 4
+                },
+                {
+                    "name": "03.1.4 Cleaning, repair and hire of clothing",
+                    "value": 1
+                },
+                {
+                    "name": "03.2 Footwear including repairs",
+                    "value": 9
+                }
+            ]
+        }

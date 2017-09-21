@@ -1,0 +1,41 @@
+{
+            "name": "furniture",
+            "children": [
+                {
+                    "name": "05.1.1 Furniture and furnishings",
+                    "value": 15
+                },
+                {
+                    "name": "05.1.2 Carpets and other floor coverings",
+                    "value": 3
+                },
+                {
+                    "name": "05.2 Household textiles",
+                    "value": 6
+                },
+                {
+                    "name": "05.3.1/2 Major appliances and small electric goods",
+                    "value": 6
+                },
+                {
+                    "name": "05.3.3 Repair of household appliances",
+                    "value": 1
+                },
+                {
+                    "name": "05.4 Glassware, tableware and household utensils",
+                    "value": 4
+                },
+                {
+                    "name": "05.5 Tools and equipment for house and garden",
+                    "value": 4
+                },
+                {
+                    "name": "05.6.1 Non-durable household goods",
+                    "value": 4
+                },
+                {
+                    "name": "05.6.2 Domestic services and household services",
+                    "value": 6
+                }
+            ]
+        }

@@ -1,0 +1,53 @@
+{
+    "name": "cpih",
+    "children": [
+        {
+            "name": "food",
+            "value": 81
+        },
+        {
+            "name": "alcohol",
+            "value": 34
+        },
+        {
+            "name": "clothing",
+            "value": 58
+        },
+        {
+            "name": "housing",
+            "value": 294
+        },
+        {
+            "name": "health",
+            "value": 21
+        },
+        {
+            "name": "transport",
+            "value": 116
+        },
+        {
+            "name": "furniture",
+            "value": 49
+        },
+        {
+            "name": "comms",
+            "value": 21
+        },
+        {
+            "name": "recreation",
+            "value": 121
+        },
+        {
+            "name": "education",
+            "value": 17
+        },
+        {
+            "name": "restaurants",
+            "value": 101
+        },
+        {
+            "name": "misc",
+            "value": 74
+        }
+    ]
+}

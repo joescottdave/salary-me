@@ -1,0 +1,17 @@
+.Paycheque {
+    align-self: top;
+}
+
+ul.Paycheque-List {
+    list-style: none;
+    text-align: center;
+    margin: 20px;
+}
+
+li.Paycheque-List-Item {
+    margin-bottom: 20px;
+}
+
+li.Paycheque-List-Item strong{
+    font-size: 1.5em;
+}

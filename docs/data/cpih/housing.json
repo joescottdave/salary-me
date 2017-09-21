@@ -1,0 +1,49 @@
+{
+            "name": "housing",
+            "children": [
+                {
+                    "name": "04.1 Actual rentals for housing",
+                    "value": 56
+                },
+                {
+                    "name": "04.2 Owner occupiers' housing costs",
+                    "value": 174
+                },
+                {
+                    "name": "04.4.1 Water supply",
+                    "value": 4
+                },
+                {
+                    "name": "04.4.3 Sewerage collection",
+                    "value": 5
+                },
+                {
+                    "name": "04.5.1 Electricity",
+                    "value": 13
+                },
+                {
+                    "name": "04.5.2 Gas",
+                    "value": 12
+                },
+                {
+                    "name": "04.5.3 Liquid fuels",
+                    "value": 1
+                },
+                {
+                    "name": "04.5.4 Solid fuels",
+                    "value": 1
+                },
+                {
+                    "name": "04.9 Council Tax and rates",
+                    "value": 26
+                },
+                {
+                    "name": "04.3.1 Materials for maintenance and repair",
+                    "value": 1
+                },
+                {
+                    "name": "04.3.2 Services for maintenance and repair",
+                    "value": 1
+                }
+            ]
+        }

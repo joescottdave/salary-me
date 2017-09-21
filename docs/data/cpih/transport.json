@@ -1,0 +1,49 @@
+{
+            "name": "transport",
+            "children": [
+                {
+                    "name": "07.1.1A New cars",
+                    "value": 21
+                },
+                {
+                    "name": "07.1.1B Second-hand cars",
+                    "value": 14
+                },
+                {
+                    "name": "07.1.2/3 Motorcycles and bicycles",
+                    "value": 2
+                },
+                {
+                    "name": "07.2.1 Spare parts and accessories",
+                    "value": 4
+                },
+                {
+                    "name": "07.2.2 Fuels and lubricants",
+                    "value": 26
+                },
+                {
+                    "name": "07.2.3 Maintenance and repairs",
+                    "value": 20
+                },
+                {
+                    "name": "07.2.4 Other services",
+                    "value": 11
+                },
+                {
+                    "name": "07.3.1 Passenger transport by railway",
+                    "value": 11
+                },
+                {
+                    "name": "07.3.2/6 Passenger transport by road and other transport services",
+                    "value": 10
+                },
+                {
+                    "name": "07.3.3 Passenger transport by air",
+                    "value": 4
+                },
+                {
+                    "name": "07.3.4 Passenger transport by sea and inland waterway",
+                    "value": 3
+                }
+            ]
+        }

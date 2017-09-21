@@ -1,0 +1,15 @@
+.Card {
+    /* display: flex;
+    align-items: center; */
+
+    /* border: 1px dashed black; */
+    margin: auto;
+    padding: 0.5em;
+    width: 100%;
+    max-width: 900px;
+    min-height: 90vh;
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
