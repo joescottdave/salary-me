@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Welcome from './Welcome';
 import Paycheque from './Paycheque';
 import ControlCenter from './ControlCenter';
-import Basket from './Basket';
+import Inflation from './Inflation';
+import Households from './Households';
 import LocalArea from './LocalArea';
 import Incomes from './Incomes';
 import Taxes from './Taxes';
@@ -44,9 +45,7 @@ class Infograph extends Component {
             <div className="Infograph">
 
                 <section>
-                    <ScrollAnimation animateOut="fadeOut">
                         <Welcome name={this.props.userInfo.userName} />
-                    </ScrollAnimation>
                 </section>
 
                 <section id="income-and-taxes">
@@ -61,20 +60,23 @@ class Infograph extends Component {
                         <Incomes salary={this.state.salary} takehome={this.state.takehome}/>
                     </ScrollAnimation>
                     <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
-                        <Taxes salary={this.state.salary} />
+                        <Taxes salary={this.state.salary} tax={this.state.tax} contribution={this.state.contribution}/>
                     </ScrollAnimation>
                 </section>
 
                 <section id="inflation-and-spending">
-                    <ScrollAnimation animateIn="fadeIn">
-                        <Basket salary={this.state.salary} takeHomePay = {this.state.takeHomePay} />
-                    </ScrollAnimation>
+                        <Inflation salary={this.state.salary} takeHomePay = {this.state.takeHomePay} />
+                        {/* <Basket monthly = {this.state.takeHomePay} />
+                        <BasketVis /> */}
                 </section>
 
                 <section id="rent-and-housing">
-                    <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+                <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+                        <Households takeHomePay = {this.state.takeHomePay}/>
+                </ScrollAnimation>
+                <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                         <LocalArea takeHomePay={this.state.takeHomePay} postcode={this.props.userInfo.userPostcode} />
-                    </ScrollAnimation>
+                </ScrollAnimation>
                 </section>
 
                 <ControlCenter handleReset={this.handleReset}/>

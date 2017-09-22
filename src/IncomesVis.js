@@ -60,7 +60,7 @@ class IncomesVis extends React.Component {
 
             main.handleIncomeInfo(percent(salary));
 
-            var margin = {top: 20, left: 70, right: 20, bottom: 30 },
+            var margin = {top: 20, left: 45, right: 20, bottom: 30 },
                 width = contextwidth - margin.left - margin.right,
                 height = contextwidth*(3/4) - margin.top - margin.bottom;
 
@@ -91,10 +91,10 @@ class IncomesVis extends React.Component {
                 .append('text')
                 .attr('fill', '#000')
                 .attr('x', width)
-                .attr('y', margin.bottom)
+                .attr('y', 20)
                 .attr('dy', '0.71em')
                 .attr('text-anchor', 'end')
-                .text('Income Taxpayers by Decile, each color represents a third of income taxpayers, and each bar represents roughly 307,000 people');
+                .text('Income Taxpayers by Percentile');
 
             context.append("g").attr("class", "left-axis")
                 .call(d3.axisLeft(y).tickValues([data[32]['2014-15'],data[65]['2014-15'],data[98]['2014-15']]))
@@ -144,17 +144,23 @@ class IncomesVis extends React.Component {
             context.append('text')
                 .attr('class', 'textmark-you')
                 .attr('fill', color(percent(salary)))
-                .attr('text-anchor', 'start')
+                .attr('text-anchor', function() {
+                    if (percent(salary) >= 33 && percent(salary) <= 48 || percent(salary) > 81) {
+                        return "end";
+                    } else {
+                        return "start";
+                    }
+                })
                 // .attr('transform', 'rotate(-90)')
-                .attr('x', x(percent(salary)) + 5)
-                .attr('y', y(salary) - 45)
+                .attr('x', x(percent(salary)))
+                .attr('y', y(salary) - 25)
                 .text('You');
 
             context.append('line')
                 .attr('x1', x(percent(salary)))
-                .attr('x2', x(percent(salary)) + 5)
+                .attr('x2', x(percent(salary)) + 3)
                 .attr('y1', y(salary) - 2)
-                .attr('y2', y(salary) - 40)
+                .attr('y2', y(salary) - 20)
                 .attr('stroke', color(percent(salary)))
                 .attr('stroke-width', "1px");
 
@@ -177,16 +183,16 @@ class IncomesVis extends React.Component {
             context.append('text')
                 .attr('class', 'textmark-doctor')
                 .attr('fill', color(percent(22636)))
-                .attr('text-anchor', 'start')
+                .attr('text-anchor', 'end')
                 .attr('x', x(percent(22636)))
-                .attr('y', y(22636) - 52)
+                .attr('y', y(22636) - 55)
                 .text('Junior Doctor');
             
             context.append('line')
                 .attr('x1', x(percent(22636)))
                 .attr('x2', x(percent(22636)))
                 .attr('y1', y(22636) - 2)
-                .attr('y2', y(22636) - 44)
+                .attr('y2', y(22636) - 54)
                 .attr('stroke', color(percent(22636)))
                 .attr('stroke-width', "1px");
             
@@ -197,6 +203,22 @@ class IncomesVis extends React.Component {
                 .attr('x', x(percent(150402)))
                 .attr('y', y(114000))
                 .text('Prime Minister');
+
+            context.append('line')
+                .attr('x1', x(percent(13650)))
+                .attr('x2', x(percent(13650)))
+                .attr('y1', y(13650) - 2)
+                .attr('y2', y(13650) - 98)
+                .attr('stroke', color(percent(13650)))
+                .attr('stroke-width', "1px");
+
+            context.append('text')
+                .attr('class', 'textmark-nlw')
+                .attr('fill', color(percent(13650)))
+                .attr('text-anchor', 'start')
+                .attr('x', x(percent(13650)))
+                .attr('y', y(13650) - 100)
+                .text('National Living Wage');
             });
     }
 

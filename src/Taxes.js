@@ -1,27 +1,32 @@
 import React from 'react';
 import Card from './Card';
+import Source from './Source';
 
 class Taxes extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            salary: this.props.salary,
+            salary: props.salary,
+            tax: props.tax,
+            contribution: props.contribution,
             basicRate: false,
             higherRate: false,
             additionalRate: false,
             taxpercents: {basic: "35%", higher: "37%", additional: "28%"},
-            taxtotals: {basic: 55.7, higher: 58.3, additional: 43.85 }
+            taxtotals: {basic: 55.7, higher: 58.3, additional: 43.85 },
+            taxaverages: {basic: 2250, higher: 14600, additional: 142000},
+            compaverage: undefined
             // https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/616447/Table_2.6.pdf
         }
     }
 
     componentWillMount() {
         if (this.state.salary > 150000) {
-            this.setState({ additionalRate: true})
+            this.setState({ additionalRate: true, compaverage: this.state.taxaverages.additional})
         } else if (this.state.salary > 45000) {
-            this.setState({higherRate: true})
+            this.setState({higherRate: true, compaverage: this.state.taxaverages.higher})
         } else if (this.state.salary > 11500) {
-            this.setState({basicRate: true})
+            this.setState({basicRate: true, compaverage: this.state.taxaverages.basic})
         }
     }
     render() {
@@ -43,7 +48,9 @@ class Taxes extends React.Component {
                     {this.state.higherRate ? this.state.taxtotals.higher : null}
                     {this.state.basicRate ? this.state.taxtotals.basic : null}
                     &nbsp;billion</h3>
-                    <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/616447/Table_2.6.pdf" target="_blank"><p>Source</p></a>
+
+                <h3>Your income tax liability of £{this.state.tax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} is {(this.state.tax < this.state.compaverage) ? <span className="highlight">lower</span> : <span className="highlight">higher</span>} than the average payment of £{this.state.compaverage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} for this bracket.</h3>
+                    <Source href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/616447/Table_2.6.pdf" />
             </Card>
         )
     }

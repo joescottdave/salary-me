@@ -10,7 +10,7 @@ class BasketVis extends React.Component {
 
     setContext() {
         var detectWidth = document.querySelector('body').clientWidth;
-        var width = detectWidth > 375 ? d3.min([650, detectWidth]) : 375,
+        var width = detectWidth > 375 ? d3.min([650, detectWidth]) : 350,
         height = width * (3/4);
 
         d3.select(this.refs.basketVis).append('svg')

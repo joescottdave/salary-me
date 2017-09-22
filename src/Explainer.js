@@ -22,6 +22,8 @@ class Explainer extends Component {
     }
 }
 
+// early incarnation
+//
 // const Explainer = ({children}) => (
 //     <div className="Explainer">{children}</div>
 // )
