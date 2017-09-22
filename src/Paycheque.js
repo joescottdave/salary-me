@@ -6,8 +6,8 @@ class Paycheque extends Component {
     render() {
         return (
             <div className="Paycheque">
-                <h2>Let's look at your income and contributions</h2>
                 <Card>
+                <h2>Let's look at your income and contributions</h2>
                 <h3>According to our tax calculator:</h3>
                 <ul className="Paycheque-List">
                 <li className="Payche-List-Item">On an annual salary of £{this.props.salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</li>

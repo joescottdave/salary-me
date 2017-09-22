@@ -16,6 +16,8 @@ class LocalArea extends Component {
             house_prices: undefined,
             higher: false,
             lower: false,
+            average_rent: undefined,
+            average_rent_uk: 936.05,
             average_house_price: undefined,
             average_house_price_string: undefined
         }
@@ -46,9 +48,14 @@ class LocalArea extends Component {
         val1 > val2 ? this.setState({higher: true}) : this.setState({lower: true})
     }
 
+    getAvgRent(avg_rent) {
+        this.setState({average_rent: avg_rent.toFixed(2)});
+    }
+
     render() {
         return (
-            <div>
+            <Card>
+                
                 {(this.state.area_code === undefined) ?
                     <div className="LocalArea"><p>&nbsp;</p></div>
                     :
@@ -57,16 +64,18 @@ class LocalArea extends Component {
                             <h4>You live in <span className="highlight">{this.state.area_name}</span>.</h4>
                             <h3>House prices in your area are <span className="highlight">{this.state.higher == true ? 'higher' : 'lower' }</span> than the national average</h3>
                         </div>
-                        <Vis area_code={this.state.area_code} higherOrLower ={this.higherOrLower.bind(this)} getHousePrice={this.getHousePrice.bind(this)}/>
-                        <Card>
+                        <Vis area_code={this.state.area_code} postcode={this.props.postcode} higherOrLower ={this.higherOrLower.bind(this)} getHousePrice={this.getHousePrice.bind(this)} getAvgRent={this.getAvgRent.bind(this)}/>
+                        
                         <h3>Average house price of £{this.state.average_house_price_string}</h3>
                         <p>Typical mortgage repayment of £{this.calculateMortgage()} based on a loan of 85% and interest of 3.9% over 25 years</p>
+                        <p>Compared to an average rent of £{this.state.average_rent} in {this.state.area_name}</p>
+                        <p>{(this.state.average_rent < this.state.average_rent_uk) ? 'Lower' : 'Higher'} than the UK average of £{this.state.average_rent_uk}</p>
                         <Source href="https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-july-2017?utm_medium=ONS&utm_source=report_page&utm_campaign=data_downloads&utm_term=9.30_12_09_17&utm_content=download_the_data" />
                         <a href="rents-map.html" className="highlight" target="_blank">See average rents for your area and across the UK...</a>
-                        </Card>
+                        
                     </div>
                 }
-            </div>
+            </Card>
         )
     }
 }

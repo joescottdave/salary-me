@@ -24,13 +24,31 @@ class Vis extends Component {
         this.props.getHousePrice(houseprice);
     }
 
+    getAvgRent(avg_rent) {
+        this.props.getAvgRent(avg_rent);
+    }
+
     higherOrLower(val1, val2) {
         this.props.higherOrLower(val1, val2)
     }
 
     drawGraph(context) {
         const main = this;
-        d3.json('./data/Average-prices-2017-06.json', function(data){
+        d3.queue()
+        .defer(d3.json, './data/Average-prices-2017-06.json')
+        .defer(d3.json, './data/rents-consolid-with-avgs.json')
+        .await(function(error, data, data2){
+            if (error) throw error;
+
+            var postcode = main.props.postcode;
+            console.log(postcode);
+
+            var avg_rent = data2.filter(function(obj){
+                return obj.area === postcode.substring(0,2);
+            })
+
+            main.getAvgRent(avg_rent[0].avg);
+
             var parseTime = d3.timeParse("%Y-%m-%d")
             // two sets of data
             var localHousePriceInfo = data.filter(function(obj){

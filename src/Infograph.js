@@ -45,11 +45,13 @@ class Infograph extends Component {
             <div className="Infograph">
 
                 <section>
+                    <ScrollAnimation animateIn="slideInRight" animateOnce={true}>
                         <Welcome name={this.props.userInfo.userName} />
+                    </ScrollAnimation>
                 </section>
 
                 <section id="income-and-taxes">
-                    <ScrollAnimation animateIn="slideInUp" animateOnce={true}>
+                    <ScrollAnimation animateIn="slideInUp" animateOut="fadeOut" >
                         <Paycheque salary={this.state.salary}
                         takeHomePay={this.state.takeHomePay}
                         tax={this.state.tax}
@@ -71,7 +73,7 @@ class Infograph extends Component {
                 </section>
 
                 <section id="rent-and-housing">
-                <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+                <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
                         <Households takeHomePay = {this.state.takeHomePay}/>
                 </ScrollAnimation>
                 <ScrollAnimation animateIn="fadeIn" animateOnce={true}>

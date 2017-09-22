@@ -2987,7 +2987,7 @@ var createFactory = ReactElement.createFactory;
 var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
-  var lowPriorityWarning = __webpack_require__(40);
+  var lowPriorityWarning = __webpack_require__(39);
   var canDefineProperty = __webpack_require__(31);
   var ReactElementValidator = __webpack_require__(67);
   var didWarnPropTypesDeprecated = false;
@@ -3324,10 +3324,10 @@ module.exports = ReactReconciler;
 
 
 
-var DOMNamespaces = __webpack_require__(48);
+var DOMNamespaces = __webpack_require__(47);
 var setInnerHTML = __webpack_require__(36);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(49);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(48);
 var setTextContent = __webpack_require__(79);
 
 var ELEMENT_NODE_TYPE = 1;
@@ -3447,7 +3447,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(242);
+__webpack_require__(238);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3514,7 +3514,7 @@ exports.default = Source;
 
 
 var EventPluginHub = __webpack_require__(27);
-var EventPluginUtils = __webpack_require__(42);
+var EventPluginUtils = __webpack_require__(41);
 
 var accumulateInto = __webpack_require__(71);
 var forEachAccumulated = __webpack_require__(72);
@@ -3656,8 +3656,8 @@ module.exports = EventPropagators;
 var _prodInvariant = __webpack_require__(3);
 
 var EventPluginRegistry = __webpack_require__(33);
-var EventPluginUtils = __webpack_require__(42);
-var ReactErrorUtils = __webpack_require__(43);
+var EventPluginUtils = __webpack_require__(41);
+var ReactErrorUtils = __webpack_require__(42);
 
 var accumulateInto = __webpack_require__(71);
 var forEachAccumulated = __webpack_require__(72);
@@ -3935,7 +3935,7 @@ module.exports = EventPluginHub;
 
 var SyntheticEvent = __webpack_require__(15);
 
-var getEventTarget = __webpack_require__(44);
+var getEventTarget = __webpack_require__(43);
 
 /**
  * @interface UIEvent
@@ -4612,7 +4612,7 @@ module.exports = TransactionImpl;
 var SyntheticUIEvent = __webpack_require__(28);
 var ViewportMetrics = __webpack_require__(78);
 
-var getEventModifierState = __webpack_require__(46);
+var getEventModifierState = __webpack_require__(45);
 
 /**
  * @interface MouseEvent
@@ -4687,12 +4687,12 @@ module.exports = SyntheticMouseEvent;
 
 
 var ExecutionEnvironment = __webpack_require__(7);
-var DOMNamespaces = __webpack_require__(48);
+var DOMNamespaces = __webpack_require__(47);
 
 var WHITESPACE_TEST = /^[ \r\n\t\f]/;
 var NONVISIBLE_TEST = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(49);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(48);
 
 // SVG temp container for IE lacking innerHTML
 var reusableSVGContainer;
@@ -4923,7 +4923,7 @@ var ReactEventEmitterMixin = __webpack_require__(160);
 var ViewportMetrics = __webpack_require__(78);
 
 var getVendorPrefixedEventName = __webpack_require__(161);
-var isEventSupported = __webpack_require__(45);
+var isEventSupported = __webpack_require__(44);
 
 /**
  * Summary of `ReactBrowserEventEmitter` event handling:
@@ -5233,208 +5233,6 @@ module.exports = ReactBrowserEventEmitter;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var _react = __webpack_require__(4);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _lodashThrottle = __webpack_require__(224);
-
-var _lodashThrottle2 = _interopRequireDefault(_lodashThrottle);
-
-var _propTypes = __webpack_require__(226);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var ScrollAnimation = (function (_Component) {
-  _inherits(ScrollAnimation, _Component);
-
-  _createClass(ScrollAnimation, null, [{
-    key: "posTop",
-    value: function posTop() {
-      if (typeof window.pageYOffset !== "undefined") {
-        return window.pageYOffset;
-      } else if (document.documentElement.scrollTop) {
-        return document.documentElement.scrollTop;
-      } else if (document.body.scrollTop) {
-        return document.body.scrollTop;
-      }
-      return 0;
-    }
-  }]);
-
-  function ScrollAnimation(props) {
-    _classCallCheck(this, ScrollAnimation);
-
-    _get(Object.getPrototypeOf(ScrollAnimation.prototype), "constructor", this).call(this, props);
-    var initialHide = this.props.initiallyVisible ? "" : "hidden";
-    this.state = {
-      classes: "animated",
-      style: { "animationDuration": this.props.duration + "s", visibility: initialHide },
-      lastVisibility: { partially: false, completely: false },
-      timeouts: []
-    };
-    if (window && window.addEventListener) {
-      window.addEventListener("scroll", (0, _lodashThrottle2["default"])(this.handleScroll.bind(this), 200));
-    }
-    this.getClasses = this.getClasses.bind(this);
-  }
-
-  _createClass(ScrollAnimation, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.setState({ elementBottom: this.node.getBoundingClientRect().bottom + ScrollAnimation.posTop(),
-        elementTop: this.node.getBoundingClientRect().top + ScrollAnimation.posTop() }, this.handleScroll);
-      this.handleScroll();
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      if (window && window.addEventListener) {
-        window.removeEventListener("scroll", this.handleScroll.bind(this));
-      }
-    }
-  }, {
-    key: "handleScroll",
-    value: function handleScroll() {
-      var _this = this;
-
-      var visible = this.isVisible();
-      if (!visible.partially) {
-        this.state.timeouts.forEach(function (tid) {
-          clearTimeout(tid);
-        });
-      }
-      if (this.props.animateOnce && this.state.lastVisibility.completely) {
-        return;
-      }
-      if (visible.completely !== this.state.lastVisibility.completely || visible.partially !== this.state.lastVisibility.partially) {
-        var that;
-        var timeout;
-        var timeouts;
-
-        (function () {
-          var style = _this.getStyle(visible);
-          var classes = _this.getClasses(visible);
-          that = _this;
-
-          if (visible.partially) {
-            timeout = setTimeout(function () {
-              that.setState({ classes: classes, style: style, lastVisibility: visible });
-            }, _this.props.delay);
-            timeouts = _this.state.timeouts.slice();
-
-            timeouts.push(timeout);
-            _this.setState({ timeouts: timeouts });
-          } else {
-            _this.setState({ classes: classes, style: style, lastVisibility: visible });
-          }
-        })();
-      }
-    }
-  }, {
-    key: "isVisible",
-    value: function isVisible() {
-      var viewBottom = window.scrollY + window.innerHeight;
-      var viewTop = window.scrollY;
-      var offset = this.props.offset;
-      var elementBottom = this.state.elementBottom;
-      var elementTop = this.state.elementTop;
-      var middleOfView = window.scrollY + window.innerHeight / 2;
-      if (elementBottom - elementTop > window.innerHeight - 2 * offset) {
-        var completely = elementTop < middleOfView + offset && elementBottom > middleOfView - offset;
-        var partially = completely || elementTop > middleOfView + offset && elementTop < viewBottom || elementBottom < middleOfView - offset && elementBottom > viewTop;
-        return {
-          completely: completely,
-          partially: partially
-        };
-      }
-      return {
-        completely: elementBottom < viewBottom - offset && elementBottom > viewTop + offset && elementTop > viewTop + offset && elementTop < viewBottom - offset,
-        partially: elementBottom < viewBottom && elementBottom > viewTop || elementTop > viewTop && elementTop < viewBottom
-      };
-    }
-  }, {
-    key: "getStyle",
-    value: function getStyle(visible) {
-      var style = { "animationDuration": this.props.duration + "s" };
-      if (!visible.partially && !this.props.initiallyVisible) {
-        style.visibility = "hidden";
-      } else if (!visible.completely && visible.partially && !this.state.lastVisibility.partially && !this.props.initiallyVisible) {
-        style.visibility = "hidden";
-      }
-      return style;
-    }
-  }, {
-    key: "getClasses",
-    value: function getClasses(visible) {
-      var classes = "animated";
-      if (visible.completely && this.props.animateIn || visible.partially && this.state.classes.includes(this.props.animateIn) && !this.props.animateOut) {
-        classes += " " + this.props.animateIn;
-      } else if (visible.partially && this.state.lastVisibility.completely && this.props.animateOut) {
-        classes += " " + this.props.animateOut;
-      }
-      return classes;
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      return _react2["default"].createElement(
-        "div",
-        { ref: function (node) {
-            _this2.node = node;
-          }, className: this.state.classes, style: this.state.style },
-        this.props.children
-      );
-    }
-  }]);
-
-  return ScrollAnimation;
-})(_react.Component);
-
-exports["default"] = ScrollAnimation;
-
-ScrollAnimation.defaultProps = {
-  offset: 100,
-  duration: 1,
-  initiallyVisible: false,
-  delay: 0,
-  animateOnce: false
-};
-
-ScrollAnimation.propTypes = {
-  animateIn: _propTypes2["default"].string,
-  animateOut: _propTypes2["default"].string,
-  offset: _propTypes2["default"].number,
-  duration: _propTypes2["default"].number,
-  delay: _propTypes2["default"].number,
-  initiallyVisible: _propTypes2["default"].bool,
-  animateOnce: _propTypes2["default"].bool
-};
-module.exports = exports["default"];
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -5502,7 +5300,7 @@ module.exports = lowPriorityWarning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5523,7 +5321,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5541,7 +5339,7 @@ module.exports = ReactPropTypesSecret;
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactErrorUtils = __webpack_require__(43);
+var ReactErrorUtils = __webpack_require__(42);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -5755,7 +5553,7 @@ module.exports = EventPluginUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5837,7 +5635,7 @@ module.exports = ReactErrorUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5877,7 +5675,7 @@ function getEventTarget(nativeEvent) {
 module.exports = getEventTarget;
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5942,7 +5740,7 @@ function isEventSupported(eventNameSuffix, capture) {
 module.exports = isEventSupported;
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5990,7 +5788,7 @@ function getEventModifierState(nativeEvent) {
 module.exports = getEventModifierState;
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6011,7 +5809,7 @@ var Danger = __webpack_require__(145);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(12);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(49);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(48);
 var setInnerHTML = __webpack_require__(36);
 var setTextContent = __webpack_require__(79);
 
@@ -6222,7 +6020,7 @@ module.exports = DOMChildrenOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6247,7 +6045,7 @@ var DOMNamespaces = {
 module.exports = DOMNamespaces;
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6284,7 +6082,7 @@ var createMicrosoftUnsafeLocalFunction = function (func) {
 module.exports = createMicrosoftUnsafeLocalFunction;
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6428,7 +6226,7 @@ module.exports = LinkedValueUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6478,7 +6276,7 @@ module.exports = ReactComponentEnvironment;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6551,7 +6349,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6598,7 +6396,7 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 module.exports = shouldUpdateReactComponent;
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6662,7 +6460,7 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6902,7 +6700,7 @@ module.exports = ReactUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7279,7 +7077,7 @@ module.exports = validateDOMNesting;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7334,7 +7132,7 @@ function getEventCharCode(nativeEvent) {
 module.exports = getEventCharCode;
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://d3js.org Version 4.10.0. Copyright 2017 Mike Bostock.
@@ -24250,7 +24048,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24266,7 +24064,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(240);
+__webpack_require__(236);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24321,6 +24119,208 @@ var Explainer = function (_Component) {
 // )
 
 exports.default = Explainer;
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _lodashThrottle = __webpack_require__(240);
+
+var _lodashThrottle2 = _interopRequireDefault(_lodashThrottle);
+
+var _propTypes = __webpack_require__(242);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var ScrollAnimation = (function (_Component) {
+  _inherits(ScrollAnimation, _Component);
+
+  _createClass(ScrollAnimation, null, [{
+    key: "posTop",
+    value: function posTop() {
+      if (typeof window.pageYOffset !== "undefined") {
+        return window.pageYOffset;
+      } else if (document.documentElement.scrollTop) {
+        return document.documentElement.scrollTop;
+      } else if (document.body.scrollTop) {
+        return document.body.scrollTop;
+      }
+      return 0;
+    }
+  }]);
+
+  function ScrollAnimation(props) {
+    _classCallCheck(this, ScrollAnimation);
+
+    _get(Object.getPrototypeOf(ScrollAnimation.prototype), "constructor", this).call(this, props);
+    var initialHide = this.props.initiallyVisible ? "" : "hidden";
+    this.state = {
+      classes: "animated",
+      style: { "animationDuration": this.props.duration + "s", visibility: initialHide },
+      lastVisibility: { partially: false, completely: false },
+      timeouts: []
+    };
+    if (window && window.addEventListener) {
+      window.addEventListener("scroll", (0, _lodashThrottle2["default"])(this.handleScroll.bind(this), 200));
+    }
+    this.getClasses = this.getClasses.bind(this);
+  }
+
+  _createClass(ScrollAnimation, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState({ elementBottom: this.node.getBoundingClientRect().bottom + ScrollAnimation.posTop(),
+        elementTop: this.node.getBoundingClientRect().top + ScrollAnimation.posTop() }, this.handleScroll);
+      this.handleScroll();
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      if (window && window.addEventListener) {
+        window.removeEventListener("scroll", this.handleScroll.bind(this));
+      }
+    }
+  }, {
+    key: "handleScroll",
+    value: function handleScroll() {
+      var _this = this;
+
+      var visible = this.isVisible();
+      if (!visible.partially) {
+        this.state.timeouts.forEach(function (tid) {
+          clearTimeout(tid);
+        });
+      }
+      if (this.props.animateOnce && this.state.lastVisibility.completely) {
+        return;
+      }
+      if (visible.completely !== this.state.lastVisibility.completely || visible.partially !== this.state.lastVisibility.partially) {
+        var that;
+        var timeout;
+        var timeouts;
+
+        (function () {
+          var style = _this.getStyle(visible);
+          var classes = _this.getClasses(visible);
+          that = _this;
+
+          if (visible.partially) {
+            timeout = setTimeout(function () {
+              that.setState({ classes: classes, style: style, lastVisibility: visible });
+            }, _this.props.delay);
+            timeouts = _this.state.timeouts.slice();
+
+            timeouts.push(timeout);
+            _this.setState({ timeouts: timeouts });
+          } else {
+            _this.setState({ classes: classes, style: style, lastVisibility: visible });
+          }
+        })();
+      }
+    }
+  }, {
+    key: "isVisible",
+    value: function isVisible() {
+      var viewBottom = window.scrollY + window.innerHeight;
+      var viewTop = window.scrollY;
+      var offset = this.props.offset;
+      var elementBottom = this.state.elementBottom;
+      var elementTop = this.state.elementTop;
+      var middleOfView = window.scrollY + window.innerHeight / 2;
+      if (elementBottom - elementTop > window.innerHeight - 2 * offset) {
+        var completely = elementTop < middleOfView + offset && elementBottom > middleOfView - offset;
+        var partially = completely || elementTop > middleOfView + offset && elementTop < viewBottom || elementBottom < middleOfView - offset && elementBottom > viewTop;
+        return {
+          completely: completely,
+          partially: partially
+        };
+      }
+      return {
+        completely: elementBottom < viewBottom - offset && elementBottom > viewTop + offset && elementTop > viewTop + offset && elementTop < viewBottom - offset,
+        partially: elementBottom < viewBottom && elementBottom > viewTop || elementTop > viewTop && elementTop < viewBottom
+      };
+    }
+  }, {
+    key: "getStyle",
+    value: function getStyle(visible) {
+      var style = { "animationDuration": this.props.duration + "s" };
+      if (!visible.partially && !this.props.initiallyVisible) {
+        style.visibility = "hidden";
+      } else if (!visible.completely && visible.partially && !this.state.lastVisibility.partially && !this.props.initiallyVisible) {
+        style.visibility = "hidden";
+      }
+      return style;
+    }
+  }, {
+    key: "getClasses",
+    value: function getClasses(visible) {
+      var classes = "animated";
+      if (visible.completely && this.props.animateIn || visible.partially && this.state.classes.includes(this.props.animateIn) && !this.props.animateOut) {
+        classes += " " + this.props.animateIn;
+      } else if (visible.partially && this.state.lastVisibility.completely && this.props.animateOut) {
+        classes += " " + this.props.animateOut;
+      }
+      return classes;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return _react2["default"].createElement(
+        "div",
+        { ref: function (node) {
+            _this2.node = node;
+          }, className: this.state.classes, style: this.state.style },
+        this.props.children
+      );
+    }
+  }]);
+
+  return ScrollAnimation;
+})(_react.Component);
+
+exports["default"] = ScrollAnimation;
+
+ScrollAnimation.defaultProps = {
+  offset: 100,
+  duration: 1,
+  initiallyVisible: false,
+  delay: 0,
+  animateOnce: false
+};
+
+ScrollAnimation.propTypes = {
+  animateIn: _propTypes2["default"].string,
+  animateOut: _propTypes2["default"].string,
+  offset: _propTypes2["default"].number,
+  duration: _propTypes2["default"].number,
+  delay: _propTypes2["default"].number,
+  initiallyVisible: _propTypes2["default"].bool,
+  animateOnce: _propTypes2["default"].bool
+};
+module.exports = exports["default"];
 
 /***/ }),
 /* 60 */
@@ -24593,7 +24593,7 @@ var ReactNoopUpdateQueue = __webpack_require__(64);
 var canDefineProperty = __webpack_require__(31);
 var emptyObject = __webpack_require__(32);
 var invariant = __webpack_require__(1);
-var lowPriorityWarning = __webpack_require__(40);
+var lowPriorityWarning = __webpack_require__(39);
 
 /**
  * Base class helpers for the updating state of a component.
@@ -24922,7 +24922,7 @@ var checkReactTypeSpec = __webpack_require__(116);
 var canDefineProperty = __webpack_require__(31);
 var getIteratorFn = __webpack_require__(66);
 var warning = __webpack_require__(2);
-var lowPriorityWarning = __webpack_require__(40);
+var lowPriorityWarning = __webpack_require__(39);
 
 function getDeclarationErrorAddendum() {
   if (ReactCurrentOwner.current) {
@@ -25198,7 +25198,7 @@ var emptyFunction = __webpack_require__(11);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
-var ReactPropTypesSecret = __webpack_require__(41);
+var ReactPropTypesSecret = __webpack_require__(40);
 var checkPropTypes = __webpack_require__(120);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
@@ -26755,7 +26755,7 @@ module.exports = ReactPropTypesSecret;
 
 var _assign = __webpack_require__(5);
 
-var LinkedValueUtils = __webpack_require__(50);
+var LinkedValueUtils = __webpack_require__(49);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(14);
 
@@ -27256,7 +27256,7 @@ var REACT_ELEMENT_TYPE = __webpack_require__(171);
 
 var getIteratorFn = __webpack_require__(172);
 var invariant = __webpack_require__(1);
-var KeyEscapeUtils = __webpack_require__(54);
+var KeyEscapeUtils = __webpack_require__(53);
 var warning = __webpack_require__(2);
 
 var SEPARATOR = '.';
@@ -27701,14 +27701,14 @@ var ReactInstanceMap = __webpack_require__(29);
 var ReactInstrumentation = __webpack_require__(12);
 var ReactMarkupChecksum = __webpack_require__(203);
 var ReactReconciler = __webpack_require__(22);
-var ReactUpdateQueue = __webpack_require__(55);
+var ReactUpdateQueue = __webpack_require__(54);
 var ReactUpdates = __webpack_require__(14);
 
 var emptyObject = __webpack_require__(32);
 var instantiateReactComponent = __webpack_require__(85);
 var invariant = __webpack_require__(1);
 var setInnerHTML = __webpack_require__(36);
-var shouldUpdateReactComponent = __webpack_require__(53);
+var shouldUpdateReactComponent = __webpack_require__(52);
 var warning = __webpack_require__(2);
 
 var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
@@ -28265,11 +28265,11 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _d = __webpack_require__(58);
+var _d = __webpack_require__(57);
 
 var d3 = _interopRequireWildcard(_d);
 
-__webpack_require__(236);
+__webpack_require__(232);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -29941,7 +29941,7 @@ module.exports = factory(isValidElement);
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(1);
   var warning = __webpack_require__(2);
-  var ReactPropTypesSecret = __webpack_require__(41);
+  var ReactPropTypesSecret = __webpack_require__(40);
   var loggedTypeFailures = {};
 }
 
@@ -31856,8 +31856,8 @@ var ReactUpdates = __webpack_require__(14);
 var SyntheticEvent = __webpack_require__(15);
 
 var inputValueTracking = __webpack_require__(76);
-var getEventTarget = __webpack_require__(44);
-var isEventSupported = __webpack_require__(45);
+var getEventTarget = __webpack_require__(43);
+var isEventSupported = __webpack_require__(44);
 var isTextInputElement = __webpack_require__(77);
 
 var eventTypes = {
@@ -33249,7 +33249,7 @@ module.exports = HTMLDOMPropertyConfig;
 
 
 
-var DOMChildrenOperations = __webpack_require__(47);
+var DOMChildrenOperations = __webpack_require__(46);
 var ReactDOMIDOperations = __webpack_require__(149);
 
 /**
@@ -33658,7 +33658,7 @@ module.exports = getMarkupWrap;
 
 
 
-var DOMChildrenOperations = __webpack_require__(47);
+var DOMChildrenOperations = __webpack_require__(46);
 var ReactDOMComponentTree = __webpack_require__(6);
 
 /**
@@ -33704,7 +33704,7 @@ var _prodInvariant = __webpack_require__(3),
 var AutoFocusUtils = __webpack_require__(151);
 var CSSPropertyOperations = __webpack_require__(152);
 var DOMLazyTree = __webpack_require__(23);
-var DOMNamespaces = __webpack_require__(48);
+var DOMNamespaces = __webpack_require__(47);
 var DOMProperty = __webpack_require__(16);
 var DOMPropertyOperations = __webpack_require__(82);
 var EventPluginHub = __webpack_require__(27);
@@ -33723,10 +33723,10 @@ var ReactServerRenderingTransaction = __webpack_require__(174);
 var emptyFunction = __webpack_require__(11);
 var escapeTextContentForBrowser = __webpack_require__(37);
 var invariant = __webpack_require__(1);
-var isEventSupported = __webpack_require__(45);
-var shallowEqual = __webpack_require__(52);
+var isEventSupported = __webpack_require__(44);
+var shallowEqual = __webpack_require__(51);
 var inputValueTracking = __webpack_require__(76);
-var validateDOMNesting = __webpack_require__(56);
+var validateDOMNesting = __webpack_require__(55);
 var warning = __webpack_require__(2);
 
 var Flags = ReactDOMComponentFlags;
@@ -35424,7 +35424,7 @@ var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(5);
 
 var DOMPropertyOperations = __webpack_require__(82);
-var LinkedValueUtils = __webpack_require__(50);
+var LinkedValueUtils = __webpack_require__(49);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(14);
 
@@ -35844,7 +35844,7 @@ module.exports = ReactDOMOption;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(5);
 
-var LinkedValueUtils = __webpack_require__(50);
+var LinkedValueUtils = __webpack_require__(49);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(14);
 
@@ -36009,7 +36009,7 @@ module.exports = ReactDOMTextarea;
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactComponentEnvironment = __webpack_require__(51);
+var ReactComponentEnvironment = __webpack_require__(50);
 var ReactInstanceMap = __webpack_require__(29);
 var ReactInstrumentation = __webpack_require__(12);
 
@@ -36462,8 +36462,8 @@ module.exports = ReactMultiChild;
 var ReactReconciler = __webpack_require__(22);
 
 var instantiateReactComponent = __webpack_require__(85);
-var KeyEscapeUtils = __webpack_require__(54);
-var shouldUpdateReactComponent = __webpack_require__(53);
+var KeyEscapeUtils = __webpack_require__(53);
+var shouldUpdateReactComponent = __webpack_require__(52);
 var traverseAllChildren = __webpack_require__(89);
 var warning = __webpack_require__(2);
 
@@ -36622,9 +36622,9 @@ var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(5);
 
 var React = __webpack_require__(20);
-var ReactComponentEnvironment = __webpack_require__(51);
+var ReactComponentEnvironment = __webpack_require__(50);
 var ReactCurrentOwner = __webpack_require__(13);
-var ReactErrorUtils = __webpack_require__(43);
+var ReactErrorUtils = __webpack_require__(42);
 var ReactInstanceMap = __webpack_require__(29);
 var ReactInstrumentation = __webpack_require__(12);
 var ReactNodeTypes = __webpack_require__(86);
@@ -36636,8 +36636,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 var emptyObject = __webpack_require__(32);
 var invariant = __webpack_require__(1);
-var shallowEqual = __webpack_require__(52);
-var shouldUpdateReactComponent = __webpack_require__(53);
+var shallowEqual = __webpack_require__(51);
+var shouldUpdateReactComponent = __webpack_require__(52);
 var warning = __webpack_require__(2);
 
 var CompositeTypes = {
@@ -37746,7 +37746,7 @@ module.exports = getIteratorFn;
 
 
 
-var KeyEscapeUtils = __webpack_require__(54);
+var KeyEscapeUtils = __webpack_require__(53);
 var traverseAllChildren = __webpack_require__(89);
 var warning = __webpack_require__(2);
 
@@ -37926,7 +37926,7 @@ module.exports = ReactServerRenderingTransaction;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ReactUpdateQueue = __webpack_require__(55);
+var ReactUpdateQueue = __webpack_require__(54);
 
 var warning = __webpack_require__(2);
 
@@ -38278,13 +38278,13 @@ module.exports = {
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(5);
 
-var DOMChildrenOperations = __webpack_require__(47);
+var DOMChildrenOperations = __webpack_require__(46);
 var DOMLazyTree = __webpack_require__(23);
 var ReactDOMComponentTree = __webpack_require__(6);
 
 var escapeTextContentForBrowser = __webpack_require__(37);
 var invariant = __webpack_require__(1);
-var validateDOMNesting = __webpack_require__(56);
+var validateDOMNesting = __webpack_require__(55);
 
 /**
  * Text nodes violate a couple assumptions that React makes about components:
@@ -38524,7 +38524,7 @@ var PooledClass = __webpack_require__(19);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(14);
 
-var getEventTarget = __webpack_require__(44);
+var getEventTarget = __webpack_require__(43);
 var getUnboundedScrollPosition = __webpack_require__(181);
 
 /**
@@ -38722,8 +38722,8 @@ module.exports = getUnboundedScrollPosition;
 
 var DOMProperty = __webpack_require__(16);
 var EventPluginHub = __webpack_require__(27);
-var EventPluginUtils = __webpack_require__(42);
-var ReactComponentEnvironment = __webpack_require__(51);
+var EventPluginUtils = __webpack_require__(41);
+var ReactComponentEnvironment = __webpack_require__(50);
 var ReactEmptyComponent = __webpack_require__(87);
 var ReactBrowserEventEmitter = __webpack_require__(38);
 var ReactHostComponent = __webpack_require__(88);
@@ -38767,7 +38767,7 @@ var ReactBrowserEventEmitter = __webpack_require__(38);
 var ReactInputSelection = __webpack_require__(91);
 var ReactInstrumentation = __webpack_require__(12);
 var Transaction = __webpack_require__(34);
-var ReactUpdateQueue = __webpack_require__(55);
+var ReactUpdateQueue = __webpack_require__(54);
 
 /**
  * Ensures that, when possible, the selection range (currently selected text
@@ -39659,7 +39659,7 @@ var SyntheticEvent = __webpack_require__(15);
 
 var getActiveElement = __webpack_require__(92);
 var isTextInputElement = __webpack_require__(77);
-var shallowEqual = __webpack_require__(52);
+var shallowEqual = __webpack_require__(51);
 
 var skipSelectionChangeEvent = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
 
@@ -39863,7 +39863,7 @@ var SyntheticUIEvent = __webpack_require__(28);
 var SyntheticWheelEvent = __webpack_require__(200);
 
 var emptyFunction = __webpack_require__(11);
-var getEventCharCode = __webpack_require__(57);
+var getEventCharCode = __webpack_require__(56);
 var invariant = __webpack_require__(1);
 
 /**
@@ -40206,9 +40206,9 @@ module.exports = SyntheticFocusEvent;
 
 var SyntheticUIEvent = __webpack_require__(28);
 
-var getEventCharCode = __webpack_require__(57);
+var getEventCharCode = __webpack_require__(56);
 var getEventKey = __webpack_require__(196);
-var getEventModifierState = __webpack_require__(46);
+var getEventModifierState = __webpack_require__(45);
 
 /**
  * @interface KeyboardEvent
@@ -40293,7 +40293,7 @@ module.exports = SyntheticKeyboardEvent;
 
 
 
-var getEventCharCode = __webpack_require__(57);
+var getEventCharCode = __webpack_require__(56);
 
 /**
  * Normalization of deprecated HTML5 `key` values
@@ -40453,7 +40453,7 @@ module.exports = SyntheticDragEvent;
 
 var SyntheticUIEvent = __webpack_require__(28);
 
-var getEventModifierState = __webpack_require__(46);
+var getEventModifierState = __webpack_require__(45);
 
 /**
  * @interface TouchEvent
@@ -40601,7 +40601,7 @@ module.exports = SyntheticWheelEvent;
 
 
 
-var validateDOMNesting = __webpack_require__(56);
+var validateDOMNesting = __webpack_require__(55);
 
 var DOC_NODE_TYPE = 9;
 
@@ -41465,15 +41465,15 @@ var _Welcome = __webpack_require__(219);
 
 var _Welcome2 = _interopRequireDefault(_Welcome);
 
-var _Paycheque = __webpack_require__(228);
+var _Paycheque = __webpack_require__(224);
 
 var _Paycheque2 = _interopRequireDefault(_Paycheque);
 
-var _ControlCenter = __webpack_require__(231);
+var _ControlCenter = __webpack_require__(227);
 
 var _ControlCenter2 = _interopRequireDefault(_ControlCenter);
 
-var _Inflation = __webpack_require__(234);
+var _Inflation = __webpack_require__(230);
 
 var _Inflation2 = _interopRequireDefault(_Inflation);
 
@@ -41495,7 +41495,7 @@ var _Taxes2 = _interopRequireDefault(_Taxes);
 
 __webpack_require__(279);
 
-var _reactAnimateOnScroll = __webpack_require__(39);
+var _reactAnimateOnScroll = __webpack_require__(59);
 
 var _reactAnimateOnScroll2 = _interopRequireDefault(_reactAnimateOnScroll);
 
@@ -41553,14 +41553,18 @@ var Infograph = function (_Component) {
                 _react2.default.createElement(
                     'section',
                     null,
-                    _react2.default.createElement(_Welcome2.default, { name: this.props.userInfo.userName })
+                    _react2.default.createElement(
+                        _reactAnimateOnScroll2.default,
+                        { animateIn: 'slideInRight', animateOnce: true },
+                        _react2.default.createElement(_Welcome2.default, { name: this.props.userInfo.userName })
+                    )
                 ),
                 _react2.default.createElement(
                     'section',
                     { id: 'income-and-taxes' },
                     _react2.default.createElement(
                         _reactAnimateOnScroll2.default,
-                        { animateIn: 'slideInUp', animateOnce: true },
+                        { animateIn: 'slideInUp', animateOut: 'fadeOut' },
                         _react2.default.createElement(_Paycheque2.default, { salary: this.state.salary,
                             takeHomePay: this.state.takeHomePay,
                             tax: this.state.tax,
@@ -41588,7 +41592,7 @@ var Infograph = function (_Component) {
                     { id: 'rent-and-housing' },
                     _react2.default.createElement(
                         _reactAnimateOnScroll2.default,
-                        { animateIn: 'fadeIn', animateOnce: true },
+                        { animateIn: 'fadeIn', animateOut: 'fadeOut' },
                         _react2.default.createElement(_Households2.default, { takeHomePay: this.state.takeHomePay })
                     ),
                     _react2.default.createElement(
@@ -41630,10 +41634,6 @@ var _Card2 = _interopRequireDefault(_Card);
 
 __webpack_require__(222);
 
-var _reactAnimateOnScroll = __webpack_require__(39);
-
-var _reactAnimateOnScroll2 = _interopRequireDefault(_reactAnimateOnScroll);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -41641,6 +41641,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import ScrollAnimation from 'react-animate-on-scroll';
 
 var Welcome = function (_Component) {
     _inherits(Welcome, _Component);
@@ -41663,16 +41665,8 @@ var Welcome = function (_Component) {
                     _react2.default.createElement(
                         'h2',
                         { className: 'splash' },
-                        'Welcome to your dashboard,'
-                    ),
-                    _react2.default.createElement(
-                        _reactAnimateOnScroll2.default,
-                        { animateIn: 'slideInRight', animateOnce: true },
-                        _react2.default.createElement(
-                            'h2',
-                            { className: 'splash' },
-                            this.props.name
-                        )
+                        'Welcome to your dashboard, ',
+                        this.props.name
                     )
                 )
             );
@@ -41724,7 +41718,7 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, ".Card {\r\n    /* display: flex;\r\n    align-items: center; */\r\n\r\n    /* border: 1px dashed black; */\r\n    margin: 0 auto;\r\n    padding: 0.5em;\r\n    width: 100%;\r\n    max-width: 900px;\r\n    min-height: 90vh;\r\n\r\n\r\n    -moz-box-sizing: border-box;\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n}", ""]);
+exports.push([module.i, ".Card {\r\n    /* display: flex;\r\n    align-items: center; */\r\n\r\n    position: relative;\r\n    background-color: rgba(250,250,250,0.6);\r\n    border: 0.5px solid rgba(250,250,250,1);\r\n    border-radius: 8px;\r\n    box-shadow: 2px 4px 4px 2px rgba(0,0,0,0.1);\r\n    padding: 1rem;\r\n    margin: 10vh auto;\r\n    width: 100%;\r\n    max-width: 780px;\r\n    min-height: 80vh;\r\n\r\n\r\n\r\n    -moz-box-sizing: border-box;\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n}\r\n\r\n@media screen and (max-width: 480px) {\r\n    min-height: 90vh;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -41769,13 +41763,859 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "h2.splash {\r\n    position: absolute;\r\n    top: 15%;\r\n}", ""]);
 
 // exports
 
 
 /***/ }),
 /* 224 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Card = __webpack_require__(17);
+
+var _Card2 = _interopRequireDefault(_Card);
+
+__webpack_require__(225);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Paycheque = function (_Component) {
+    _inherits(Paycheque, _Component);
+
+    function Paycheque() {
+        _classCallCheck(this, Paycheque);
+
+        return _possibleConstructorReturn(this, (Paycheque.__proto__ || Object.getPrototypeOf(Paycheque)).apply(this, arguments));
+    }
+
+    _createClass(Paycheque, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'Paycheque' },
+                _react2.default.createElement(
+                    _Card2.default,
+                    null,
+                    _react2.default.createElement(
+                        'h2',
+                        null,
+                        'Let\'s look at your income and contributions'
+                    ),
+                    _react2.default.createElement(
+                        'h3',
+                        null,
+                        'According to our tax calculator:'
+                    ),
+                    _react2.default.createElement(
+                        'ul',
+                        { className: 'Paycheque-List' },
+                        _react2.default.createElement(
+                            'li',
+                            { className: 'Payche-List-Item' },
+                            'On an annual salary of \xA3',
+                            this.props.salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            { className: 'Payche-List-Item' },
+                            'You will pay approximately ',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'highlight' },
+                                '\xA3',
+                                this.props.tax
+                            ),
+                            ' in income tax'
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            { className: 'Payche-List-Item' },
+                            'and make national insurance contributions of ',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'highlight' },
+                                '\xA3',
+                                this.props.contribution.toFixed(2)
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            { className: 'Payche-List-Item' },
+                            'leaving you with ',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'highlight' },
+                                _react2.default.createElement(
+                                    'strong',
+                                    null,
+                                    '\xA3',
+                                    this.props.takeHomePay
+                                )
+                            ),
+                            ' a month!'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Paycheque;
+}(_react.Component);
+
+exports.default = Paycheque;
+
+/***/ }),
+/* 225 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(226);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(9)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/css-loader/index.js!./Paycheque.css", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js!./Paycheque.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 226 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".Paycheque {\r\n    align-self: top;\r\n}\r\n\r\nul.Paycheque-List {\r\n    list-style: none;\r\n    text-align: center;\r\n    margin: 20px;\r\n}\r\n\r\nli.Paycheque-List-Item {\r\n    margin-bottom: 20px;\r\n}\r\n\r\nli.Paycheque-List-Item strong{\r\n    font-size: 1.5em;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 227 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(228);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ControlCenter = function (_Component) {
+    _inherits(ControlCenter, _Component);
+
+    function ControlCenter() {
+        _classCallCheck(this, ControlCenter);
+
+        return _possibleConstructorReturn(this, (ControlCenter.__proto__ || Object.getPrototypeOf(ControlCenter)).apply(this, arguments));
+    }
+
+    _createClass(ControlCenter, [{
+        key: 'handleReset',
+        value: function handleReset() {
+            this.props.handleReset();
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'ControlCenter' },
+                _react2.default.createElement(
+                    'button',
+                    { name: 'startAgain', onClick: this.handleReset.bind(this) },
+                    'Start Again'
+                )
+            );
+        }
+    }]);
+
+    return ControlCenter;
+}(_react.Component);
+
+exports.default = ControlCenter;
+
+/***/ }),
+/* 228 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(229);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(9)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/css-loader/index.js!./ControlCenter.css", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js!./ControlCenter.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 229 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".ControlCenter{\r\n    margin: 20px;\r\n    padding: 20px;\r\n    text-align: center;\r\n}\r\n\r\n.ControlCenter button{\r\n    border: 0.5px rgba(250,250,250,1) solid;\r\n    border-radius: 2px;\r\n    box-shadow: 2px 4px 4px 2px rgba(0,0,0,0.1);\r\n    padding: 5px;\r\n    background: rgba(250,250,250,0.6);\r\n    font-size: 16px;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 230 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Basket = __webpack_require__(231);
+
+var _Basket2 = _interopRequireDefault(_Basket);
+
+var _BasketVis = __webpack_require__(95);
+
+var _BasketVis2 = _interopRequireDefault(_BasketVis);
+
+var _Card = __webpack_require__(17);
+
+var _Card2 = _interopRequireDefault(_Card);
+
+var _Explainer = __webpack_require__(58);
+
+var _Explainer2 = _interopRequireDefault(_Explainer);
+
+var _Source = __webpack_require__(24);
+
+var _Source2 = _interopRequireDefault(_Source);
+
+var _reactAnimateOnScroll = __webpack_require__(59);
+
+var _reactAnimateOnScroll2 = _interopRequireDefault(_reactAnimateOnScroll);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Inflation = function (_Component) {
+    _inherits(Inflation, _Component);
+
+    function Inflation(props) {
+        _classCallCheck(this, Inflation);
+
+        var _this = _possibleConstructorReturn(this, (Inflation.__proto__ || Object.getPrototypeOf(Inflation)).call(this, props));
+
+        _this.state = {
+            salary: props.salary,
+            monthly: props.takeHomePay,
+            inflation: 2.9,
+            raise: 0,
+            iPhoneX: false
+        };
+        return _this;
+    }
+
+    _createClass(Inflation, [{
+        key: 'calculateiPhone',
+        value: function calculateiPhone() {
+            if (this.state.raise > 999) {
+                return "iPhone-X";
+            } else if (this.state.raise > 799) {
+                return "iPhone-8-Plus";
+            } else if (this.state.raise > 699) {
+                return "iPhone-8";
+            } else if (this.state.raise > 669) {
+                return "iPhone-7-Plus";
+            } else if (this.state.raise > 549) {
+                return "iPhone-7";
+            } else if (this.state.raise > 449) {
+                return "iPhone-6S";
+            } else if (this.state.raise > 349) {
+                return "iPhone-SE";
+            } else {
+                return null;
+            }
+        }
+    }, {
+        key: 'calculateRaise',
+        value: function calculateRaise() {
+            var raise = (this.state.salary * (this.state.inflation / 100)).toFixed(2);
+            if (raise >= 999) {
+                this.setState({ iPhoneX: true });
+            }
+            return raise;
+        }
+    }, {
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.setState({ raise: this.calculateRaise() });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    _Card2.default,
+                    null,
+                    _react2.default.createElement(
+                        _reactAnimateOnScroll2.default,
+                        { animateIn: 'fadeIn', animateOnce: true },
+                        _react2.default.createElement(
+                            'h2',
+                            null,
+                            'Current rate of inflation in the UK:'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _reactAnimateOnScroll2.default,
+                        { animateIn: 'fadeIn', animateOnce: true },
+                        _react2.default.createElement(
+                            'h2',
+                            null,
+                            _react2.default.createElement(
+                                'strong',
+                                { className: 'highlight' },
+                                this.state.inflation,
+                                '%'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(_Source2.default, { href: 'https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/aug2017' }),
+                    _react2.default.createElement(
+                        _reactAnimateOnScroll2.default,
+                        { animateIn: 'fadeIn', animateOnce: true },
+                        _react2.default.createElement(
+                            'h2',
+                            null,
+                            'At this rate you will need a pay rise of ',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'highlight' },
+                                '\xA3',
+                                this.state.raise
+                            ),
+                            ' this year'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _reactAnimateOnScroll2.default,
+                        { animateIn: 'fadeIn', animateOnce: true },
+                        _react2.default.createElement(
+                            'h3',
+                            null,
+                            'Enough to buy you an ',
+                            this.calculateiPhone().replace('-', ' ')
+                        )
+                    ),
+                    this.calculateiPhone() == null ? null : _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement(
+                            _reactAnimateOnScroll2.default,
+                            { animateIn: 'fadeIn', animateOnce: true },
+                            _react2.default.createElement('img', { src: "./img/" + this.calculateiPhone() + '.png', height: '360px', className: 'iphone' })
+                        ),
+                        _react2.default.createElement(
+                            _reactAnimateOnScroll2.default,
+                            { animateIn: 'fadeIn', animateOnce: true },
+                            this.state.iPhoneX ? _react2.default.createElement(
+                                'h3',
+                                null,
+                                'Wouldn\'t that be nice?'
+                            ) : _react2.default.createElement(
+                                'h3',
+                                null,
+                                'Sorry, no iPhone X for you.'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            _reactAnimateOnScroll2.default,
+                            { animateIn: 'bounceIn' },
+                            this.state.iPhoneX ? null : _react2.default.createElement('img', { src: './img/No-iPhone-X.jpg', height: '360px', className: 'iphone' })
+                        )
+                    ),
+                    _react2.default.createElement(_Source2.default, { href: 'https://www.apple.com/uk/iphone/' })
+                ),
+                _react2.default.createElement(
+                    _Card2.default,
+                    null,
+                    _react2.default.createElement(_Basket2.default, { monthly: this.state.monthly }),
+                    _react2.default.createElement(_BasketVis2.default, null),
+                    _react2.default.createElement(
+                        _Explainer2.default,
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'CPIH is a measure of consumer inflation not yet recognised as a national statistic, but unlike CPI it takes into account the costs associated with owning and occupying your home.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Purchases are categorised into one of twelve categories and their significance is weighted according to the proportion of consumer spending that falls into the corresponding category.'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Inflation;
+}(_react.Component);
+
+exports.default = Inflation;
+
+/***/ }),
+/* 231 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Card = __webpack_require__(17);
+
+var _Card2 = _interopRequireDefault(_Card);
+
+var _BasketVis = __webpack_require__(95);
+
+var _BasketVis2 = _interopRequireDefault(_BasketVis);
+
+__webpack_require__(234);
+
+var _Explainer = __webpack_require__(58);
+
+var _Explainer2 = _interopRequireDefault(_Explainer);
+
+var _Source = __webpack_require__(24);
+
+var _Source2 = _interopRequireDefault(_Source);
+
+var _reactAnimateOnScroll = __webpack_require__(59);
+
+var _reactAnimateOnScroll2 = _interopRequireDefault(_reactAnimateOnScroll);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Basket = function (_Component) {
+    _inherits(Basket, _Component);
+
+    function Basket(props) {
+        _classCallCheck(this, Basket);
+
+        var _this = _possibleConstructorReturn(this, (Basket.__proto__ || Object.getPrototypeOf(Basket)).call(this, props));
+
+        _this.state = {
+            monthly: props.monthly
+        };
+        return _this;
+    }
+
+    _createClass(Basket, [{
+        key: 'render',
+        value: function render() {
+            var payCheque = this.state.monthly;
+            var cpih_weight = {
+                food: 8.1,
+                alcohol: 3.4,
+                clothing: 5.8,
+                housing: 29.4,
+                furniture: 4.9,
+                health: 2.1,
+                transport: 12.6,
+                comms: 2.1,
+                recreation: 12.1,
+                education: 1.7,
+                restaurants: 10.1,
+                misc: 7.7
+            };
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'Basket' },
+                _react2.default.createElement(
+                    'h2',
+                    null,
+                    'Basket of Goods'
+                ),
+                _react2.default.createElement(
+                    'h3',
+                    null,
+                    'How much you have to spend... (CPIH Weighting)'
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        'Food: \xA3',
+                        (payCheque / 100 * cpih_weight.food).toFixed(2)
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        'Alcohol: \xA3',
+                        (payCheque / 100 * cpih_weight.alcohol).toFixed(2)
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        'Clothing: \xA3',
+                        (payCheque / 100 * cpih_weight.clothing).toFixed(2)
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        'Housing: \xA3',
+                        (payCheque / 100 * cpih_weight.housing).toFixed(2)
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        'Furniture: \xA3',
+                        (payCheque / 100 * cpih_weight.furniture).toFixed(2)
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        'Health: \xA3',
+                        (payCheque / 100 * cpih_weight.health).toFixed(2)
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        'Transport: \xA3',
+                        (payCheque / 100 * cpih_weight.transport).toFixed(2)
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        'Communication: \xA3',
+                        (payCheque / 100 * cpih_weight.comms).toFixed(2)
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        'Recreation: \xA3',
+                        (payCheque / 100 * cpih_weight.recreation).toFixed(2)
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        'Education: \xA3',
+                        (payCheque / 100 * cpih_weight.education).toFixed(2)
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        'Restaurants: \xA3',
+                        (payCheque / 100 * cpih_weight.restaurants).toFixed(2)
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        'Misc: \xA3',
+                        (payCheque / 100 * cpih_weight.misc).toFixed(2)
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Basket;
+}(_react.Component);
+
+exports.default = Basket;
+
+/***/ }),
+/* 232 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(233);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(9)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/css-loader/index.js!./BasketVis.css", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js!./BasketVis.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 233 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "svg.basket-vis {\r\n    cursor: pointer;\r\n}\r\n\r\nsvg.basket-vis text{\r\n    font-size: 10px;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 234 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(235);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(9)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/css-loader/index.js!./Basket.css", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js!./Basket.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 235 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "img.iphone {\r\n    border-radius: 50%;\r\n    display: block;\r\n    margin: 3em auto;\r\n    max-height: 360px;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 236 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(237);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(9)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/css-loader/index.js!./Explainer.css", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js!./Explainer.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 237 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".Explainer {\r\n    border-radius: 4px;\r\n    padding: 0.2rem;\r\n    margin: 0.2rem;\r\n}\r\n\r\n.Explainer-Link {\r\n    cursor: pointer;\r\n    text-decoration: underline;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 238 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(239);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(9)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/css-loader/index.js!./Source.css", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js!./Source.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 239 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".source-link {\r\n    /* border: 0.5px solid darkgrey;\r\n    border-radius: 4px;\r\n    box-shadow: 2px 4px 1px 1px rgba(0,0,0,0.1); */\r\n    padding: 0.5rem;\r\n}\r\n\r\n.source-link a {\r\n    font-size: 0.7rem;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -42218,10 +43058,10 @@ function toNumber(value) {
 
 module.exports = throttle;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(225)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(241)))
 
 /***/ }),
-/* 225 */
+/* 241 */
 /***/ (function(module, exports) {
 
 var g;
@@ -42248,7 +43088,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 226 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -42279,13 +43119,13 @@ if (process.env.NODE_ENV !== 'production') {
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(227)();
+  module.exports = __webpack_require__(243)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 227 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42302,7 +43142,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 var emptyFunction = __webpack_require__(11);
 var invariant = __webpack_require__(1);
-var ReactPropTypesSecret = __webpack_require__(41);
+var ReactPropTypesSecret = __webpack_require__(40);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -42348,852 +43188,6 @@ module.exports = function() {
 
   return ReactPropTypes;
 };
-
-
-/***/ }),
-/* 228 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(4);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Card = __webpack_require__(17);
-
-var _Card2 = _interopRequireDefault(_Card);
-
-__webpack_require__(229);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Paycheque = function (_Component) {
-    _inherits(Paycheque, _Component);
-
-    function Paycheque() {
-        _classCallCheck(this, Paycheque);
-
-        return _possibleConstructorReturn(this, (Paycheque.__proto__ || Object.getPrototypeOf(Paycheque)).apply(this, arguments));
-    }
-
-    _createClass(Paycheque, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'Paycheque' },
-                _react2.default.createElement(
-                    'h2',
-                    null,
-                    'Let\'s look at your income and contributions'
-                ),
-                _react2.default.createElement(
-                    _Card2.default,
-                    null,
-                    _react2.default.createElement(
-                        'h3',
-                        null,
-                        'According to our tax calculator:'
-                    ),
-                    _react2.default.createElement(
-                        'ul',
-                        { className: 'Paycheque-List' },
-                        _react2.default.createElement(
-                            'li',
-                            { className: 'Payche-List-Item' },
-                            'On an annual salary of \xA3',
-                            this.props.salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            { className: 'Payche-List-Item' },
-                            'You will pay approximately ',
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'highlight' },
-                                '\xA3',
-                                this.props.tax
-                            ),
-                            ' in income tax'
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            { className: 'Payche-List-Item' },
-                            'and make national insurance contributions of ',
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'highlight' },
-                                '\xA3',
-                                this.props.contribution.toFixed(2)
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            { className: 'Payche-List-Item' },
-                            'leaving you with ',
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'highlight' },
-                                _react2.default.createElement(
-                                    'strong',
-                                    null,
-                                    '\xA3',
-                                    this.props.takeHomePay
-                                )
-                            ),
-                            ' a month!'
-                        )
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Paycheque;
-}(_react.Component);
-
-exports.default = Paycheque;
-
-/***/ }),
-/* 229 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(230);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(9)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!./Paycheque.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!./Paycheque.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 230 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(8)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".Paycheque {\r\n    align-self: top;\r\n}\r\n\r\nul.Paycheque-List {\r\n    list-style: none;\r\n    text-align: center;\r\n    margin: 20px;\r\n}\r\n\r\nli.Paycheque-List-Item {\r\n    margin-bottom: 20px;\r\n}\r\n\r\nli.Paycheque-List-Item strong{\r\n    font-size: 1.5em;\r\n}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 231 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(4);
-
-var _react2 = _interopRequireDefault(_react);
-
-__webpack_require__(232);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ControlCenter = function (_Component) {
-    _inherits(ControlCenter, _Component);
-
-    function ControlCenter() {
-        _classCallCheck(this, ControlCenter);
-
-        return _possibleConstructorReturn(this, (ControlCenter.__proto__ || Object.getPrototypeOf(ControlCenter)).apply(this, arguments));
-    }
-
-    _createClass(ControlCenter, [{
-        key: 'handleReset',
-        value: function handleReset() {
-            this.props.handleReset();
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'ControlCenter' },
-                _react2.default.createElement(
-                    'button',
-                    { name: 'startAgain', onClick: this.handleReset.bind(this) },
-                    'Start Again'
-                )
-            );
-        }
-    }]);
-
-    return ControlCenter;
-}(_react.Component);
-
-exports.default = ControlCenter;
-
-/***/ }),
-/* 232 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(233);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(9)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!./ControlCenter.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!./ControlCenter.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 233 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(8)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".ControlCenter{\r\n    margin: 20px;\r\n    padding: 20px;\r\n    text-align: center;\r\n}\r\n\r\n.ControlCenter button{\r\n    border: 0.5px black solid;\r\n    padding: 5px;\r\n    background: rgba(255,255,255,0.3);\r\n    font-size: 16px;\r\n}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 234 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(4);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Basket = __webpack_require__(235);
-
-var _Basket2 = _interopRequireDefault(_Basket);
-
-var _BasketVis = __webpack_require__(95);
-
-var _BasketVis2 = _interopRequireDefault(_BasketVis);
-
-var _Card = __webpack_require__(17);
-
-var _Card2 = _interopRequireDefault(_Card);
-
-var _Explainer = __webpack_require__(59);
-
-var _Explainer2 = _interopRequireDefault(_Explainer);
-
-var _Source = __webpack_require__(24);
-
-var _Source2 = _interopRequireDefault(_Source);
-
-var _reactAnimateOnScroll = __webpack_require__(39);
-
-var _reactAnimateOnScroll2 = _interopRequireDefault(_reactAnimateOnScroll);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Inflation = function (_Component) {
-    _inherits(Inflation, _Component);
-
-    function Inflation(props) {
-        _classCallCheck(this, Inflation);
-
-        var _this = _possibleConstructorReturn(this, (Inflation.__proto__ || Object.getPrototypeOf(Inflation)).call(this, props));
-
-        _this.state = {
-            salary: props.salary,
-            monthly: props.takeHomePay,
-            inflation: 2.9,
-            raise: 0,
-            iPhoneX: false
-        };
-        return _this;
-    }
-
-    _createClass(Inflation, [{
-        key: 'calculateiPhone',
-        value: function calculateiPhone() {
-            if (this.state.raise > 999) {
-                return "iPhone-X";
-            } else if (this.state.raise > 799) {
-                return "iPhone-8-Plus";
-            } else if (this.state.raise > 699) {
-                return "iPhone-8";
-            } else if (this.state.raise > 669) {
-                return "iPhone-7-Plus";
-            } else if (this.state.raise > 549) {
-                return "iPhone-7";
-            } else if (this.state.raise > 449) {
-                return "iPhone-6S";
-            } else if (this.state.raise > 349) {
-                return "iPhone-SE";
-            } else {
-                return null;
-            }
-        }
-    }, {
-        key: 'calculateRaise',
-        value: function calculateRaise() {
-            var raise = (this.state.salary * (this.state.inflation / 100)).toFixed(2);
-            if (raise >= 999) {
-                this.setState({ iPhoneX: true });
-            }
-            return raise;
-        }
-    }, {
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            this.setState({ raise: this.calculateRaise() });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                    _Card2.default,
-                    null,
-                    _react2.default.createElement(
-                        _reactAnimateOnScroll2.default,
-                        { animateIn: 'fadeIn', animateOnce: true },
-                        _react2.default.createElement(
-                            'h2',
-                            null,
-                            'Current rate of inflation in the UK:'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        _reactAnimateOnScroll2.default,
-                        { animateIn: 'fadeIn', animateOnce: true },
-                        _react2.default.createElement(
-                            'h2',
-                            null,
-                            _react2.default.createElement(
-                                'strong',
-                                { className: 'highlight' },
-                                this.state.inflation,
-                                '%'
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(_Source2.default, { href: 'https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/aug2017' }),
-                    _react2.default.createElement(
-                        _reactAnimateOnScroll2.default,
-                        { animateIn: 'fadeIn', animateOnce: true },
-                        _react2.default.createElement(
-                            'h2',
-                            null,
-                            'At this rate you will need a pay rise of ',
-                            _react2.default.createElement(
-                                'span',
-                                { className: 'highlight' },
-                                '\xA3',
-                                this.state.raise
-                            ),
-                            ' this year'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        _reactAnimateOnScroll2.default,
-                        { animateIn: 'fadeIn', animateOnce: true },
-                        _react2.default.createElement(
-                            'h3',
-                            null,
-                            'Enough to buy you an ',
-                            this.calculateiPhone().replace('-', ' ')
-                        )
-                    ),
-                    this.calculateiPhone() == null ? null : _react2.default.createElement(
-                        'div',
-                        null,
-                        _react2.default.createElement(
-                            _reactAnimateOnScroll2.default,
-                            { animateIn: 'fadeIn', animateOnce: true },
-                            _react2.default.createElement('img', { src: "./img/" + this.calculateiPhone() + '.png', height: '360px', className: 'iphone' })
-                        ),
-                        _react2.default.createElement(
-                            _reactAnimateOnScroll2.default,
-                            { animateIn: 'fadeIn', animateOnce: true },
-                            this.state.iPhoneX ? _react2.default.createElement(
-                                'h3',
-                                null,
-                                'Wouldn\'t that be nice?'
-                            ) : _react2.default.createElement(
-                                'h3',
-                                null,
-                                'Sorry, no iPhone X for you.'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            _reactAnimateOnScroll2.default,
-                            { animateIn: 'bounceIn' },
-                            this.state.iPhoneX ? null : _react2.default.createElement('img', { src: './img/No-iPhone-X.jpg', height: '360px', className: 'iphone' })
-                        )
-                    ),
-                    _react2.default.createElement(_Source2.default, { href: 'https://www.apple.com/uk/iphone/' })
-                ),
-                _react2.default.createElement(
-                    _Card2.default,
-                    null,
-                    _react2.default.createElement(_Basket2.default, { monthly: this.state.monthly }),
-                    _react2.default.createElement(_BasketVis2.default, null),
-                    _react2.default.createElement(
-                        _Explainer2.default,
-                        null,
-                        _react2.default.createElement(
-                            'p',
-                            null,
-                            'CPIH is a measure of consumer inflation not yet recognised as a national statistic, but unlike CPI it takes into account the costs associated with owning and occupying your home.'
-                        ),
-                        _react2.default.createElement(
-                            'p',
-                            null,
-                            'Purchases are categorised into one of twelve categories and their significance is weighted according to the proportion of consumer spending that falls into the corresponding category.'
-                        )
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Inflation;
-}(_react.Component);
-
-exports.default = Inflation;
-
-/***/ }),
-/* 235 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(4);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Card = __webpack_require__(17);
-
-var _Card2 = _interopRequireDefault(_Card);
-
-var _BasketVis = __webpack_require__(95);
-
-var _BasketVis2 = _interopRequireDefault(_BasketVis);
-
-__webpack_require__(238);
-
-var _Explainer = __webpack_require__(59);
-
-var _Explainer2 = _interopRequireDefault(_Explainer);
-
-var _Source = __webpack_require__(24);
-
-var _Source2 = _interopRequireDefault(_Source);
-
-var _reactAnimateOnScroll = __webpack_require__(39);
-
-var _reactAnimateOnScroll2 = _interopRequireDefault(_reactAnimateOnScroll);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Basket = function (_Component) {
-    _inherits(Basket, _Component);
-
-    function Basket(props) {
-        _classCallCheck(this, Basket);
-
-        var _this = _possibleConstructorReturn(this, (Basket.__proto__ || Object.getPrototypeOf(Basket)).call(this, props));
-
-        _this.state = {
-            monthly: props.monthly
-        };
-        return _this;
-    }
-
-    _createClass(Basket, [{
-        key: 'render',
-        value: function render() {
-            var payCheque = this.state.monthly;
-            var cpih_weight = {
-                food: 8.1,
-                alcohol: 3.4,
-                clothing: 5.8,
-                housing: 29.4,
-                furniture: 4.9,
-                health: 2.1,
-                transport: 12.6,
-                comms: 2.1,
-                recreation: 12.1,
-                education: 1.7,
-                restaurants: 10.1,
-                misc: 7.7
-            };
-
-            return _react2.default.createElement(
-                'div',
-                { className: 'Basket' },
-                _react2.default.createElement(
-                    'h2',
-                    null,
-                    'Basket of Goods'
-                ),
-                _react2.default.createElement(
-                    'h3',
-                    null,
-                    'How much you have to spend... (CPIH Weighting)'
-                ),
-                _react2.default.createElement(
-                    'ol',
-                    null,
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        'Food: \xA3',
-                        (payCheque / 100 * cpih_weight.food).toFixed(2)
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        'Alcohol: \xA3',
-                        (payCheque / 100 * cpih_weight.alcohol).toFixed(2)
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        'Clothing: \xA3',
-                        (payCheque / 100 * cpih_weight.clothing).toFixed(2)
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        'Housing: \xA3',
-                        (payCheque / 100 * cpih_weight.housing).toFixed(2)
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        'Furniture: \xA3',
-                        (payCheque / 100 * cpih_weight.furniture).toFixed(2)
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        'Health: \xA3',
-                        (payCheque / 100 * cpih_weight.health).toFixed(2)
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        'Transport: \xA3',
-                        (payCheque / 100 * cpih_weight.transport).toFixed(2)
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        'Communication: \xA3',
-                        (payCheque / 100 * cpih_weight.comms).toFixed(2)
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        'Recreation: \xA3',
-                        (payCheque / 100 * cpih_weight.recreation).toFixed(2)
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        'Education: \xA3',
-                        (payCheque / 100 * cpih_weight.education).toFixed(2)
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        'Restaurants: \xA3',
-                        (payCheque / 100 * cpih_weight.restaurants).toFixed(2)
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        'Misc: \xA3',
-                        (payCheque / 100 * cpih_weight.misc).toFixed(2)
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Basket;
-}(_react.Component);
-
-exports.default = Basket;
-
-/***/ }),
-/* 236 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(237);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(9)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!./BasketVis.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!./BasketVis.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 237 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(8)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "svg.basket-vis {\r\n    cursor: pointer;\r\n}\r\n\r\nsvg.basket-vis text{\r\n    font-size: 10px;\r\n}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 238 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(239);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(9)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!./Basket.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!./Basket.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 239 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(8)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "img.iphone {\r\n    border-radius: 50%;\r\n    display: block;\r\n    margin: 3em auto;\r\n    max-height: 360px;\r\n}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 240 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(241);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(9)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!./Explainer.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!./Explainer.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 241 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(8)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".Explainer {\r\n    border: 0.5px solid darkgrey;\r\n    border-radius: 4px;\r\n    box-shadow: 2px 4px 1px 1px rgba(0,0,0,0.1);\r\n    padding: 0.7rem;\r\n    margin: 0.7rem;\r\n}\r\n\r\n.Explainer-Link {\r\n    cursor: pointer;\r\n}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 242 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(243);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(9)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!./Source.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!./Source.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 243 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(8)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".source-link {\r\n    /* border: 0.5px solid darkgrey;\r\n    border-radius: 4px;\r\n    box-shadow: 2px 4px 1px 1px rgba(0,0,0,0.1); */\r\n    padding: 0.5rem;\r\n}\r\n\r\n.source-link a {\r\n    font-size: 0.7rem;\r\n}", ""]);
-
-// exports
 
 
 /***/ }),
@@ -43257,6 +43251,8 @@ var LocalArea = function (_Component) {
             house_prices: undefined,
             higher: false,
             lower: false,
+            average_rent: undefined,
+            average_rent_uk: 936.05,
             average_house_price: undefined,
             average_house_price_string: undefined
         };
@@ -43292,10 +43288,15 @@ var LocalArea = function (_Component) {
             val1 > val2 ? this.setState({ higher: true }) : this.setState({ lower: true });
         }
     }, {
+        key: 'getAvgRent',
+        value: function getAvgRent(avg_rent) {
+            this.setState({ average_rent: avg_rent.toFixed(2) });
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                'div',
+                _Card2.default,
                 null,
                 this.state.area_code === undefined ? _react2.default.createElement(
                     'div',
@@ -43334,29 +43335,40 @@ var LocalArea = function (_Component) {
                             ' than the national average'
                         )
                     ),
-                    _react2.default.createElement(_Vis2.default, { area_code: this.state.area_code, higherOrLower: this.higherOrLower.bind(this), getHousePrice: this.getHousePrice.bind(this) }),
+                    _react2.default.createElement(_Vis2.default, { area_code: this.state.area_code, postcode: this.props.postcode, higherOrLower: this.higherOrLower.bind(this), getHousePrice: this.getHousePrice.bind(this), getAvgRent: this.getAvgRent.bind(this) }),
                     _react2.default.createElement(
-                        _Card2.default,
+                        'h3',
                         null,
-                        _react2.default.createElement(
-                            'h3',
-                            null,
-                            'Average house price of \xA3',
-                            this.state.average_house_price_string
-                        ),
-                        _react2.default.createElement(
-                            'p',
-                            null,
-                            'Typical mortgage repayment of \xA3',
-                            this.calculateMortgage(),
-                            ' based on a loan of 85% and interest of 3.9% over 25 years'
-                        ),
-                        _react2.default.createElement(_Source2.default, { href: 'https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-july-2017?utm_medium=ONS&utm_source=report_page&utm_campaign=data_downloads&utm_term=9.30_12_09_17&utm_content=download_the_data' }),
-                        _react2.default.createElement(
-                            'a',
-                            { href: 'rents-map.html', className: 'highlight', target: '_blank' },
-                            'See average rents for your area and across the UK...'
-                        )
+                        'Average house price of \xA3',
+                        this.state.average_house_price_string
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Typical mortgage repayment of \xA3',
+                        this.calculateMortgage(),
+                        ' based on a loan of 85% and interest of 3.9% over 25 years'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Compared to an average rent of \xA3',
+                        this.state.average_rent,
+                        ' in ',
+                        this.state.area_name
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        this.state.average_rent < this.state.average_rent_uk ? 'Lower' : 'Higher',
+                        ' than the UK average of \xA3',
+                        this.state.average_rent_uk
+                    ),
+                    _react2.default.createElement(_Source2.default, { href: 'https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-july-2017?utm_medium=ONS&utm_source=report_page&utm_campaign=data_downloads&utm_term=9.30_12_09_17&utm_content=download_the_data' }),
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'rents-map.html', className: 'highlight', target: '_blank' },
+                        'See average rents for your area and across the UK...'
                     )
                 )
             );
@@ -44387,7 +44399,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _d = __webpack_require__(58);
+var _d = __webpack_require__(57);
 
 var d3 = _interopRequireWildcard(_d);
 
@@ -44435,6 +44447,11 @@ var Vis = function (_Component) {
             this.props.getHousePrice(houseprice);
         }
     }, {
+        key: 'getAvgRent',
+        value: function getAvgRent(avg_rent) {
+            this.props.getAvgRent(avg_rent);
+        }
+    }, {
         key: 'higherOrLower',
         value: function higherOrLower(val1, val2) {
             this.props.higherOrLower(val1, val2);
@@ -44443,7 +44460,18 @@ var Vis = function (_Component) {
         key: 'drawGraph',
         value: function drawGraph(context) {
             var main = this;
-            d3.json('./data/Average-prices-2017-06.json', function (data) {
+            d3.queue().defer(d3.json, './data/Average-prices-2017-06.json').defer(d3.json, './data/rents-consolid-with-avgs.json').await(function (error, data, data2) {
+                if (error) throw error;
+
+                var postcode = main.props.postcode;
+                console.log(postcode);
+
+                var avg_rent = data2.filter(function (obj) {
+                    return obj.area === postcode.substring(0, 2);
+                });
+
+                main.getAvgRent(avg_rent[0].avg);
+
                 var parseTime = d3.timeParse("%Y-%m-%d");
                 // two sets of data
                 var localHousePriceInfo = data.filter(function (obj) {
@@ -44577,7 +44605,7 @@ var _Card = __webpack_require__(17);
 
 var _Card2 = _interopRequireDefault(_Card);
 
-var _Explainer = __webpack_require__(59);
+var _Explainer = __webpack_require__(58);
 
 var _Explainer2 = _interopRequireDefault(_Explainer);
 
@@ -44738,7 +44766,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _d = __webpack_require__(58);
+var _d = __webpack_require__(57);
 
 var d3 = _interopRequireWildcard(_d);
 
