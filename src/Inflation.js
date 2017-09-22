@@ -71,7 +71,7 @@ class Inflation extends Component {
                     {this.calculateiPhone() == null ? null : 
                         <div>                
                             <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
-                                <img src={"./img/" + this.calculateiPhone() + '.png'} height="360px" className="iphone" />
+                                <img src={"./img/" + this.calculateiPhone() + '.png'} height="288px" className="iphone" />
                             </ScrollAnimation>
                             <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                                 { this.state.iPhoneX ? 
@@ -81,7 +81,7 @@ class Inflation extends Component {
                                     }
                             </ScrollAnimation>
                             <ScrollAnimation animateIn="bounceIn">
-                            {this.state.iPhoneX ? null : <img src="./img/No-iPhone-X.jpg" height="360px" className="iphone"/>}
+                            {this.state.iPhoneX ? null : <img src="./img/No-iPhone-X.jpg" height="288px" className="iphone"/>}
                             </ScrollAnimation>
                         </div>
                     }

@@ -18,8 +18,9 @@ class IncomesVis extends React.Component {
     }
 
     setContext() {
-        var detectWidth = document.querySelector('.Container').clientWidth;
-        var width = detectWidth > 375 ? d3.min([650, detectWidth]) : 375,
+        var detectWidth = document.querySelector('.Card').clientWidth;
+        var width = detectWidth * (9/10),
+        // detectWidth > 375 ? d3.min([650, detectWidth]) : 338,
         height = width * (3/4) + 50;
 
         return d3.select(this.refs.incomesVis).append('svg')

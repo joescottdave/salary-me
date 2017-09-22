@@ -28299,9 +28299,11 @@ var BasketVis = function (_React$Component) {
     }, {
         key: 'setContext',
         value: function setContext() {
-            var detectWidth = document.querySelector('body').clientWidth;
-            var width = detectWidth > 375 ? d3.min([650, detectWidth]) : 350,
-                height = width * (3 / 4);
+            var detectWidth = document.querySelector('.Card').clientWidth;
+            var width = detectWidth * (9 / 10),
+
+            // detectWidth > 375 ? d3.min([650, detectWidth]) : 350,
+            height = width * (3 / 4);
 
             d3.select(this.refs.basketVis).append('svg').attr('class', 'basket-vis').attr('height', height).attr('width', width).append('g').attr('class', 'basket-vis-g');
         }
@@ -41718,7 +41720,7 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, ".Card {\r\n    /* display: flex;\r\n    align-items: center; */\r\n\r\n    position: relative;\r\n    background-color: rgba(250,250,250,0.6);\r\n    border: 0.5px solid rgba(250,250,250,1);\r\n    border-radius: 8px;\r\n    box-shadow: 2px 4px 4px 2px rgba(0,0,0,0.1);\r\n    padding: 1rem;\r\n    margin: 10vh auto;\r\n    width: 100%;\r\n    max-width: 780px;\r\n    min-height: 80vh;\r\n\r\n\r\n\r\n    -moz-box-sizing: border-box;\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n}\r\n\r\n@media screen and (max-width: 480px) {\r\n    min-height: 90vh;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".Card {\r\n    /* display: flex;\r\n    align-items: center; */\r\n\r\n    position: relative;\r\n    background-color: rgba(255,250,250,0.9);\r\n    border: 0.5px solid rgba(255,250,250,1);\r\n    border-radius: 8px;\r\n    box-shadow: 2px 4px 4px 2px rgba(0,0,0,0.1);\r\n    padding: 5%;\r\n    margin: 10vh auto;\r\n    width: 95%;\r\n    max-width: 780px;\r\n    min-height: 80vh;\r\n\r\n/* 338 */\r\n\r\n    -moz-box-sizing: border-box;\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n}\r\n\r\n@media screen and (max-width: 480px) {\r\n    min-height: 90vh;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -42204,7 +42206,7 @@ var Inflation = function (_Component) {
                         _react2.default.createElement(
                             _reactAnimateOnScroll2.default,
                             { animateIn: 'fadeIn', animateOnce: true },
-                            _react2.default.createElement('img', { src: "./img/" + this.calculateiPhone() + '.png', height: '360px', className: 'iphone' })
+                            _react2.default.createElement('img', { src: "./img/" + this.calculateiPhone() + '.png', height: '288px', className: 'iphone' })
                         ),
                         _react2.default.createElement(
                             _reactAnimateOnScroll2.default,
@@ -42222,7 +42224,7 @@ var Inflation = function (_Component) {
                         _react2.default.createElement(
                             _reactAnimateOnScroll2.default,
                             { animateIn: 'bounceIn' },
-                            this.state.iPhoneX ? null : _react2.default.createElement('img', { src: './img/No-iPhone-X.jpg', height: '360px', className: 'iphone' })
+                            this.state.iPhoneX ? null : _react2.default.createElement('img', { src: './img/No-iPhone-X.jpg', height: '288px', className: 'iphone' })
                         )
                     ),
                     _react2.default.createElement(_Source2.default, { href: 'https://www.apple.com/uk/iphone/' })
@@ -44436,7 +44438,7 @@ var Vis = function (_Component) {
         key: 'setContext',
         value: function setContext() {
             var detectWidth = document.querySelector('.Container').clientWidth;
-            var width = detectWidth > 375 ? d3.min([650, detectWidth]) : 375,
+            var width = detectWidth > 375 ? d3.min([650, detectWidth]) : 338,
                 height = width * (3 / 4);
 
             return d3.select(this.refs.vis).append('svg').attr('class', 'housing-vis').attr('height', height).attr('width', width).append('g');
@@ -44807,9 +44809,11 @@ var IncomesVis = function (_React$Component) {
     }, {
         key: 'setContext',
         value: function setContext() {
-            var detectWidth = document.querySelector('.Container').clientWidth;
-            var width = detectWidth > 375 ? d3.min([650, detectWidth]) : 375,
-                height = width * (3 / 4) + 50;
+            var detectWidth = document.querySelector('.Card').clientWidth;
+            var width = detectWidth * (9 / 10),
+
+            // detectWidth > 375 ? d3.min([650, detectWidth]) : 338,
+            height = width * (3 / 4) + 50;
 
             return d3.select(this.refs.incomesVis).append('svg').attr('class', 'incomes-vis').attr('height', height).attr('width', width).append('g').attr('class', 'incomes-vis-g');
         }
@@ -45379,7 +45383,7 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, ".Container {\r\n    margin: 0 auto;\r\n    padding-top: 15vh;\r\n    width: 100%;\r\n    max-width: 900px;\r\n    min-width: 375px;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".Container {\r\n    margin: 0 auto;\r\n    padding-top: 15vh;\r\n    width: 100%;\r\n    max-width: 900px;\r\n    min-width: 320px;\r\n}\r\n\r\n", ""]);
 
 // exports
 

@@ -10,7 +10,7 @@ class Vis extends Component {
 
     setContext() {
         var detectWidth = document.querySelector('.Container').clientWidth;
-        var width = detectWidth > 375 ? d3.min([650, detectWidth]) : 375,
+        var width = detectWidth > 375 ? d3.min([650, detectWidth]) : 338,
         height = width * (3/4);
 
         return d3.select(this.refs.vis).append('svg')
