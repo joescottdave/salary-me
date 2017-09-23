@@ -65,10 +65,11 @@ class Inflation extends Component {
                     <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                         <h2>At this rate you will need a pay rise of <span className="highlight">£{this.state.raise}</span> this year</h2>
                     </ScrollAnimation>
+                    {(this.calculateiPhone() === null) ? null :
+                    <div>
                     <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                         <h3>Enough to buy you an {this.calculateiPhone().replace('-',' ')}</h3>
-                    </ScrollAnimation>
-                    {this.calculateiPhone() == null ? null : 
+                    </ScrollAnimation> 
                         <div>                
                             <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                                 <img src={"./img/" + this.calculateiPhone() + '.png'} height="288px" className="iphone" />
@@ -84,7 +85,7 @@ class Inflation extends Component {
                             {this.state.iPhoneX ? null : <img src="./img/No-iPhone-X.jpg" height="288px" className="iphone"/>}
                             </ScrollAnimation>
                         </div>
-                    }
+                        </div>}
                     <Source href="https://www.apple.com/uk/iphone/" />
                 </Card>
                 <Card>

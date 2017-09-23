@@ -9,8 +9,9 @@ class Vis extends Component {
     }
 
     setContext() {
-        var detectWidth = document.querySelector('.Container').clientWidth;
-        var width = detectWidth > 375 ? d3.min([650, detectWidth]) : 338,
+        var detectWidth = document.querySelector('.Card').clientWidth;
+        var width = detectWidth *(9/10),
+        // detectWidth > 375 ? d3.min([650, detectWidth]) : 338,
         height = width * (3/4);
 
         return d3.select(this.refs.vis).append('svg')
@@ -44,7 +45,7 @@ class Vis extends Component {
             console.log(postcode);
 
             var avg_rent = data2.filter(function(obj){
-                return obj.area === postcode.substring(0,2);
+                return obj.area === postcode.substring(0,2).toUpperCase();
             })
 
             main.getAvgRent(avg_rent[0].avg);
@@ -58,6 +59,8 @@ class Vis extends Component {
             var ukHousePriceInfo = data.filter(function(obj){
                 return obj.Area_Code === 'K02000001' && obj.Date >= '1995-02-01';
             });
+
+            console.log(ukHousePriceInfo[1]);
 
             // passing information back to parent
             var localLength = localHousePriceInfo.length;
@@ -86,7 +89,52 @@ class Vis extends Component {
     
             x.domain(d3.extent(localHousePriceInfo, function(d) { return parseTime(d.Date); }));
             y.domain(d3.extent([...ukHousePriceInfo, ...localHousePriceInfo], function(d) { return +d.Average_Price; }));
-    
+            
+            var bars = context.append('g')
+                .attr('class', 'bars');
+            
+            var bar = bars.selectAll('.bar')
+                .data(localHousePriceInfo);
+
+            bar
+                .enter()
+                .append('rect')
+                .attr('class', function(d) { return 'bar ' + 'x' + d.Date; })
+                .attr('x', function(d) { return x(parseTime(d.Date)); })
+                .attr('y', 0)
+                .attr('width', width/150)
+                .attr('height', height)
+                .attr('fill', 'rgba(10,10,10,0)')
+                .attr('opacity', 0)
+                .on('mouseover', barOnHover)
+                .on('mouseout', barOffHover);
+
+            var circles = context.append('g')
+                .attr('class', 'circles');
+
+            var circle = circles.selectAll('.circle')
+                .data([...localHousePriceInfo, ...ukHousePriceInfo]);
+            
+            circle
+                .enter()
+                .append('circle')
+                .attr('class', function(d) { return 'circle ' + 'x' + d.Date; })
+                .attr('r', '5px')
+                .attr('cx', function(d) { return x(parseTime(d.Date)); })
+                .attr('cy', function(d){ return y(+d.Average_Price); })
+                .attr('fill', function(d) {
+                    if (d.Region_Name == 'United Kingdom') {
+                        return 'steelblue';
+                    } else {
+                        return 'red';
+                    }
+                })
+                .attr('opacity', 0)
+                .on('mouseover', barOnHover)
+                .on('mouseout', barOffHover);
+
+            
+
             context.append("g").attr("class", "bottom-axis")
                 .attr("transform", "translate(0," + height +")")
                 .call(d3.axisBottom(x));
@@ -118,6 +166,18 @@ class Vis extends Component {
                 .attr("stroke-linecap", "round")
                 .attr("stroke-width", 1.5)
                 .attr("d", line);
+
+            
+
+            function barOnHover(e) {
+                var selection = '.' + this.classList[1];
+                d3.selectAll(selection).attr('opacity', 1);
+            }
+
+            function barOffHover(e) {
+                var selection = '.' + this.classList[1];
+                d3.selectAll(selection).attr('opacity', 0);
+            }
         })
     }
 

@@ -25,7 +25,7 @@ class Taxes extends React.Component {
             this.setState({ additionalRate: true, compaverage: this.state.taxaverages.additional})
         } else if (this.state.salary > 45000) {
             this.setState({higherRate: true, compaverage: this.state.taxaverages.higher})
-        } else if (this.state.salary > 11500) {
+        } else {
             this.setState({basicRate: true, compaverage: this.state.taxaverages.basic})
         }
     }
@@ -48,7 +48,6 @@ class Taxes extends React.Component {
                     {this.state.higherRate ? this.state.taxtotals.higher : null}
                     {this.state.basicRate ? this.state.taxtotals.basic : null}
                     &nbsp;billion</h3>
-
                 <h3>Your income tax liability of £{this.state.tax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} is {(this.state.tax < this.state.compaverage) ? <span className="highlight">lower</span> : <span className="highlight">higher</span>} than the average payment of £{this.state.compaverage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} for this bracket.</h3>
                     <Source href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/616447/Table_2.6.pdf" />
             </Card>

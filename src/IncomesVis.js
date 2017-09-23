@@ -141,27 +141,29 @@ class IncomesVis extends React.Component {
             // var textmarks = context.append('g')
             //     .attr('class', 'textmarks')
 
-
+            var marg;
             context.append('text')
                 .attr('class', 'textmark-you')
                 .attr('fill', color(percent(salary)))
                 .attr('text-anchor', function() {
-                    if (percent(salary) >= 33 && percent(salary) <= 48 || percent(salary) > 81) {
+                    if (percent(salary) >= 33 && percent(salary) <= 50 || percent(salary) > 90) {
+                        marg = -4
                         return "end";
                     } else {
+                        marg = 3
                         return "start";
                     }
                 })
                 // .attr('transform', 'rotate(-90)')
-                .attr('x', x(percent(salary)))
-                .attr('y', y(salary) - 25)
+                .attr('x', x(percent(salary))+marg)
+                .attr('y', y(salary) - (height*(1/10)))
                 .text('You');
 
             context.append('line')
                 .attr('x1', x(percent(salary)))
-                .attr('x2', x(percent(salary)) + 3)
-                .attr('y1', y(salary) - 2)
-                .attr('y2', y(salary) - 20)
+                .attr('x2', x(percent(salary)))
+                .attr('y1', y(salary) - (height *(1/10)))
+                .attr('y2', y(salary) - 2)
                 .attr('stroke', color(percent(salary)))
                 .attr('stroke-width', "1px");
 
@@ -169,31 +171,31 @@ class IncomesVis extends React.Component {
                 .attr('class', 'textmark-nurse')
                 .attr('fill', color(percent(22128)))
                 .attr('text-anchor', 'end')
-                .attr('x', x(percent(22128)))
-                .attr('y', y(22128) - 40)
+                .attr('x', x(percent(22128))-2)
+                .attr('y', y(22128) - (height*(2/10)))
                 .text('Nurse');
             
             context.append('line')
                 .attr('x1', x(percent(22128)))
                 .attr('x2', x(percent(22128)))
-                .attr('y1', y(22128) - 2)
-                .attr('y2', y(22128) - 35)
+                .attr('y1', y(22128) - (height*(2/10)) - 2)
+                .attr('y2', y(22128) - 2)
                 .attr('stroke', color(percent(22128)))
                 .attr('stroke-width', "1px");
 
             context.append('text')
                 .attr('class', 'textmark-doctor')
                 .attr('fill', color(percent(22636)))
-                .attr('text-anchor', 'end')
-                .attr('x', x(percent(22636)))
-                .attr('y', y(22636) - 55)
+                .attr('text-anchor', 'start')
+                .attr('x', x(percent(22636)) + 2)
+                .attr('y', y(22636) - (height*(2/10)))
                 .text('Junior Doctor');
             
             context.append('line')
                 .attr('x1', x(percent(22636)))
                 .attr('x2', x(percent(22636)))
-                .attr('y1', y(22636) - 2)
-                .attr('y2', y(22636) - 54)
+                .attr('y1', y(22636) - (height*(2/10)) - 2)
+                .attr('y2', y(22636) - 2)
                 .attr('stroke', color(percent(22636)))
                 .attr('stroke-width', "1px");
             
@@ -201,15 +203,23 @@ class IncomesVis extends React.Component {
                 .attr('class', 'textmark-pm')
                 .attr('fill', color(percent(150402)))
                 .attr('text-anchor', 'end')
-                .attr('x', x(percent(150402)))
-                .attr('y', y(114000))
+                .attr('x', x(percent(112000)))
+                .attr('y', y(112000) - (height*(2/10)))
                 .text('Prime Minister');
+            
+            context.append('line')
+                .attr('x1', x(percent(112000)))
+                .attr('x2', x(percent(112000)))
+                .attr('y1', y(112000) - (height*(2/10)) - 2)
+                .attr('y2', y(112000) - 2)
+                .attr('stroke', color(percent(112000)))
+                .attr('stroke-width', "1px");
 
             context.append('line')
                 .attr('x1', x(percent(13650)))
                 .attr('x2', x(percent(13650)))
-                .attr('y1', y(13650) - 2)
-                .attr('y2', y(13650) - 98)
+                .attr('y1', y(13650) - (height*(2/10)))
+                .attr('y2', y(13650) - 2)
                 .attr('stroke', color(percent(13650)))
                 .attr('stroke-width', "1px");
 
@@ -217,8 +227,8 @@ class IncomesVis extends React.Component {
                 .attr('class', 'textmark-nlw')
                 .attr('fill', color(percent(13650)))
                 .attr('text-anchor', 'start')
-                .attr('x', x(percent(13650)))
-                .attr('y', y(13650) - 100)
+                .attr('x', x(percent(13650))+2)
+                .attr('y', y(13650) - (height*(2/10)))
                 .text('National Living Wage');
             });
     }

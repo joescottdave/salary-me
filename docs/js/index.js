@@ -41720,7 +41720,7 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, ".Card {\r\n    /* display: flex;\r\n    align-items: center; */\r\n\r\n    position: relative;\r\n    background-color: rgba(255,250,250,0.9);\r\n    border: 0.5px solid rgba(255,250,250,1);\r\n    border-radius: 8px;\r\n    box-shadow: 2px 4px 4px 2px rgba(0,0,0,0.1);\r\n    padding: 5%;\r\n    margin: 10vh auto;\r\n    width: 95%;\r\n    max-width: 780px;\r\n    min-height: 80vh;\r\n\r\n/* 338 */\r\n\r\n    -moz-box-sizing: border-box;\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n}\r\n\r\n@media screen and (max-width: 480px) {\r\n    min-height: 90vh;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".Card {\r\n    /* display: flex;\r\n    align-items: center; */\r\n\r\n    position: relative;\r\n    background-color: rgba(255,250,250,0.9);\r\n    border: 1px solid rgba(255,250,250,1);\r\n    border-radius: 8px;\r\n    box-shadow: 2px 4px 4px 2px rgba(0,0,0,0.1);\r\n    padding: 5%;\r\n    margin: 10vh auto;\r\n    width: 95%;\r\n    max-width: 780px;\r\n    min-height: 80vh;\r\n\r\n/* 338 */\r\n\r\n    -moz-box-sizing: border-box;\r\n    -webkit-box-sizing: border-box;\r\n    box-sizing: border-box;\r\n}\r\n\r\n@media screen and (max-width: 480px) {\r\n    min-height: 90vh;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -42190,41 +42190,45 @@ var Inflation = function (_Component) {
                             ' this year'
                         )
                     ),
-                    _react2.default.createElement(
-                        _reactAnimateOnScroll2.default,
-                        { animateIn: 'fadeIn', animateOnce: true },
-                        _react2.default.createElement(
-                            'h3',
-                            null,
-                            'Enough to buy you an ',
-                            this.calculateiPhone().replace('-', ' ')
-                        )
-                    ),
-                    this.calculateiPhone() == null ? null : _react2.default.createElement(
+                    this.calculateiPhone() === null ? null : _react2.default.createElement(
                         'div',
                         null,
                         _react2.default.createElement(
                             _reactAnimateOnScroll2.default,
                             { animateIn: 'fadeIn', animateOnce: true },
-                            _react2.default.createElement('img', { src: "./img/" + this.calculateiPhone() + '.png', height: '288px', className: 'iphone' })
-                        ),
-                        _react2.default.createElement(
-                            _reactAnimateOnScroll2.default,
-                            { animateIn: 'fadeIn', animateOnce: true },
-                            this.state.iPhoneX ? _react2.default.createElement(
+                            _react2.default.createElement(
                                 'h3',
                                 null,
-                                'Wouldn\'t that be nice?'
-                            ) : _react2.default.createElement(
-                                'h3',
-                                null,
-                                'Sorry, no iPhone X for you.'
+                                'Enough to buy you an ',
+                                this.calculateiPhone().replace('-', ' ')
                             )
                         ),
                         _react2.default.createElement(
-                            _reactAnimateOnScroll2.default,
-                            { animateIn: 'bounceIn' },
-                            this.state.iPhoneX ? null : _react2.default.createElement('img', { src: './img/No-iPhone-X.jpg', height: '288px', className: 'iphone' })
+                            'div',
+                            null,
+                            _react2.default.createElement(
+                                _reactAnimateOnScroll2.default,
+                                { animateIn: 'fadeIn', animateOnce: true },
+                                _react2.default.createElement('img', { src: "./img/" + this.calculateiPhone() + '.png', height: '288px', className: 'iphone' })
+                            ),
+                            _react2.default.createElement(
+                                _reactAnimateOnScroll2.default,
+                                { animateIn: 'fadeIn', animateOnce: true },
+                                this.state.iPhoneX ? _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    'Wouldn\'t that be nice?'
+                                ) : _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    'Sorry, no iPhone X for you.'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                _reactAnimateOnScroll2.default,
+                                { animateIn: 'bounceIn' },
+                                this.state.iPhoneX ? null : _react2.default.createElement('img', { src: './img/No-iPhone-X.jpg', height: '288px', className: 'iphone' })
+                            )
                         )
                     ),
                     _react2.default.createElement(_Source2.default, { href: 'https://www.apple.com/uk/iphone/' })
@@ -44437,9 +44441,11 @@ var Vis = function (_Component) {
     }, {
         key: 'setContext',
         value: function setContext() {
-            var detectWidth = document.querySelector('.Container').clientWidth;
-            var width = detectWidth > 375 ? d3.min([650, detectWidth]) : 338,
-                height = width * (3 / 4);
+            var detectWidth = document.querySelector('.Card').clientWidth;
+            var width = detectWidth * (9 / 10),
+
+            // detectWidth > 375 ? d3.min([650, detectWidth]) : 338,
+            height = width * (3 / 4);
 
             return d3.select(this.refs.vis).append('svg').attr('class', 'housing-vis').attr('height', height).attr('width', width).append('g');
         }
@@ -44469,7 +44475,7 @@ var Vis = function (_Component) {
                 console.log(postcode);
 
                 var avg_rent = data2.filter(function (obj) {
-                    return obj.area === postcode.substring(0, 2);
+                    return obj.area === postcode.substring(0, 2).toUpperCase();
                 });
 
                 main.getAvgRent(avg_rent[0].avg);
@@ -44483,6 +44489,8 @@ var Vis = function (_Component) {
                 var ukHousePriceInfo = data.filter(function (obj) {
                     return obj.Area_Code === 'K02000001' && obj.Date >= '1995-02-01';
                 });
+
+                console.log(ukHousePriceInfo[1]);
 
                 // passing information back to parent
                 var localLength = localHousePriceInfo.length;
@@ -44516,6 +44524,34 @@ var Vis = function (_Component) {
                     return +d.Average_Price;
                 }));
 
+                var bars = context.append('g').attr('class', 'bars');
+
+                var bar = bars.selectAll('.bar').data(localHousePriceInfo);
+
+                bar.enter().append('rect').attr('class', function (d) {
+                    return 'bar ' + 'x' + d.Date;
+                }).attr('x', function (d) {
+                    return x(parseTime(d.Date));
+                }).attr('y', 0).attr('width', width / 150).attr('height', height).attr('fill', 'rgba(10,10,10,0)').attr('opacity', 0).on('mouseover', barOnHover).on('mouseout', barOffHover);
+
+                var circles = context.append('g').attr('class', 'circles');
+
+                var circle = circles.selectAll('.circle').data([].concat(_toConsumableArray(localHousePriceInfo), _toConsumableArray(ukHousePriceInfo)));
+
+                circle.enter().append('circle').attr('class', function (d) {
+                    return 'circle ' + 'x' + d.Date;
+                }).attr('r', '5px').attr('cx', function (d) {
+                    return x(parseTime(d.Date));
+                }).attr('cy', function (d) {
+                    return y(+d.Average_Price);
+                }).attr('fill', function (d) {
+                    if (d.Region_Name == 'United Kingdom') {
+                        return 'steelblue';
+                    } else {
+                        return 'red';
+                    }
+                }).attr('opacity', 0).on('mouseover', barOnHover).on('mouseout', barOffHover);
+
                 context.append("g").attr("class", "bottom-axis").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x));
 
                 context.append("g").attr("class", "left-axis").call(d3.axisLeft(y)).append("text").attr("fill", "#000").attr("transform", "rotate(-90)").attr("y", 6).attr("dy", "0.71em").attr("text-anchor", "end").text("Average Sold Price");
@@ -44523,6 +44559,16 @@ var Vis = function (_Component) {
                 context.append("path").datum(ukHousePriceInfo).attr("fill", "none").attr("stroke", "steelblue").attr("stroke-linejoin", "round").attr("stroke-linecap", "round").attr("stroke-width", 1.5).attr("d", line);
 
                 context.append("path").datum(localHousePriceInfo).attr("fill", "none").attr("stroke", "red").attr("stroke-linejoin", "round").attr("stroke-linecap", "round").attr("stroke-width", 1.5).attr("d", line);
+
+                function barOnHover(e) {
+                    var selection = '.' + this.classList[1];
+                    d3.selectAll(selection).attr('opacity', 1);
+                }
+
+                function barOffHover(e) {
+                    var selection = '.' + this.classList[1];
+                    d3.selectAll(selection).attr('opacity', 0);
+                }
             });
         }
     }, {
@@ -44894,32 +44940,36 @@ var IncomesVis = function (_React$Component) {
                 // var textmarks = context.append('g')
                 //     .attr('class', 'textmarks')
 
-
+                var marg;
                 context.append('text').attr('class', 'textmark-you').attr('fill', color(percent(salary))).attr('text-anchor', function () {
-                    if (percent(salary) >= 33 && percent(salary) <= 48 || percent(salary) > 81) {
+                    if (percent(salary) >= 33 && percent(salary) <= 50 || percent(salary) > 90) {
+                        marg = -4;
                         return "end";
                     } else {
+                        marg = 3;
                         return "start";
                     }
                 })
                 // .attr('transform', 'rotate(-90)')
-                .attr('x', x(percent(salary))).attr('y', y(salary) - 25).text('You');
+                .attr('x', x(percent(salary)) + marg).attr('y', y(salary) - height * (1 / 10)).text('You');
 
-                context.append('line').attr('x1', x(percent(salary))).attr('x2', x(percent(salary)) + 3).attr('y1', y(salary) - 2).attr('y2', y(salary) - 20).attr('stroke', color(percent(salary))).attr('stroke-width', "1px");
+                context.append('line').attr('x1', x(percent(salary))).attr('x2', x(percent(salary))).attr('y1', y(salary) - height * (1 / 10)).attr('y2', y(salary) - 2).attr('stroke', color(percent(salary))).attr('stroke-width', "1px");
 
-                context.append('text').attr('class', 'textmark-nurse').attr('fill', color(percent(22128))).attr('text-anchor', 'end').attr('x', x(percent(22128))).attr('y', y(22128) - 40).text('Nurse');
+                context.append('text').attr('class', 'textmark-nurse').attr('fill', color(percent(22128))).attr('text-anchor', 'end').attr('x', x(percent(22128)) - 2).attr('y', y(22128) - height * (2 / 10)).text('Nurse');
 
-                context.append('line').attr('x1', x(percent(22128))).attr('x2', x(percent(22128))).attr('y1', y(22128) - 2).attr('y2', y(22128) - 35).attr('stroke', color(percent(22128))).attr('stroke-width', "1px");
+                context.append('line').attr('x1', x(percent(22128))).attr('x2', x(percent(22128))).attr('y1', y(22128) - height * (2 / 10) - 2).attr('y2', y(22128) - 2).attr('stroke', color(percent(22128))).attr('stroke-width', "1px");
 
-                context.append('text').attr('class', 'textmark-doctor').attr('fill', color(percent(22636))).attr('text-anchor', 'end').attr('x', x(percent(22636))).attr('y', y(22636) - 55).text('Junior Doctor');
+                context.append('text').attr('class', 'textmark-doctor').attr('fill', color(percent(22636))).attr('text-anchor', 'start').attr('x', x(percent(22636)) + 2).attr('y', y(22636) - height * (2 / 10)).text('Junior Doctor');
 
-                context.append('line').attr('x1', x(percent(22636))).attr('x2', x(percent(22636))).attr('y1', y(22636) - 2).attr('y2', y(22636) - 54).attr('stroke', color(percent(22636))).attr('stroke-width', "1px");
+                context.append('line').attr('x1', x(percent(22636))).attr('x2', x(percent(22636))).attr('y1', y(22636) - height * (2 / 10) - 2).attr('y2', y(22636) - 2).attr('stroke', color(percent(22636))).attr('stroke-width', "1px");
 
-                context.append('text').attr('class', 'textmark-pm').attr('fill', color(percent(150402))).attr('text-anchor', 'end').attr('x', x(percent(150402))).attr('y', y(114000)).text('Prime Minister');
+                context.append('text').attr('class', 'textmark-pm').attr('fill', color(percent(150402))).attr('text-anchor', 'end').attr('x', x(percent(112000))).attr('y', y(112000) - height * (2 / 10)).text('Prime Minister');
 
-                context.append('line').attr('x1', x(percent(13650))).attr('x2', x(percent(13650))).attr('y1', y(13650) - 2).attr('y2', y(13650) - 98).attr('stroke', color(percent(13650))).attr('stroke-width', "1px");
+                context.append('line').attr('x1', x(percent(112000))).attr('x2', x(percent(112000))).attr('y1', y(112000) - height * (2 / 10) - 2).attr('y2', y(112000) - 2).attr('stroke', color(percent(112000))).attr('stroke-width', "1px");
 
-                context.append('text').attr('class', 'textmark-nlw').attr('fill', color(percent(13650))).attr('text-anchor', 'start').attr('x', x(percent(13650))).attr('y', y(13650) - 100).text('National Living Wage');
+                context.append('line').attr('x1', x(percent(13650))).attr('x2', x(percent(13650))).attr('y1', y(13650) - height * (2 / 10)).attr('y2', y(13650) - 2).attr('stroke', color(percent(13650))).attr('stroke-width', "1px");
+
+                context.append('text').attr('class', 'textmark-nlw').attr('fill', color(percent(13650))).attr('text-anchor', 'start').attr('x', x(percent(13650)) + 2).attr('y', y(13650) - height * (2 / 10)).text('National Living Wage');
             });
         }
     }, {
@@ -44998,7 +45048,7 @@ var Taxes = function (_React$Component) {
                 this.setState({ additionalRate: true, compaverage: this.state.taxaverages.additional });
             } else if (this.state.salary > 45000) {
                 this.setState({ higherRate: true, compaverage: this.state.taxaverages.higher });
-            } else if (this.state.salary > 11500) {
+            } else {
                 this.setState({ basicRate: true, compaverage: this.state.taxaverages.basic });
             }
         }
