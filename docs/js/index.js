@@ -28491,6 +28491,31 @@ var Households = function (_Component) {
     }
 
     _createClass(Households, [{
+        key: 'compareRent',
+        value: function compareRent(amount) {
+            if (amount > 1509) {
+                return "10%";
+            } else if (amount > 1197) {
+                return "20%";
+            } else if (amount > 1012) {
+                return "30%";
+            } else if (amount > 877) {
+                return "40%";
+            } else if (amount > 762) {
+                return "50%";
+            } else if (amount > 690) {
+                return "60%";
+            } else if (amount > 613) {
+                return "70%";
+            } else if (amount > 546) {
+                return "80%";
+            } else if (amount > 490) {
+                return "90%";
+            } else {
+                return "100%";
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -28505,14 +28530,14 @@ var Households = function (_Component) {
                 _react2.default.createElement(
                     'h3',
                     null,
-                    'Making average rents in xx postodes unaffordable',
-                    _react2.default.createElement('br', null),
-                    'Without the help of others'
+                    'This is lower than the average rent in ',
+                    this.compareRent((this.props.takeHomePay * 0.4).toFixed(0)),
+                    ' of postcode districts we analysed.'
                 ),
                 _react2.default.createElement(
                     'h2',
                     null,
-                    'Average household income is considerably higher than for individuals'
+                    'Average household income is considerably higher than for individuals. Living with others might make your bills more affordable.'
                 ),
                 _react2.default.createElement(
                     'table',
@@ -41165,7 +41190,7 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, "* {\r\n  color: rgba(30,10,20,1);\r\n  font-family: 'Open Sans', sans-serif;\r\n}\r\n\r\nh1, h2, input {\r\n  font-family: 'PT Serif', serif;\r\n  letter-spacing: 0.5px;\r\n}\r\n\r\nbody {\r\n    background: snow;\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 100%;\r\n  }\r\n\r\n.banner {\r\n  margin: 15px auto;\r\n  width: 80%;\r\n}\r\n\r\n.banner h4 {\r\n  margin-bottom: 0.5em;\r\n}\r\n\r\n.banner h3 {\r\n  margin-top: 0.5em;\r\n}\r\n\r\n.highlight {\r\n  background-color: rgba(247, 255, 0, 0.90);\r\n}\r\n\r\na.highlight {\r\n  transition: background-color 0.5s ease;\r\n}\r\n\r\na.highlight:hover {\r\n  background-color: rgba(40, 96, 194, 0.90);\r\n  transition: background-color 0.5s ease;\r\n}\r\n  ", ""]);
+exports.push([module.i, "* {\r\n  color: rgba(30,10,20,1);\r\n  font-family: 'Open Sans', sans-serif;\r\n}\r\n\r\nh1, h2, input {\r\n  font-family: 'PT Serif', serif;\r\n  letter-spacing: 0.5px;\r\n}\r\n\r\nbody {\r\n    background: rgba(255,250,250,1);\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 100%;\r\n  }\r\n\r\n.banner {\r\n  margin: 15px auto;\r\n  width: 80%;\r\n}\r\n\r\n.banner h4 {\r\n  margin-bottom: 0.5em;\r\n}\r\n\r\n.banner h3 {\r\n  margin-top: 0.5em;\r\n}\r\n\r\n.highlight {\r\n  background-color: rgba(247, 255, 0, 0.90);\r\n}\r\n\r\na.highlight {\r\n  transition: background-color 0.5s ease;\r\n}\r\n\r\na.highlight:hover {\r\n  background-color: rgba(40, 96, 194, 0.90);\r\n  transition: background-color 0.5s ease;\r\n}\r\n  ", ""]);
 
 // exports
 
@@ -45032,6 +45057,8 @@ var Taxes = function (_React$Component) {
             basicRate: false,
             higherRate: false,
             additionalRate: false,
+            incomePercents: { basic: "59%", higher: "30%", additional: "12%" },
+            incomeTotals: { basic: 533, higher: 269, additional: 108 },
             taxpercents: { basic: "35%", higher: "37%", additional: "28%" },
             taxtotals: { basic: 55.7, higher: 58.3, additional: 43.85 },
             taxaverages: { basic: 2250, higher: 14600, additional: 142000 },
@@ -45064,13 +45091,21 @@ var Taxes = function (_React$Component) {
                     _react2.default.createElement(
                         'span',
                         { className: 'highlight' },
-                        'In 2016-17 income taxpayers in your bracket took home X of all income'
+                        'In 2016-17 income taxpayers in your bracket took home\xA0',
+                        this.state.additionalRate ? this.state.incomePercents.additional : null,
+                        this.state.higherRate ? this.state.incomePercents.higher : null,
+                        this.state.basicRate ? this.state.incomePercents.basic : null,
+                        '\xA0of all income'
                     )
                 ),
                 _react2.default.createElement(
                     'h3',
                     null,
-                    'That\'s X billion pounds'
+                    'That\'s roughly \xA3',
+                    this.state.additionalRate ? this.state.incomeTotals.additional : null,
+                    this.state.higherRate ? this.state.incomeTotals.higher : null,
+                    this.state.basicRate ? this.state.incomeTotals.basic : null,
+                    '\xA0billion'
                 ),
                 _react2.default.createElement(
                     'h2',
@@ -45079,7 +45114,7 @@ var Taxes = function (_React$Component) {
                         'span',
                         { className: 'highlight' },
                         'And paid\xA0',
-                        this.state.addtionalRate ? this.state.taxpercents.additional : null,
+                        this.state.additionalRate ? this.state.taxpercents.additional : null,
                         this.state.higherRate ? this.state.taxpercents.higher : null,
                         this.state.basicRate ? this.state.taxpercents.basic : null,
                         '\xA0of all income tax'
@@ -45089,7 +45124,7 @@ var Taxes = function (_React$Component) {
                     'h3',
                     null,
                     'Which is\xA0\xA3',
-                    this.state.addtionalRate ? this.state.taxtotals.additional : null,
+                    this.state.additionalRate ? this.state.taxtotals.additional : null,
                     this.state.higherRate ? this.state.taxtotals.higher : null,
                     this.state.basicRate ? this.state.taxtotals.basic : null,
                     '\xA0billion'
@@ -45113,6 +45148,8 @@ var Taxes = function (_React$Component) {
                     this.state.compaverage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
                     ' for this bracket.'
                 ),
+                _react2.default.createElement(_Source2.default, { href: 'https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/616447/Table_2.6.pdf' }),
+                _react2.default.createElement(_Source2.default, { href: 'https://www.gov.uk/government/statistics/number-of-individual-income-taxpayers-by-marginal-rate-gender-and-age' }),
                 _react2.default.createElement(_Source2.default, { href: 'https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/616447/Table_2.6.pdf' })
             );
         }
