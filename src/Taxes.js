@@ -34,7 +34,7 @@ class Taxes extends React.Component {
     render() {
         return (
             <Card>
-                <h2><span className="highlight">In 2016-17 income taxpayers in your bracket took home&nbsp; 
+                <h2><span className="highlight">In 2014-15 income taxpayers in your bracket took home&nbsp; 
                 {this.state.additionalRate ? this.state.incomePercents.additional : null} 
                     {this.state.higherRate ? this.state.incomePercents.higher : null}
                     {this.state.basicRate ? this.state.incomePercents.basic : null} 

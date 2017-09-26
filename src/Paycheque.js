@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Card from './Card';
 import './Paycheque.css';
+import PieVis from './PieVis';
 
 class Paycheque extends Component {
     render() {
@@ -15,6 +16,7 @@ class Paycheque extends Component {
                 <li className="Payche-List-Item">and make national insurance contributions of <span className="highlight">£{this.props.contribution.toFixed(2)}</span></li>
                 <li className="Payche-List-Item">leaving you with <span className="highlight"><strong>£{this.props.takeHomePay}</strong></span> a month!</li>
                 </ul>
+                <PieVis tax={this.props.tax} contribution={this.props.contribution} takehome={this.props.takeHomePay} />
                 </Card>
             </div>
         )

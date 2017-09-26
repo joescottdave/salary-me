@@ -51,7 +51,7 @@ class Infograph extends Component {
                 </section>
 
                 <section id="income-and-taxes">
-                    <ScrollAnimation animateIn="slideInUp" animateOut="fadeOut" >
+                    <ScrollAnimation animateIn="slideInUp" animateOnce={true} >
                         <Paycheque salary={this.state.salary}
                         takeHomePay={this.state.takeHomePay}
                         tax={this.state.tax}

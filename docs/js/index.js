@@ -41418,7 +41418,7 @@ var Header = function Header() {
             _react2.default.createElement(
                 'h1',
                 null,
-                'Can you live on that?'
+                '"Could you live on that?"'
             )
         )
     );
@@ -41694,6 +41694,36 @@ var Welcome = function (_Component) {
                         { className: 'splash' },
                         'Welcome to your dashboard, ',
                         this.props.name
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'This dashboard was inspired during the 2017 UK General Election, when the Shadow Chancellor John McDonnell brandishing the pay slip of a striking cleaner at a central London hospital, in an interview on 16 July 2017 with the BBC\'s Andrew Marr, challenged his incumbent rival, Chancellor Philip Hammond, with the question "Could you live on that?"'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'According to his released tax return McDonnell earns \xA361,575 from his salary as an MP.  This may have increased since MPs received a pay rise of more than 10% (although many refused it). Philip Hammond earns a reported \xA3141,505 from his combined salary as an MP and as Chancellor. Of course from published details of pay the BBC earlier this year we know that Andrew Marr\'s salary of over \xA3400,000 dwarfs both.'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'And the cleaner..? Just \xA3297 a week, roughly 40 hours on the National Living Wage.'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'McDonnell decried that the median rent in London was \xA31500, more than a month\'s pay for the cleaner.'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'So how does this work? And where do you fit in?'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Below we look at your income, your tax contributions, inflation, and housing costs in your area, and try to place them in a wider context.'
                     )
                 )
             );
@@ -41790,7 +41820,7 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, "h2.splash {\r\n    position: absolute;\r\n    top: 15%;\r\n}", ""]);
+exports.push([module.i, "h2.splash {\r\n    /* position: absolute;\r\n    top: 15%; */\r\n}", ""]);
 
 // exports
 
@@ -45091,7 +45121,7 @@ var Taxes = function (_React$Component) {
                     _react2.default.createElement(
                         'span',
                         { className: 'highlight' },
-                        'In 2016-17 income taxpayers in your bracket took home\xA0',
+                        'In 2014-15 income taxpayers in your bracket took home\xA0',
                         this.state.additionalRate ? this.state.incomePercents.additional : null,
                         this.state.higherRate ? this.state.incomePercents.higher : null,
                         this.state.basicRate ? this.state.incomePercents.basic : null,
