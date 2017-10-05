@@ -65,6 +65,7 @@ class Infograph extends Component {
                     <Card>
                             <h2>Paycheques</h2>
                             <p>A person on the national living wage will incur income tax on anything they work over 30 hours.</p>
+                            <p>The London Living Wage according to the independent Living Wage Foundation is currently £9.45.  At this level of the striking cleaner could have expected an extra £77 at the end of each week.</p>
                             <p>And through a combination of tax and national insurance a full-time worker on minimum wage will pay an effective tax rate of 11%</p>
                             <p>An MP like John McDonnell will pay more in income tax than a person on the minimum wage will have to live on.</p>
                             <p>Tax on an income the size of Andrew Marr’s will be greater than Philip Hammond's combined salary of roughly £140,000.  His effective tax rate would be 43%.</p>
