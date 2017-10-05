@@ -12,6 +12,7 @@ class Taxes extends React.Component {
             basicRate: false,
             higherRate: false,
             additionalRate: false,
+            peoplePercents: {basic: "85%", higher: "14%", additional: "1%"},
             incomePercents: {basic: "59%", higher: "30%", additional: "12%"},
             incomeTotals: {basic: 533, higher: 269, additional: 108},
             taxpercents: {basic: "35%", higher: "37%", additional: "28%"},
@@ -34,7 +35,11 @@ class Taxes extends React.Component {
     render() {
         return (
             <Card>
-                <h2><span className="highlight">In 2014-15 income taxpayers in your bracket took home&nbsp; 
+                <h2><span className="highlight">In 2014-15 <br/> the&nbsp;
+                {this.state.additionalRate ? this.state.peoplePercents.additional : null} 
+                    {this.state.higherRate ? this.state.peoplePercents.higher : null}
+                    {this.state.basicRate ? this.state.peoplePercents.basic : null} 
+                    &nbsp;of income taxpayers in your bracket took home&nbsp; 
                 {this.state.additionalRate ? this.state.incomePercents.additional : null} 
                     {this.state.higherRate ? this.state.incomePercents.higher : null}
                     {this.state.basicRate ? this.state.incomePercents.basic : null} 

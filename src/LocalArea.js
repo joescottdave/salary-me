@@ -71,8 +71,6 @@ class LocalArea extends Component {
                         <p>Compared to an average rent of £{this.state.average_rent} in {this.state.area_name}</p>
                         <p>{(this.state.average_rent < this.state.average_rent_uk) ? 'Lower' : 'Higher'} than the UK average of £{this.state.average_rent_uk}</p>
                         <Source href="https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-july-2017?utm_medium=ONS&utm_source=report_page&utm_campaign=data_downloads&utm_term=9.30_12_09_17&utm_content=download_the_data" />
-                        <a href="rents-map.html" className="highlight" target="_blank">See average rents for your area and across the UK...</a>
-                        
                     </div>
                 }
             </Card>

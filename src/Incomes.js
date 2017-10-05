@@ -48,7 +48,6 @@ class Incomes extends React.Component {
                         <p>Basic Allowances have changed since this data was collected and people in the first six percentiles would no longer be eligible to pay any income tax</p>
                         <p>The top 1% of income taxpayers have an essentially unbounded range of income.  What we can say for sure is that they earn more £162,000. But the true upper limit is unknowable from official data.</p>                    
                     </Explainer>
-                    <a className="highlight" href="incomes-article" target="_blank">Read more about incomes in the UK...</a>
                 </Card>
             </div>
         )

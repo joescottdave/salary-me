@@ -556,7 +556,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 var _prodInvariant = __webpack_require__(3);
 
-var DOMProperty = __webpack_require__(16);
+var DOMProperty = __webpack_require__(17);
 var ReactDOMComponentFlags = __webpack_require__(70);
 
 var invariant = __webpack_require__(1);
@@ -2247,6 +2247,37 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(220);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Card = function Card(_ref) {
+    var children = _ref.children;
+
+    return _react2.default.createElement(
+        'div',
+        { className: 'Card' },
+        children
+    );
+};
+
+exports.default = Card;
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -2456,37 +2487,6 @@ var DOMProperty = {
 
 module.exports = DOMProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(4);
-
-var _react2 = _interopRequireDefault(_react);
-
-__webpack_require__(220);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Card = function Card(_ref) {
-    var children = _ref.children;
-
-    return _react2.default.createElement(
-        'div',
-        { className: 'Card' },
-        children
-    );
-};
-
-exports.default = Card;
 
 /***/ }),
 /* 18 */
@@ -26490,7 +26490,7 @@ module.exports = CSSProperty;
 
 
 
-var DOMProperty = __webpack_require__(16);
+var DOMProperty = __webpack_require__(17);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(12);
 
@@ -27689,7 +27689,7 @@ module.exports = getActiveElement;
 var _prodInvariant = __webpack_require__(3);
 
 var DOMLazyTree = __webpack_require__(23);
-var DOMProperty = __webpack_require__(16);
+var DOMProperty = __webpack_require__(17);
 var React = __webpack_require__(20);
 var ReactBrowserEventEmitter = __webpack_require__(38);
 var ReactCurrentOwner = __webpack_require__(13);
@@ -28465,7 +28465,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Card = __webpack_require__(17);
+var _Card = __webpack_require__(16);
 
 var _Card2 = _interopRequireDefault(_Card);
 
@@ -33035,7 +33035,7 @@ module.exports = EnterLeaveEventPlugin;
 
 
 
-var DOMProperty = __webpack_require__(16);
+var DOMProperty = __webpack_require__(17);
 
 var MUST_USE_PROPERTY = DOMProperty.injection.MUST_USE_PROPERTY;
 var HAS_BOOLEAN_VALUE = DOMProperty.injection.HAS_BOOLEAN_VALUE;
@@ -33732,7 +33732,7 @@ var AutoFocusUtils = __webpack_require__(151);
 var CSSPropertyOperations = __webpack_require__(152);
 var DOMLazyTree = __webpack_require__(23);
 var DOMNamespaces = __webpack_require__(48);
-var DOMProperty = __webpack_require__(16);
+var DOMProperty = __webpack_require__(17);
 var DOMPropertyOperations = __webpack_require__(82);
 var EventPluginHub = __webpack_require__(27);
 var EventPluginRegistry = __webpack_require__(33);
@@ -38747,7 +38747,7 @@ module.exports = getUnboundedScrollPosition;
 
 
 
-var DOMProperty = __webpack_require__(16);
+var DOMProperty = __webpack_require__(17);
 var EventPluginHub = __webpack_require__(27);
 var EventPluginUtils = __webpack_require__(42);
 var ReactComponentEnvironment = __webpack_require__(51);
@@ -40901,7 +40901,7 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 
 
 
-var DOMProperty = __webpack_require__(16);
+var DOMProperty = __webpack_require__(17);
 var EventPluginRegistry = __webpack_require__(33);
 var ReactComponentTreeHook = __webpack_require__(10);
 
@@ -41068,7 +41068,7 @@ module.exports = ReactDOMNullInputValuePropHook;
 
 
 
-var DOMProperty = __webpack_require__(16);
+var DOMProperty = __webpack_require__(17);
 var ReactComponentTreeHook = __webpack_require__(10);
 
 var warning = __webpack_require__(2);
@@ -41190,7 +41190,7 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, "* {\r\n  color: rgba(30,10,20,1);\r\n  font-family: 'Open Sans', sans-serif;\r\n}\r\n\r\nh1, h2, input {\r\n  font-family: 'PT Serif', serif;\r\n  letter-spacing: 0.5px;\r\n}\r\n\r\nbody {\r\n    background: rgba(255,250,250,1);\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 100%;\r\n  }\r\n\r\n.banner {\r\n  margin: 15px auto;\r\n  width: 80%;\r\n}\r\n\r\n.banner h4 {\r\n  margin-bottom: 0.5em;\r\n}\r\n\r\n.banner h3 {\r\n  margin-top: 0.5em;\r\n}\r\n\r\n.highlight {\r\n  background-color: rgba(247, 255, 0, 0.90);\r\n}\r\n\r\na.highlight {\r\n  transition: background-color 0.5s ease;\r\n}\r\n\r\na.highlight:hover {\r\n  background-color: rgba(40, 96, 194, 0.90);\r\n  transition: background-color 0.5s ease;\r\n}\r\n  ", ""]);
+exports.push([module.i, "* {\r\n  color: rgba(30,10,20,1);\r\n  font-family: 'Open Sans', sans-serif;\r\n}\r\n\r\nh1, h2, input {\r\n  font-family: 'PT Serif', serif;\r\n  letter-spacing: 0.5px;\r\n}\r\n\r\nbody {\r\n    background-color: rgba(255,250,250,1);\r\n    margin: 0;\r\n    padding: 0;\r\n    width: 100%;\r\n  }\r\n\r\n.banner {\r\n  margin: 15px auto;\r\n  width: 80%;\r\n}\r\n\r\n.banner h4 {\r\n  margin-bottom: 0.5em;\r\n}\r\n\r\n.banner h3 {\r\n  margin-top: 0.5em;\r\n}\r\n\r\n.highlight {\r\n  background-color: rgba(247, 255, 0, 0.90);\r\n}\r\n\r\na.highlight {\r\n  transition: background-color 0.5s ease;\r\n}\r\n\r\na.highlight:hover {\r\n  background-color: rgba(40, 96, 194, 0.90);\r\n  transition: background-color 0.5s ease;\r\n}\r\n  ", ""]);
 
 // exports
 
@@ -41315,11 +41315,11 @@ var _Infograph = __webpack_require__(218);
 
 var _Infograph2 = _interopRequireDefault(_Infograph);
 
-var _UserForm = __webpack_require__(283);
+var _UserForm = __webpack_require__(285);
 
 var _UserForm2 = _interopRequireDefault(_UserForm);
 
-var _Container = __webpack_require__(286);
+var _Container = __webpack_require__(288);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -41418,7 +41418,7 @@ var Header = function Header() {
             _react2.default.createElement(
                 'h1',
                 null,
-                '"Could you live on that?"'
+                'Could you live on that?'
             )
         )
     );
@@ -41512,15 +41512,19 @@ var _LocalArea = __webpack_require__(245);
 
 var _LocalArea2 = _interopRequireDefault(_LocalArea);
 
-var _Incomes = __webpack_require__(277);
+var _Incomes = __webpack_require__(279);
 
 var _Incomes2 = _interopRequireDefault(_Incomes);
 
-var _Taxes = __webpack_require__(279);
+var _Taxes = __webpack_require__(281);
 
 var _Taxes2 = _interopRequireDefault(_Taxes);
 
-__webpack_require__(280);
+var _Card = __webpack_require__(16);
+
+var _Card2 = _interopRequireDefault(_Card);
+
+__webpack_require__(282);
 
 var _reactAnimateOnScroll = __webpack_require__(59);
 
@@ -41546,7 +41550,8 @@ var Infograph = function (_Component) {
             salary: props.userInfo.userSalary,
             takeHomePay: 0,
             tax: 0,
-            contribution: 0
+            contribution: 0,
+            taxEffect: 0
         }, _this.handleReset = _this.handleReset.bind(_this);
         return _this;
     }
@@ -41554,12 +41559,13 @@ var Infograph = function (_Component) {
     _createClass(Infograph, [{
         key: '_takeHomePay',
         value: function _takeHomePay() {
-            var tc = __webpack_require__(282);
+            var tc = __webpack_require__(284);
             var salary = this.props.userInfo.userSalary;
             var monthly = (tc.afterTax(salary) / 12).toFixed(2);
             var tax = tc.incomeTax(salary);
             var contribution = tc.natIns(salary);
-            this.setState({ takeHomePay: monthly, tax: tax, contribution: contribution });
+            var taxEffect = (tax + contribution) / salary * 100;
+            this.setState({ takeHomePay: monthly, tax: tax, contribution: contribution, taxEffect: taxEffect });
         }
     }, {
         key: 'componentWillMount',
@@ -41595,18 +41601,107 @@ var Infograph = function (_Component) {
                         _react2.default.createElement(_Paycheque2.default, { salary: this.state.salary,
                             takeHomePay: this.state.takeHomePay,
                             tax: this.state.tax,
-                            contribution: this.state.contribution
+                            contribution: this.state.contribution,
+                            taxEffect: this.state.taxEffect
                         })
                     ),
                     _react2.default.createElement(
+                        _Card2.default,
+                        null,
+                        _react2.default.createElement(
+                            'h2',
+                            null,
+                            'Paycheques'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'A person on the national living wage will incur income tax on anything they work over 30 hours.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'And through a combination of tax and national insurance a full-time worker on minimum wage will pay an effective tax rate of 11%'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'An MP like John McDonnell will pay more in income tax than a person on the minimum wage will have to live on.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Tax on an income the size of Andrew Marr\u2019s will be greater than Philip Hammond\'s combined salary of roughly \xA3140,000.  His effective tax rate would be 43%.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Calculations of marginal tax rates often account for benefits paid and this is where household composition affects the calculation.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Married couples can claim a small additional tax-free allowance.  A piece of \u201Cnudge\u201D politics intended to incentivise marriage, which has a number of reported benefits to the couple and children in the household.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'An MP\u2019s effective tax rate is 31% - that is if they do not work a second job or have other sources of income.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'In 2015 one in five MPs had a second job and almost a third were receiving income from letting properties.'
+                        ),
+                        _react2.default.createElement(
+                            'a',
+                            { className: 'highlight', href: './article-1.html', target: '_blank' },
+                            'Read more about incomes in the UK...'
+                        )
+                    ),
+                    _react2.default.createElement(
                         _reactAnimateOnScroll2.default,
-                        { animateIn: 'fadeIn', animateOut: 'fadeOut' },
+                        { animateIn: 'fadeIn', animateOnce: true },
                         _react2.default.createElement(_Incomes2.default, { salary: this.state.salary, takehome: this.state.takehome })
                     ),
                     _react2.default.createElement(
                         _reactAnimateOnScroll2.default,
-                        { animateIn: 'fadeIn', animateOut: 'fadeOut' },
+                        { animateIn: 'fadeIn', animateOnce: true },
                         _react2.default.createElement(_Taxes2.default, { salary: this.state.salary, tax: this.state.tax, contribution: this.state.contribution })
+                    ),
+                    _react2.default.createElement(
+                        _Card2.default,
+                        null,
+                        _react2.default.createElement(
+                            'h2',
+                            null,
+                            'Tax Burden'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'The largest tax bills are paid by the 300,000 people who pay the highest rate of income tax.  These taxpayers paid on average \xA3142,000 in 2014/15.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'This is the income tax that would be incurred on an income of \xA3346000.  If this was the average pay for this group they would have had a combined income of \xA3108 billion that year.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'A similar calculation for basic rate taxpayers \u2013 25 million people \u2013 who paid an average tax bill of \xA32,250 shows that together they earned \xA3550 billion'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'This means that basic rate taxpayers a group 85x larger than additional rate taxpayers has a combined income only 5x larger.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'The largest share of income tax revenue comes from those 4.3 million people paying the \u201Chigher\u201D rate of tax (actually the middle rate).  The 37% share paid by these workers just pips the 35% paid by basic rate taxpayers.'
+                        )
                     )
                 ),
                 _react2.default.createElement(
@@ -41619,13 +41714,67 @@ var Infograph = function (_Component) {
                     { id: 'rent-and-housing' },
                     _react2.default.createElement(
                         _reactAnimateOnScroll2.default,
-                        { animateIn: 'fadeIn', animateOut: 'fadeOut' },
+                        { animateIn: 'fadeIn', animateOnce: true },
                         _react2.default.createElement(_Households2.default, { takeHomePay: this.state.takeHomePay })
                     ),
                     _react2.default.createElement(
                         _reactAnimateOnScroll2.default,
                         { animateIn: 'fadeIn', animateOnce: true },
                         _react2.default.createElement(_LocalArea2.default, { takeHomePay: this.state.takeHomePay, postcode: this.props.userInfo.userPostcode })
+                    ),
+                    _react2.default.createElement(
+                        _Card2.default,
+                        null,
+                        _react2.default.createElement(
+                            'h2',
+                            null,
+                            'Housing'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Average house prices in the UK returned to their pre-crisis peak much faster than wages which are still lagging by some measures.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Private rents did not skip a beat showing YoY growth throughout the entire crisis period.  They are now 15% higher than they were in 2011.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Average council tax in the UK for a Band D property is \xA31591.  This is more than one month\'s pay for anyone working for minimum wage.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Other bands are calculated relative to the charge for a Band D property, either as a smaller or larger fraction of this amount.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'The lowest council tax in the country is in Westminster where MPs can expect to have their rent paid for by their second home allowance, to the tune of \xA33513 on average.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'The area with the highest council tax is Weymouth and Portland where the \xA31208 charge for even the cheapest property will increase the tax burden for the lowest paid and the striking cleaner by another 8%'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'There are no exemptions from council tax for the lowest paid.  They must instead circuitously claim council tax benefit from their local council which is used to pay the bill.  Claimants never actually receive this money.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Average house prices in Westminster are currently \xA31million plus.  Even the highest council tax charge for this area is only 0.1% of this value.'
+                        ),
+                        _react2.default.createElement(
+                            'a',
+                            { href: './article-3.html', className: 'highlight', target: '_blank' },
+                            'See average rents for your area and across the UK...'
+                        )
                     )
                 ),
                 _react2.default.createElement(_ControlCenter2.default, { handleReset: this.handleReset })
@@ -41655,7 +41804,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Card = __webpack_require__(17);
+var _Card = __webpack_require__(16);
 
 var _Card2 = _interopRequireDefault(_Card);
 
@@ -41842,7 +41991,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Card = __webpack_require__(17);
+var _Card = __webpack_require__(16);
 
 var _Card2 = _interopRequireDefault(_Card);
 
@@ -41937,7 +42086,14 @@ var Paycheque = function (_Component) {
                             ' a month!'
                         )
                     ),
-                    _react2.default.createElement(_PieVis2.default, { tax: this.props.tax, contribution: this.props.contribution, takehome: this.props.takeHomePay })
+                    _react2.default.createElement(_PieVis2.default, { tax: this.props.tax, contribution: this.props.contribution, takehome: this.props.takeHomePay }),
+                    _react2.default.createElement(
+                        'h2',
+                        null,
+                        'Your effective tax rate is ',
+                        this.props.taxEffect.toFixed(0),
+                        '%'
+                    )
                 )
             );
         }
@@ -42247,7 +42403,7 @@ var _BasketVis = __webpack_require__(95);
 
 var _BasketVis2 = _interopRequireDefault(_BasketVis);
 
-var _Card = __webpack_require__(17);
+var _Card = __webpack_require__(16);
 
 var _Card2 = _interopRequireDefault(_Card);
 
@@ -42419,6 +42575,75 @@ var Inflation = function (_Component) {
                 _react2.default.createElement(
                     _Card2.default,
                     null,
+                    _react2.default.createElement(
+                        'h2',
+                        null,
+                        'Inflation'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Inflation in the UK has had a tumultuous period following the 2007/08 financial crisis.  At times running over 4%, others it has flirted with falling below zero, and despite steadying more recently, the falling price of the pound since the EU referendum has sent prices climbing again.'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'The UK\u2019s trade deficit with the rest of the world is very high and this makes our consumption vulnerable to drops in our currency.'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Exporters have according to the Office for National Statistics hoarded the benefits of a weaker pound and by increasing prices and not output, prospectively insuring themselves against future shocks'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Low income workers have been shown to pay a higher proportion of their income in tax than their fellow citizens at the top end of the pay scale.'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'This is because of the effect of flat taxes like VAT and Council Tax.  Council Tax can be as high as an additional 10% tax for the lowest paid.'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Because low income people must spend more of their income to live, as opposed to saving and investing, they also see more of their income taken in the form of VAT.'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Although there are VAT exemptions for many necessities, some items such as tampons have been controversially overlooked by our predominantly male legislators.'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'CPIH is not yet an official statistic and attempts to account for the effect of housing on inflation, including rising council tax charges, energy bills, and building insurance.'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Nevertheless the current CPIH rate of 2.7% is lower than its sibling CPI of 2.9%'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'The older and increasing deprecated RPI measure reports inflation of 3.9%, this figure is currently preferred by those negotiating for pay increases.'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Public sector workers and their union representatives looking for back pay have preferred the higher RPI measure.'
+                    ),
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'highlight', href: './article-2.html', target: '_blank' },
+                        'Read more about price rises and the iPhone...'
+                    )
+                ),
+                _react2.default.createElement(
+                    _Card2.default,
+                    null,
                     _react2.default.createElement(_Basket2.default, { monthly: this.state.monthly }),
                     _react2.default.createElement(_BasketVis2.default, null),
                     _react2.default.createElement(
@@ -42462,7 +42687,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Card = __webpack_require__(17);
+var _Card = __webpack_require__(16);
 
 var _Card2 = _interopRequireDefault(_Card);
 
@@ -43408,7 +43633,7 @@ var _Households = __webpack_require__(96);
 
 var _Households2 = _interopRequireDefault(_Households);
 
-var _Card = __webpack_require__(17);
+var _Card = __webpack_require__(16);
 
 var _Card2 = _interopRequireDefault(_Card);
 
@@ -43416,7 +43641,7 @@ var _Source = __webpack_require__(24);
 
 var _Source2 = _interopRequireDefault(_Source);
 
-__webpack_require__(275);
+__webpack_require__(277);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -43553,12 +43778,7 @@ var LocalArea = function (_Component) {
                         ' than the UK average of \xA3',
                         this.state.average_rent_uk
                     ),
-                    _react2.default.createElement(_Source2.default, { href: 'https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-july-2017?utm_medium=ONS&utm_source=report_page&utm_campaign=data_downloads&utm_term=9.30_12_09_17&utm_content=download_the_data' }),
-                    _react2.default.createElement(
-                        'a',
-                        { href: 'rents-map.html', className: 'highlight', target: '_blank' },
-                        'See average rents for your area and across the UK...'
-                    )
+                    _react2.default.createElement(_Source2.default, { href: 'https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-july-2017?utm_medium=ONS&utm_source=report_page&utm_campaign=data_downloads&utm_term=9.30_12_09_17&utm_content=download_the_data' })
                 )
             );
         }
@@ -44594,6 +44814,8 @@ var d3 = _interopRequireWildcard(_d);
 
 var _d3Array = __webpack_require__(97);
 
+__webpack_require__(275);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -44707,6 +44929,8 @@ var Vis = function (_Component) {
                     return +d.Average_Price;
                 }));
 
+                var tooltip = d3.select(main.refs.vis).append('div').attr('class', 'vis-tooltip');
+
                 var bars = context.append('g').attr('class', 'bars');
 
                 var bar = bars.selectAll('.bar').data(localHousePriceInfo);
@@ -44715,7 +44939,7 @@ var Vis = function (_Component) {
                     return 'bar ' + 'x' + d.Date;
                 }).attr('x', function (d) {
                     return x(parseTime(d.Date));
-                }).attr('y', 0).attr('width', width / 150).attr('height', height).attr('fill', 'rgba(10,10,10,0)').attr('opacity', 0).on('mouseover', barOnHover).on('mouseout', barOffHover);
+                }).attr('y', 0).attr('width', width / 150).attr('height', height).attr('fill', 'rgba(10,10,10,0)').attr('opacity', 0).on('mouseover', barOnHover).on('mouseout', barOffHover).on('mousemove', barOnMove);
 
                 var circles = context.append('g').attr('class', 'circles');
 
@@ -44746,12 +44970,20 @@ var Vis = function (_Component) {
                 function barOnHover(e) {
                     var selection = '.' + this.classList[1];
                     d3.selectAll(selection).attr('opacity', 1);
+
+                    tooltip.style('display', null).html('<p>Hello</p>');
                 }
 
                 function barOffHover(e) {
                     var selection = '.' + this.classList[1];
                     d3.selectAll(selection).attr('opacity', 0);
+                    tooltip.style('display', 'none');
                 }
+
+                function barOnMove(e) {
+                    console.log(d3.event);
+                    tooltip.style('top', d3.event.pageY - 20 + "px").style('left', d3.event.pageX + 20 + "px");
+                };
             });
         }
     }, {
@@ -44787,8 +45019,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js!./LocalArea.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js!./LocalArea.css");
+		module.hot.accept("!!../node_modules/css-loader/index.js!./Vis.css", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js!./Vis.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -44806,13 +45038,58 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, "table.indiv-house-comparison {\r\n    width: 50%;\r\n    margin: 0 auto;\r\n    text-align: center;\r\n    font-size: 1.5em;\r\n\r\n}", ""]);
+exports.push([module.i, ".vis-tooltip {\r\n    position: absolute;\r\n}\r\n\r\n.vis-tooltip p {\r\n    background-color: snow;\r\n    border: black 1px solid;\r\n    padding: 2px;\r\n    font-family: sans-serif;\r\n    font-size: 11px;\r\n}", ""]);
 
 // exports
 
 
 /***/ }),
 /* 277 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(278);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(9)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/css-loader/index.js!./LocalArea.css", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js!./LocalArea.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 278 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "table.indiv-house-comparison {\r\n    width: 50%;\r\n    margin: 0 auto;\r\n    text-align: center;\r\n    font-size: 1.5em;\r\n\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44828,11 +45105,11 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _IncomesVis = __webpack_require__(278);
+var _IncomesVis = __webpack_require__(280);
 
 var _IncomesVis2 = _interopRequireDefault(_IncomesVis);
 
-var _Card = __webpack_require__(17);
+var _Card = __webpack_require__(16);
 
 var _Card2 = _interopRequireDefault(_Card);
 
@@ -44964,11 +45241,6 @@ var Incomes = function (_React$Component) {
                             null,
                             'The top 1% of income taxpayers have an essentially unbounded range of income.  What we can say for sure is that they earn more \xA3162,000. But the true upper limit is unknowable from official data.'
                         )
-                    ),
-                    _react2.default.createElement(
-                        'a',
-                        { className: 'highlight', href: 'incomes-article', target: '_blank' },
-                        'Read more about incomes in the UK...'
                     )
                 )
             );
@@ -44981,7 +45253,7 @@ var Incomes = function (_React$Component) {
 exports.default = Incomes;
 
 /***/ }),
-/* 278 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45168,7 +45440,7 @@ var IncomesVis = function (_React$Component) {
 exports.default = IncomesVis;
 
 /***/ }),
-/* 279 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45184,7 +45456,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Card = __webpack_require__(17);
+var _Card = __webpack_require__(16);
 
 var _Card2 = _interopRequireDefault(_Card);
 
@@ -45215,6 +45487,7 @@ var Taxes = function (_React$Component) {
             basicRate: false,
             higherRate: false,
             additionalRate: false,
+            peoplePercents: { basic: "85%", higher: "14%", additional: "1%" },
             incomePercents: { basic: "59%", higher: "30%", additional: "12%" },
             incomeTotals: { basic: 533, higher: 269, additional: 108 },
             taxpercents: { basic: "35%", higher: "37%", additional: "28%" },
@@ -45249,7 +45522,13 @@ var Taxes = function (_React$Component) {
                     _react2.default.createElement(
                         'span',
                         { className: 'highlight' },
-                        'In 2014-15 income taxpayers in your bracket took home\xA0',
+                        'In 2014-15 ',
+                        _react2.default.createElement('br', null),
+                        ' the\xA0',
+                        this.state.additionalRate ? this.state.peoplePercents.additional : null,
+                        this.state.higherRate ? this.state.peoplePercents.higher : null,
+                        this.state.basicRate ? this.state.peoplePercents.basic : null,
+                        '\xA0of income taxpayers in your bracket took home\xA0',
                         this.state.additionalRate ? this.state.incomePercents.additional : null,
                         this.state.higherRate ? this.state.incomePercents.higher : null,
                         this.state.basicRate ? this.state.incomePercents.basic : null,
@@ -45319,13 +45598,13 @@ var Taxes = function (_React$Component) {
 exports.default = Taxes;
 
 /***/ }),
-/* 280 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(281);
+var content = __webpack_require__(283);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -45350,7 +45629,7 @@ if(false) {
 }
 
 /***/ }),
-/* 281 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(8)(undefined);
@@ -45364,7 +45643,7 @@ exports.push([module.i, "h1, h2, h3, h4 {\r\n    text-align: center;\r\n}\r\n\r\
 
 
 /***/ }),
-/* 282 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45421,7 +45700,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 283 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45437,7 +45716,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(284);
+__webpack_require__(286);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45513,13 +45792,13 @@ var UserForm = function (_Component) {
 exports.default = UserForm;
 
 /***/ }),
-/* 284 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(285);
+var content = __webpack_require__(287);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -45544,7 +45823,7 @@ if(false) {
 }
 
 /***/ }),
-/* 285 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(8)(undefined);
@@ -45558,7 +45837,7 @@ exports.push([module.i, ".UserForm input, \r\n.UserForm button {\r\n    padding:
 
 
 /***/ }),
-/* 286 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45572,7 +45851,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(287);
+__webpack_require__(289);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45589,13 +45868,13 @@ var Container = function Container(_ref) {
 exports.default = Container;
 
 /***/ }),
-/* 287 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(288);
+var content = __webpack_require__(290);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -45620,7 +45899,7 @@ if(false) {
 }
 
 /***/ }),
-/* 288 */
+/* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(8)(undefined);

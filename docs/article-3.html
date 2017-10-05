@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Downsizing: The Shrinking Affordability of Rents in the UK</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|PT+Serif" rel="stylesheet">
+        <link href="./css/rents-map.css" rel="stylesheet"/>
+        <style>
+            * {
+                color: rgb(10,10,15);
+                font-family: "PT Serif", serif;
+            }
+            body {
+                background-color: rgb(255,250,250);
+                width: 100%;
+                max-width: 780px;
+            }
+            header, main, footer {
+                margin: auto;
+                padding: 2em;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>Downsizing: The Shrinking Affordability of UK Rents</h1>
+            <article>
+                    <p>Average rents in more than half of all postcodes are now unaffordable for anyone earning less than the median wage.</p>
+                    <p>Of more than 1300 low-level postcode districts analysed, the rents in over half were higher than forty percent of a typical worker’s take home pay.</p>
+                    <p>Rents have grown steadily year-on-year since 2011 by between 1.4 and 2.8% since the Office For National Statistics started publishing combined figures for the whole of Great Britain in 2012 in its experimental rental price index.</p>
+                    <p>Rents are now on average 15% higher than they were in 2011.</p>
+                    <p>House prices have fluctuated through the financial crisis and resulting recession, in 2015 they returned to and have since exceeded their pre-crisis peak. There was no commensurate fall in rental prices.</p>
+                    <p>Wage growth has slowed considerably after a period of stagnation, but workers have seen no easing in the growth of their rents.</p>
+                    <p>A number of moves by George Osborne when he was chancellor saw the by-to-let industry become a less profitable prospect for all but those operating at the greatest scale.</p>
+                    <p>Restrictions on the ability of landlords to write-off the interest incurred on buy-to-let mortgages as a business expense has meant diminished returns on rental income.</p>
+                    <p>Our map shows the affordability of rents across postcode areas in the UK, and the increasingly dire situation for the lowest paid.  You can alter the map to reflect your own monthly income to see which parts of the UK are becoming unaffordable for you.</p>
+                    
+                    <div id="app">
+                            <h1>Rent Affordability in the UK</h1>
+                            <div id="map">Click to zoom <br/></div>
+                            <div id="#map-controls">
+                                <ul id="map-key">
+                                    <li>&lt; 40%
+                                    <li class="map-key-color green"></li>
+                                    <li class="map-key-color yellow"></li>
+                                    <li class="map-key-color pale-orange"></li>
+                                    <li class="map-key-color dark-orange"></li>
+                                    <li class="map-key-color pale-red"></li>
+                                    <li class="map-key-color bright-red"></li>
+                                    <li>&lt; 90%</li>
+                                </ul>
+                                <ul id="selectors">
+                                    <li>
+                                        <label>
+                                            <input type="radio" name="group1" id="r1" value="1046.81">
+                                            National Living Wage
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="radio" name="group1" id="r2" value="1761.37" checked>
+                                            Median Wage
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                        <input type="range" min="1000" max="3500" step="100" id="map_range"><br/>
+                                        £<span id="map_range_value"></span></label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    <p>Short term lets can mean the prospect of frequently moving with the cost of estate agent’s fees and the additional deposit required for a new and more expensive tenancy.</p>
+                    <p>With personal debt at record levels and growing; one in four families with less £95 in savings ; these can be steep one-time costs for low income families to meet for something as essential as a roof over their heads.</p>
+                    <p>Opposition leader Jeremy Corbyn promised rent controls in his speech to his party’s conference in Brighton earlier this month.  What form these would take in practice has not been fully disclosed.</p>
+                    <p>The UK has operated rent control regulations in the past, up until 1980 when the Conservative Party enacted sweeping deregulation of a number of markets including housing.</p>
+                    <p>Tenants have little protection from increases once the term of their original tenancy ends which present the choice of a potentially stressful and expensive move, or accepting the increase where possible.</p>
+                    <p>A lack of good data makes this a difficult issue to report.  Tenants have been politically neglected for a long-time now but they are a growing group with a growing influence who make up a core component of Jeremy Corbyn’s pitch to the country.</p>
+                    <p>It remains to be seen what the Conservatives can, or plan, to offer this constituency in light of their shock failure to secure an increased majority in this year’s snap election.</p>
+                    <p>In the past the Conservatives have pitched themselves as the party of home ownership with increasingly stretched innovations to ensure that more people can make their way onto the housing ladder.</p>
+                    <p>With Help to Buy the government has made itself a mortgage lender in an attempt to help more people into home ownership and incentivise house-building by limiting its use to “new build” properties.  </p>
+                    <p>Some say this has created a perverse incentive for the government who could find itself making a loss if house prices were to crash suddenly, or homeowners were unable to meet the costs of their mortgage.</p>
+                    <p>These high loan-to-value ratio mortgages, where buyers are able to buy with only a 5% deposit with the government lending a further 15%, are reminiscent of those that were heavily implicated in the sub-prime mortgage crisis that caused a global financial crisis.</p>
+                    <p>It is increasingly high rents that are seen as part of the problem for first-time buyers, who struggle to save the necessary deposit for a mortgage, while also meeting the demands of rent.  The number of young adults living in the family home is increasing, in part to make saving for a deposit more affordable.</p>
+            </article>
+        </main>
+        <footer>
+
+        </footer>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://d3js.org/topojson.v1.min.js"></script>
+        <script>
+            var z = 1761.37;
+            var width = 355,
+                height = 500,
+                active = d3.select(null)
+                tooltip = d3.select('.tooltip');
+
+            var projection = d3.geoAlbers()
+                .scale(2900)
+                .translate([width/2,height/2])
+                .center([1.75,54.7])
+                .rotate([4.4,0])
+                .parallels([50,60]);
+
+            var zoom = d3.zoom()
+                .on("zoom", zoomed);
+
+            var initialTransform = d3.zoomIdentity
+                .translate(0,0)
+                .scale(1);
+
+            var path = d3.geoPath()
+                .projection(projection);
+
+            var svg = d3.select('#map').append('svg')
+                .attr('width', width)
+                .attr('height', height);
+
+            var g = svg.append('g');
+
+            svg
+                // .call(zoom) // allows free-scrolling
+                .call(zoom.transform, initialTransform);
+
+            width=320, height=480;
+
+            d3.json('./data/Areas_topo_with_rents.json', function(error,uk){
+                if (error) throw error;
+            
+                var color = d3.scaleThreshold()
+                    .domain([z*0.4, z*0.5, z*0.6, z*0.7, z*0.8, z*0.9])
+                    .range(['#80BC3A','#ffe081', '#ff872f', '#f1521a', '#f82d2d', '#fe0000']);
+
+                g.selectAll('.area')
+                    .data(topojson.feature(uk, uk.objects.Areas).features)
+                .enter().append('path')
+                    .attr('d', path)
+                    .attr('class', 'area')
+                    .attr('id', function(d,i){ return d.properties.name; })
+                    .attr('data-rent', function(d) { return parseFloat(d.properties.average_rent); })
+                    .attr('data-area', function(d) { return d.properties.name; })
+                    .style('fill', function(d){ return color(parseFloat(d.properties.average_rent)); })
+                    .on('click', clicked);
+
+            });
+
+            function clicked(d) {
+                if (active.node() === this ) return reset();
+                active.style('opacity', 1)
+                active.classed("active", false);
+                active = d3.select(this).classed("active", true);
+                active.style('opacity', 0.5);
+                d3.select('foreignObject').remove();
+                var postcode = d.properties.name;
+                var rent = d.properties.average_rent.toFixed(2);
+                var text = 'Postcode Area: ' + postcode + ', Average Rent: £' + rent;
+
+                var bounds = path.bounds(d),
+                    dx = bounds[1][0] - bounds[0][0],
+                    dy = bounds[1][1] - bounds[0][1],
+                    x = (bounds[0][0] + bounds[1][0]) / 2,
+                    y = (bounds[0][1] + bounds[1][1]) / 2,
+                    scale = Math.max(1, Math.min(8, 0.9 / Math.max(dx / width, dy / height))),
+                    translate = [width / 2 - scale * x, height / 2 - scale * y];
+
+                
+                var transform = d3.zoomIdentity
+                    .translate(translate[0], translate[1])
+                    .scale(scale);
+
+                svg.transition()
+                    .duration(750)
+                    .call(zoom.transform, transform);
+
+                svg.append('foreignObject')
+                    .attr('class', 'tooltip')
+                    .attr('height', height)
+                    .attr('width', width)
+                    .attr('x', 10)
+                    .attr('y', 420)
+                    .append('xhtml:div')
+                    .append('div')
+                    .attr('class', 'tooltip')
+                    .attr('height', height-20)
+                    .attr('width', width-20)
+                    .style('background-color', 'rgba(30,30,40,0.85)')
+                    .append('p')
+                    .style('color', 'rgba(225,225,215,1)')
+                    .text(text);
+                }
+
+            var slider = document.getElementById('map_range');
+            var box = document.getElementById('map_range_value');
+            box.innerHTML = z;
+            slider.value = z;
+            var r1 = document.getElementById('r1');
+            var r2 = document.getElementById('r2');
+            r1.addEventListener("change", function(e){ box.innerHTML = e.target.value; slider.value = e.target.value; updateThreshold(e.target.value); });
+            r2.addEventListener("change", function(e){ box.innerHTML = e.target.value; slider.value = e.target.value; updateThreshold(e.target.value); });
+            slider.onchange = function() {
+                if(r1.checked == true) { r1.checked = false; };
+                if(r2.checked == true) { r2.checked = false; };
+                z = this.value;
+                box.innerHTML = z;
+                color2 = d3.scaleThreshold()
+                    .domain([z*0.4, z*0.5, z*0.6, z*0.7, z*0.8, z*0.9])
+                    .range(['#80BC3A','#ffe081', '#ff872f', '#f1521a', '#f82d2d', '#fe0000']);
+
+                svg.selectAll('.area').transition()
+                    .style('fill', function(d){ return color2(parseFloat(d.properties.average_rent)); })
+            }
+
+
+
+            function reset() {
+                active.style('opacity', 1);
+                active.classed("active", false);
+                active = d3.select(null);
+                d3.select('foreignObject').remove();
+                svg.transition()
+                    .duration(750)
+                    .call(zoom.transform, initialTransform);
+            }
+
+            function zoomed() {
+                var transform = d3.event.transform; 
+                
+                g.style("stroke-width", 1.5 / transform.k + "px");
+                g.attr("transform", transform);
+            }
+
+            function updateThreshold(x) {
+                color2 = d3.scaleThreshold()
+                    .domain([x*0.4, x*0.5, x*0.6, x*0.7, x*0.8, x*0.9])
+                    .range(['#80BC3A','#ffe081', '#ff872f', '#f1521a', '#f82d2d', '#fe0000']);
+
+                svg.selectAll('.area').transition()
+                    .style('fill', function(d){ return color2(parseFloat(d.properties.average_rent)); })
+            }
+
+            // If the drag behavior prevents the default click,
+            // also stop propagation so we don’t click-to-zoom.
+                function stopped() {
+                    if (d3.event.defaultPrevented) d3.event.stopPropagation();
+                }
+        </script>
+    </body>
+</html>

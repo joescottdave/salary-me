@@ -17,6 +17,7 @@ class Paycheque extends Component {
                 <li className="Payche-List-Item">leaving you with <span className="highlight"><strong>£{this.props.takeHomePay}</strong></span> a month!</li>
                 </ul>
                 <PieVis tax={this.props.tax} contribution={this.props.contribution} takehome={this.props.takeHomePay} />
+                <h2>Your effective tax rate is {this.props.taxEffect.toFixed(0)}%</h2>
                 </Card>
             </div>
         )

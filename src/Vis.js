@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
 import { extent } from 'd3-array';
+import './Vis.css';
 
 class Vis extends Component {
     componentDidMount() {
@@ -90,6 +91,10 @@ class Vis extends Component {
             x.domain(d3.extent(localHousePriceInfo, function(d) { return parseTime(d.Date); }));
             y.domain(d3.extent([...ukHousePriceInfo, ...localHousePriceInfo], function(d) { return +d.Average_Price; }));
             
+            var tooltip = d3.select(main.refs.vis)
+                .append('div')
+                .attr('class', 'vis-tooltip');
+
             var bars = context.append('g')
                 .attr('class', 'bars');
             
@@ -107,7 +112,8 @@ class Vis extends Component {
                 .attr('fill', 'rgba(10,10,10,0)')
                 .attr('opacity', 0)
                 .on('mouseover', barOnHover)
-                .on('mouseout', barOffHover);
+                .on('mouseout', barOffHover)
+                .on('mousemove', barOnMove);
 
             var circles = context.append('g')
                 .attr('class', 'circles');
@@ -172,12 +178,24 @@ class Vis extends Component {
             function barOnHover(e) {
                 var selection = '.' + this.classList[1];
                 d3.selectAll(selection).attr('opacity', 1);
+
+                tooltip
+                    .style('display', null)
+                    .html('<p>Hello</p>');
             }
 
             function barOffHover(e) {
                 var selection = '.' + this.classList[1];
                 d3.selectAll(selection).attr('opacity', 0);
+                tooltip.style('display', 'none');
             }
+
+            function barOnMove(e) {
+                console.log(d3.event);
+                tooltip
+                    .style('top', (d3.event.pageY - 20) + "px")
+                    .style('left', (d3.event.pageX + 20) + "px");
+            };
         })
     }
 
