@@ -153,3 +153,26 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.c-content-card {
+  position: relative;
+  background-color: rgba(255, 250, 250, 0.9);
+  border: 1px solid rgba(255, 250, 250, 1);
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2),
+    1px 1px 2px 0 rgba(0, 0, 0, 0.4);
+  padding: 5%;
+  margin: 10vh auto;
+  width: 95%;
+  max-width: 780px;
+
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+  @media screen and (max-width: 480px) {
+    min-height: 90vh;
+  }
+}
+</style>

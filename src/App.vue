@@ -4,4 +4,49 @@
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+* {
+  color: rgba(30, 10, 20, 1);
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+input {
+  font-family: 'PT Serif', serif;
+  letter-spacing: 0.5px;
+}
+
+body {
+  background-color: rgba(255, 250, 250, 1);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.banner {
+  margin: 15px auto;
+  width: 80%;
+}
+
+.banner h4 {
+  margin-bottom: 0.5em;
+}
+
+.banner h3 {
+  margin-top: 0.5em;
+}
+
+.highlight {
+  background-color: rgba(247, 255, 0, 0.9);
+}
+
+a.highlight {
+  transition: background-color 0.5s ease;
+}
+
+a.highlight:hover {
+  background-color: rgba(40, 96, 194, 0.9);
+  transition: background-color 0.5s ease;
+}
+</style>
