@@ -41,16 +41,17 @@ export default {
 
   methods: {
     submitForm() {
-      console.log('Submit Form')
       this.$store.dispatch('defineUser', {
         username: this.username,
         salary: this.userSalary,
         postcode: this.userPostcode
       })
+
+      this.$router.push('/main')
     },
 
     skipForm() {
-      console.log('Skip Form')
+      this.$router.push('/main')
     }
   }
 }
