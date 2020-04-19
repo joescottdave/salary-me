@@ -8,7 +8,7 @@
       <section id="income-and-taxes">
         <div class="c-content-card">
           <h2>Paycheques</h2>
-          <!-- TODO Paycheques component -->
+          <Paycheques />
           <p>
             A person on the national living wage will incur income tax on
             anything they work over 30 hours.
@@ -147,9 +147,12 @@
 
 <script>
 import ControlCentre from '@/components/ControlCentre.vue'
+import Paycheques from '@/components/Paycheques.vue'
+
 export default {
   components: {
-    ControlCentre
+    ControlCentre,
+    Paycheques
   }
 }
 </script>
