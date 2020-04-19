@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import './Container.css';
+import React, { Component } from "react";
+import "./Container.css";
 
-const Container = ({children}) => {
-    return <div className="Container">{children}</div>
-}
+const Container = ({ children }) => {
+  return <div className="Container">{children}</div>;
+};
 
 export default Container;
