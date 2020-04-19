@@ -53,7 +53,7 @@
             Read more about incomes in the UK...
           </a>
         </div>
-        <!-- TODO Incomes Component -->
+        <Incomes />
         <!-- TODO Taxes Component -->
         <div class="c-content-card">
           <h2>Tax Burden</h2>
@@ -147,11 +147,13 @@
 
 <script>
 import ControlCentre from '@/components/ControlCentre.vue'
+import Incomes from '@/components/Incomes.vue'
 import Paycheques from '@/components/Paycheques.vue'
 
 export default {
   components: {
     ControlCentre,
+    Incomes,
     Paycheques
   }
 }
