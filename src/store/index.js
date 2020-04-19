@@ -1,11 +1,26 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
+  state: {
+    username: 'Alex',
+    salary: 15600,
+    postcode: 'CF243AA',
+    area: {}
+  },
+  mutations: {
+    SET_STATE(state, userInfo) {
+      state.username = userInfo.username
+      state.salary = userInfo.salary
+      state.postcode = userInfo.postcode
+    }
+  },
+  actions: {
+    defineUser(context, userInfo) {
+      context.commit('SET_STATE', userInfo)
+    }
+  },
   modules: {}
-});
+})
