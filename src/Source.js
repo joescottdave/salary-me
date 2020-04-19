@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import "./Source.css";
+import React, { Component } from 'react'
+import './Source.css'
 
 class Source extends Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
@@ -13,8 +13,8 @@ class Source extends Component {
           Source
         </a>
       </div>
-    );
+    )
   }
 }
 
-export default Source;
+export default Source

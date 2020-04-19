@@ -1,51 +1,51 @@
-import React, { Component } from "react";
-import Welcome from "./Welcome";
-import Paycheque from "./Paycheque";
-import ControlCenter from "./ControlCenter";
-import Inflation from "./Inflation";
-import Households from "./Households";
-import LocalArea from "./LocalArea";
-import Incomes from "./Incomes";
-import Taxes from "./Taxes";
-import Card from "./Card";
-import "./Infograph.css";
+import React, { Component } from 'react'
+import Welcome from './Welcome'
+import Paycheque from './Paycheque'
+import ControlCenter from './ControlCenter'
+import Inflation from './Inflation'
+import Households from './Households'
+import LocalArea from './LocalArea'
+import Incomes from './Incomes'
+import Taxes from './Taxes'
+import Card from './Card'
+import './Infograph.css'
 
-import ScrollAnimation from "react-animate-on-scroll";
+import ScrollAnimation from 'react-animate-on-scroll'
 
 class Infograph extends Component {
   constructor(props) {
-    super(props);
-    (this.state = {
+    super(props)
+    ;(this.state = {
       salary: props.userInfo.userSalary,
       takeHomePay: 0,
       tax: 0,
       contribution: 0,
       taxEffect: 0
     }),
-      (this.handleReset = this.handleReset.bind(this));
+      (this.handleReset = this.handleReset.bind(this))
   }
 
   _takeHomePay() {
-    var tc = require("./taxCalc");
-    let salary = this.props.userInfo.userSalary;
-    let monthly = (tc.afterTax(salary) / 12).toFixed(2);
-    let tax = tc.incomeTax(salary);
-    let contribution = tc.natIns(salary);
-    let taxEffect = ((tax + contribution) / salary) * 100;
+    var tc = require('./taxCalc')
+    let salary = this.props.userInfo.userSalary
+    let monthly = (tc.afterTax(salary) / 12).toFixed(2)
+    let tax = tc.incomeTax(salary)
+    let contribution = tc.natIns(salary)
+    let taxEffect = ((tax + contribution) / salary) * 100
     this.setState({
       takeHomePay: monthly,
       tax: tax,
       contribution: contribution,
       taxEffect: taxEffect
-    });
+    })
   }
 
   componentWillMount() {
-    this._takeHomePay();
+    this._takeHomePay()
   }
 
   handleReset() {
-    this.props.handleReset();
+    this.props.handleReset()
   }
 
   render() {
@@ -225,8 +225,8 @@ class Infograph extends Component {
 
         <ControlCenter handleReset={this.handleReset} />
       </div>
-    );
+    )
   }
 }
 
-export default Infograph;
+export default Infograph

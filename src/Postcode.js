@@ -1,23 +1,23 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
 class Postcode extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      county: ""
-    };
+      county: ''
+    }
   }
 
   componentDidMount() {
-    const main = this;
-    fetch("https://api.postcodes.io/postcodes/" + this.props.postcode)
+    const main = this
+    fetch('https://api.postcodes.io/postcodes/' + this.props.postcode)
       .then(function(response) {
-        return response.json();
+        return response.json()
       })
       .then(function(data) {
-        console.log(data);
-        main.setState({ county: data.result.admin_district });
-      });
+        console.log(data)
+        main.setState({ county: data.result.admin_district })
+      })
   }
 
   render() {
@@ -25,8 +25,8 @@ class Postcode extends Component {
       <div>
         this is a postcode box thing and you live in {this.state.county}
       </div>
-    );
+    )
   }
 }
 
-export default Postcode;
+export default Postcode

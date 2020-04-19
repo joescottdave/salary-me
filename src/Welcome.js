@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import Card from "./Card";
-import "./Welcome.css";
+import React, { Component } from 'react'
+import Card from './Card'
+import './Welcome.css'
 
 // import ScrollAnimation from 'react-animate-on-scroll';
 
@@ -45,8 +45,8 @@ class Welcome extends Component {
           </p>
         </div>
       </Card>
-    );
+    )
   }
 }
 
-export default Welcome;
+export default Welcome

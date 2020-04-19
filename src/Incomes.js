@@ -1,32 +1,32 @@
-import React from "react";
-import IncomesVis from "./IncomesVis";
-import Card from "./Card";
-import Explainer from "./Explainer";
-import Source from "./Source";
+import React from 'react'
+import IncomesVis from './IncomesVis'
+import Card from './Card'
+import Explainer from './Explainer'
+import Source from './Source'
 
 class Incomes extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       takehome: +props.takehome * 12,
       salary: props.salary,
-      percentile: ""
-    };
+      percentile: ''
+    }
   }
 
   handleIncomeInfo(info) {
     var a = info % 10,
-      b = info % 100;
+      b = info % 100
     if (a == 1 && b != 11) {
-      return this.setState({ percentile: info + "st" });
+      return this.setState({ percentile: info + 'st' })
     }
     if (a == 2 && b != 12) {
-      return this.setState({ percentile: info + "nd" });
+      return this.setState({ percentile: info + 'nd' })
     }
     if (a == 3 && b != 13) {
-      return this.setState({ percentile: info + "rd" });
+      return this.setState({ percentile: info + 'rd' })
     }
-    return this.setState({ percentile: info + "th" });
+    return this.setState({ percentile: info + 'th' })
   }
 
   render() {
@@ -39,17 +39,17 @@ class Incomes extends React.Component {
                 Your salary of £
                 {this.state.salary
                   .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                places you in the{" "}
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}{' '}
+                places you in the{' '}
                 {this.state.percentile > 3
-                  ? this.state.percentile.toString() + "th"
-                  : this.state.percentile}{" "}
+                  ? this.state.percentile.toString() + 'th'
+                  : this.state.percentile}{' '}
                 percentile for income taxpayers
               </span>
             </h3>
             {this.state.percentile >= 25 && this.state.percentile < 50 ? (
               <p>
-                You might be surprised to find that you earn more than a{" "}
+                You might be surprised to find that you earn more than a{' '}
                 <strong>quarter</strong> of all income taxpayers.
                 <br />
                 That's 7.5 million workers.
@@ -57,7 +57,7 @@ class Incomes extends React.Component {
             ) : null}
             {this.state.percentile >= 50 ? (
               <p>
-                You might be suprised to find that you earn more than{" "}
+                You might be suprised to find that you earn more than{' '}
                 <strong>half</strong> of all income taxpayers.
               </p>
             ) : null}
@@ -98,8 +98,8 @@ class Incomes extends React.Component {
           </Explainer>
         </Card>
       </div>
-    );
+    )
   }
 }
 
-export default Incomes;
+export default Incomes

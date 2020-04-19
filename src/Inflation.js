@@ -1,54 +1,54 @@
-import React, { Component } from "react";
-import Basket from "./Basket";
-import BasketVis from "./BasketVis";
-import Card from "./Card";
-import Explainer from "./Explainer";
-import Source from "./Source";
+import React, { Component } from 'react'
+import Basket from './Basket'
+import BasketVis from './BasketVis'
+import Card from './Card'
+import Explainer from './Explainer'
+import Source from './Source'
 
-import ScrollAnimation from "react-animate-on-scroll";
+import ScrollAnimation from 'react-animate-on-scroll'
 
 class Inflation extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       salary: props.salary,
       monthly: props.takeHomePay,
       inflation: 2.9,
       raise: 0,
       iPhoneX: false
-    };
+    }
   }
 
   calculateiPhone() {
     if (this.state.raise > 999) {
-      return "iPhone-X";
+      return 'iPhone-X'
     } else if (this.state.raise > 799) {
-      return "iPhone-8-Plus";
+      return 'iPhone-8-Plus'
     } else if (this.state.raise > 699) {
-      return "iPhone-8";
+      return 'iPhone-8'
     } else if (this.state.raise > 669) {
-      return "iPhone-7-Plus";
+      return 'iPhone-7-Plus'
     } else if (this.state.raise > 549) {
-      return "iPhone-7";
+      return 'iPhone-7'
     } else if (this.state.raise > 449) {
-      return "iPhone-6S";
+      return 'iPhone-6S'
     } else if (this.state.raise > 349) {
-      return "iPhone-SE";
+      return 'iPhone-SE'
     } else {
-      return null;
+      return null
     }
   }
 
   calculateRaise() {
-    var raise = (this.state.salary * (this.state.inflation / 100)).toFixed(2);
+    var raise = (this.state.salary * (this.state.inflation / 100)).toFixed(2)
     if (raise >= 999) {
-      this.setState({ iPhoneX: true });
+      this.setState({ iPhoneX: true })
     }
-    return raise;
+    return raise
   }
 
   componentWillMount() {
-    this.setState({ raise: this.calculateRaise() });
+    this.setState({ raise: this.calculateRaise() })
   }
 
   render() {
@@ -66,7 +66,7 @@ class Inflation extends Component {
           <Source href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/aug2017" />
           <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
             <h2>
-              At this rate you will need a pay rise of{" "}
+              At this rate you will need a pay rise of{' '}
               <span className="highlight">£{this.state.raise}</span> this year
             </h2>
           </ScrollAnimation>
@@ -74,14 +74,14 @@ class Inflation extends Component {
             <div>
               <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                 <h3>
-                  Enough to buy you an{" "}
-                  {this.calculateiPhone().replace("-", " ")}
+                  Enough to buy you an{' '}
+                  {this.calculateiPhone().replace('-', ' ')}
                 </h3>
               </ScrollAnimation>
               <div>
                 <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
                   <img
-                    src={"./img/" + this.calculateiPhone() + ".png"}
+                    src={'./img/' + this.calculateiPhone() + '.png'}
                     height="288px"
                     className="iphone"
                   />
@@ -184,8 +184,8 @@ class Inflation extends Component {
           </Explainer>
         </Card>
       </div>
-    );
+    )
   }
 }
 
-export default Inflation;
+export default Inflation

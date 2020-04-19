@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import "./ControlCenter.css";
+import React, { Component } from 'react'
+import './ControlCenter.css'
 
 class ControlCenter extends Component {
   handleReset() {
-    this.props.handleReset();
+    this.props.handleReset()
   }
 
   render() {
@@ -13,8 +13,8 @@ class ControlCenter extends Component {
           Start Again
         </button>
       </div>
-    );
+    )
   }
 }
 
-export default ControlCenter;
+export default ControlCenter

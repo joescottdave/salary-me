@@ -1,20 +1,20 @@
 module.exports = {
-  entry: "./src/Index.js",
+  entry: './src/Index.js',
   output: {
     path: __dirname,
-    filename: "./docs/js/index.js"
+    filename: './docs/js/index.js'
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         query: {
-          presets: ["es2015", "react"]
+          presets: ['es2015', 'react']
         }
       },
-      { test: /\.css$/, loader: "style-loader!css-loader" }
+      { test: /\.css$/, loader: 'style-loader!css-loader' }
     ]
   }
-};
+}

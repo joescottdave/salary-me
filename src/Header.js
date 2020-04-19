@@ -1,5 +1,5 @@
-import React from "react";
-import "./Header.css";
+import React from 'react'
+import './Header.css'
 
 const Header = () => (
   <header>
@@ -7,6 +7,6 @@ const Header = () => (
       <h1>Could you live on that?</h1>
     </a>
   </header>
-);
+)
 
-export default Header;
+export default Header

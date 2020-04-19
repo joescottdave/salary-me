@@ -1,22 +1,22 @@
-import React, { Component } from "react";
-import Card from "./Card.js";
-import BasketVis from "./BasketVis.js";
-import "./Basket.css";
-import Explainer from "./Explainer";
-import Source from "./Source";
+import React, { Component } from 'react'
+import Card from './Card.js'
+import BasketVis from './BasketVis.js'
+import './Basket.css'
+import Explainer from './Explainer'
+import Source from './Source'
 
-import ScrollAnimation from "react-animate-on-scroll";
+import ScrollAnimation from 'react-animate-on-scroll'
 
 class Basket extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       monthly: props.monthly
-    };
+    }
   }
 
   render() {
-    let payCheque = this.state.monthly;
+    let payCheque = this.state.monthly
     const cpih_weight = {
       food: 8.1,
       alcohol: 3.4,
@@ -30,7 +30,7 @@ class Basket extends Component {
       education: 1.7,
       restaurants: 10.1,
       misc: 7.7
-    };
+    }
 
     return (
       <div className="Basket">
@@ -73,8 +73,8 @@ class Basket extends Component {
           <li>Misc: £{((payCheque / 100) * cpih_weight.misc).toFixed(2)}</li>
         </ol>
       </div>
-    );
+    )
   }
 }
 
-export default Basket;
+export default Basket

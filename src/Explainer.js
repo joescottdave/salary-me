@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import "./Explainer.css";
+import React, { Component } from 'react'
+import './Explainer.css'
 
 class Explainer extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       reveal: false
-    };
+    }
   }
 
   handleClick() {
-    this.setState({ reveal: !this.state.reveal });
+    this.setState({ reveal: !this.state.reveal })
   }
 
   render() {
@@ -21,7 +21,7 @@ class Explainer extends Component {
         </p>
         {this.state.reveal ? this.props.children : null}
       </div>
-    );
+    )
   }
 }
 
@@ -31,4 +31,4 @@ class Explainer extends Component {
 //     <div className="Explainer">{children}</div>
 // )
 
-export default Explainer;
+export default Explainer
