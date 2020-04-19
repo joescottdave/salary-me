@@ -56,4 +56,18 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.c-user-form input,
+.c-user-form button {
+  padding: 1rem;
+  margin: 0.5rem;
+  font-size: 20px;
+  box-sizing: border-box;
+  border: 0.5px silver solid;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.c-user-form input:focus {
+  border: 0.5px slategray solid;
+}
+</style>
