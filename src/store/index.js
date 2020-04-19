@@ -22,5 +22,13 @@ export default new Vuex.Store({
       context.commit('SET_STATE', userInfo)
     }
   },
-  modules: {}
+  modules: {},
+  getters: {
+    salaryString: state => {
+      return state.salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    },
+    salary: state => {
+      return state.salary
+    }
+  }
 })
