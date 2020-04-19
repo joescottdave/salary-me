@@ -2,7 +2,7 @@
   <main class="">
     <div className="Infograph">
       <section>
-        <Welcome name="{this.props.userInfo.userName}" />
+        <!-- TODO <Welcome name="{this.props.userInfo.userName}" /> -->
       </section>
 
       <section id="income-and-taxes">
@@ -54,7 +54,7 @@
           </a>
         </div>
         <Incomes />
-        <!-- TODO Taxes Component -->
+        <Taxes />
         <div class="c-content-card">
           <h2>Tax Burden</h2>
           <p>
@@ -149,12 +149,14 @@
 import ControlCentre from '@/components/ControlCentre.vue'
 import Incomes from '@/components/Incomes.vue'
 import Paycheques from '@/components/Paycheques.vue'
+import Taxes from '@/components/Taxes.vue'
 
 export default {
   components: {
     ControlCentre,
     Incomes,
-    Paycheques
+    Paycheques,
+    Taxes
   }
 }
 </script>
